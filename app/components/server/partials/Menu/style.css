@@ -1,0 +1,12 @@
+.breadcrumbs>ul>li:before {
+      border-top: 2px solid;
+      border-right: 2px solid;
+      opacity: 1;
+      margin-top: 0px;
+}
+
+.no-arrow:before {
+      opacity: 0 !important;
+      margin-left: 0px !important;
+      margin-right: 0.4rem !important;
+}

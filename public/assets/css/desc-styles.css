@@ -1,0 +1,95 @@
+.desc-box {
+      background: black;
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 80%;
+      font-weight: 550;
+      height: 35px;
+      border-radius: 5px;
+      padding-right: 2px;
+      text-align: center;
+}
+
+.desc-box.hybrid {
+      background: #9b169d;
+      justify-content: center;
+      color: white;
+      padding-right: 0px !important;
+}
+
+.py-5 {
+      padding-bottom: 0px !important;
+}
+
+.desc-box.sativa {
+      background: #b50024;
+      justify-content: center;
+      color: white;
+      padding-right: 0px !important;
+}
+
+.desc-box.indica {
+      background: #20abc7;
+      justify-content: center;
+      color: white;
+      padding-right: 0px !important;
+}
+
+.desc-img {
+      width: 40%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.desc-img-2 {
+      width: 100%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      background: white !important;
+}
+
+.desc-img-2>img {
+      height: 35px;
+      width: auto !important;
+      min-width: 50% !important;
+      max-width: 100% !important;
+}
+
+.desc-list-img {
+      min-height: 40px;
+      min-width: 40px;
+      height: 40px;
+      width: 40px;
+}
+
+
+.desc-text {
+      height: 31px;
+      background: white;
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+}
+
+.desc-list-text {
+      font-weight: 550 !important;
+      font-size: 70%;
+      margin-left: 1rem;
+      text-align: left;
+}
+
+.link-color {
+      color: #162ff1 !important;
+}
+
+.red-color {
+      color: #ff000a;
+}
