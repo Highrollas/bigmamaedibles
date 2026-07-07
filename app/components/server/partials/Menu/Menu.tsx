@@ -97,7 +97,7 @@ const Menu = () => {
 
                                                                   {c.imageUrl
                                                                         ? <Image height={250} width={250} src={c.imageUrl} alt={c.name + ' Category'} className='h-[60px] w-auto' />
-                                                                        : <div className='text-[40px]'>{c.emoji}</div>
+                                                                        : <div className='text-[50px] leading-[60px]!'>{c.emoji}</div>
                                                                   }
                                                                   <div className='mt-4 text-[90%]'> {c.name} </div>
                                                             </div>

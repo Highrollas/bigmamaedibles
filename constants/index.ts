@@ -68,8 +68,8 @@ export const MENU_CATEGORIES = [
       },
       {
             emoji: "🍫",
-            name: "Chocolates",
-            slug: "chocolates",
+            name: "Chocolate",
+            slug: "chocolate",
       },
       {
             emoji: "🍪",

@@ -11,7 +11,7 @@ const NotFound = () => {
                         <h2 className='text-2xl mb-5'>404 Not Found</h2>
                         <div>Opps The Page Or Item You Are Looking For Could Not Be Found At The Moment</div>
                         <div className='mt-5'>
-                              <Link href='/' className='btn brand-panel text-white w-[140px]'>Home</Link>
+                              <Link href='/' className='btn text-white w-[140px]'>Home</Link>
                         </div>
                   </div>
                   <Footer />
