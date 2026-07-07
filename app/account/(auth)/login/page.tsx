@@ -9,7 +9,6 @@ import APIClient from '@/app/services/apiClient';
 import { UserObj } from '@/Interface';
 import Image from 'next/image'
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useImmer } from 'use-immer';
 import { X } from 'lucide-react';
@@ -59,14 +58,14 @@ const LoginPage = () => {
 
       return (
 
-            <div className='auth-screen bg-auth'>
+            <div className='h-screen w-full bg-auth'>
 
                   {showAuthRequiredModal && (
-                        <div className="brand-overlay fixed inset-0 z-[9999999999999999] flex items-center justify-center px-3">
+                        <div className="fixed inset-0 z-[9999999999999999] bg-black/40 flex items-center justify-center px-3">
                               <div className="w-full max-w-[420px] rounded-[22px] bg-[#efefef] p-5 text-center relative" style={{ zoom: .9 }}>
                                     <div
                                           onClick={() => setShowAuthRequiredModal(false)}
-                                          className="brand-badge absolute right-4 top-4 h-7 w-7 rounded-[8px] flex items-center justify-center"
+                                          className="absolute right-4 top-4 h-7 w-7 rounded-[8px] bg-black text-white flex items-center justify-center"
                                     >
                                           <X className="h-5 w-5 text-white" />
                                     </div>
@@ -84,16 +83,17 @@ const LoginPage = () => {
                         </div>
                   )}
 
-                  <div className='auth-card'>
+                  <div className='h-[99vh] w-full flex items-center'>
+
+                        <div className='w-full'>
 
                               <div className="mb-2">
-                                    <Image src="/assets/images/logo-black.png" className='auth-icon' height={120} width={120} alt='Big Mamas Edibles logo' />
+                                    <Image src="/assets/images/logo-transparent.png" className='mx-auto' height={120} width={120} alt='user image' />
                               </div>
-                              <h1 className="auth-title">Account Login</h1>
 
                               <AlertMessage2 />
 
-                              <div className="w-full mx-auto">
+                              <div className="w-[75%] sm:w-[50%] mx-auto">
                                     <div className='mt-5'>
                                           <LabelInput label='Username' type='text' pre={"@"} value={loginObj.username}
                                                 onChange={(v) => setloginObj(d => { d.username = v })} />
@@ -108,7 +108,7 @@ const LoginPage = () => {
                                           <button onClick={() => handleLogin()} className='btn w-full'>Login</button>
                                     </div>
 
-                                    <div className='auth-links mt-6 text-center'>
+                                    <div className='mt-6 text-center'>
                                           <div>
                                                 <Link className='text-blue-700 font-bold text-[90%]' href="/account/register">Create Account</Link>
                                           </div>
@@ -121,6 +121,7 @@ const LoginPage = () => {
                                     </div>
 
                               </div>
+                        </div>
                   </div>
             </div>
 
@@ -128,4 +129,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage
-

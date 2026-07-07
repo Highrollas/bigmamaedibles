@@ -29,30 +29,27 @@ const RegAddressPage = () => {
 
       return (
 
-            <div className='auth-screen bg-auth'>
+            <div className='w-[90%] sm:w-[70%] lg:w-[55%] mx-auto text-center'>
 
-                  <div className='auth-card auth-card-wide text-center'>
+                  <div className="mt-10 mb-5 text-center">
+                        <Image className='mx-auto' height="55" width="55" src="/assets/images/address-image.png" alt="address image" />
+                  </div>
 
-                        <div className="mb-5 text-center">
-                              <Image className='auth-icon' height="90" width="90" src="/assets/images/address-image.png" alt="address image" />
-                        </div>
+                  <h1 className='font-bold! text-[125%] sm:text-2xl'>Delivery Details</h1>
 
-                        <h1 className='auth-title'>Delivery Details</h1>
+                  <div className="text-red-600 font-bold! text-[80%] mt-5 leading-[18px]!">
+                        These Details Will Be Saved Onto Your Account <br />
+                        Making It Easier And Quicker To Place Your Orders
+                  </div>
 
-                        <div className="auth-help font-bold! mt-4">
-                              These Details Will Be Saved Onto Your Account <br />
-                              Making It Easier And Quicker To Place Your Orders
-                        </div>
+                  <AlertMessage2 />
 
-                        <AlertMessage2 />
+                  <div className='mt-3'>
+                        <BillingAddress hideEmail={true} showNickname={true} billingObj={registrationObj.billingObj} setBillingObj={setBillingObj} />
+                  </div>
 
-                        <div className='mt-3'>
-                              <BillingAddress hideEmail={true} showNickname={true} billingObj={registrationObj.billingObj} setBillingObj={setBillingObj} />
-                        </div>
-
-                        <div className='mt-5 text-end'>
-                              {isBillingObjValid && <button onClick={() => continueReg()} className='btn'>Continue</button>}
-                        </div>
+                  <div className='mt-5 mb-5 text-end'>
+                        {isBillingObjValid && <button onClick={() => continueReg()} className='btn'>Continue</button>}
                   </div>
 
             </div>
@@ -61,4 +58,3 @@ const RegAddressPage = () => {
 }
 
 export default RegAddressPage
-

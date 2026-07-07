@@ -40,30 +40,29 @@ const EmailVerifyPage = () => {
 
       return (
 
-            <div className="auth-screen bg-auth">
+            <div className="w-[90%] sm:w-[70%] lg:w-[55%] mx-auto">
 
-                  <div className="auth-card">
-                        <div className="flex justify-between">
-                              <button onClick={() => redirect('/account/register')} className="btn text-white px-3! py-1!">Back</button>
-                        </div>
+                  <div className="flex justify-between mt-10">
+                        <button onClick={() => redirect('/account/register')} className="btn bg-black text-white px-3! py-1!">Back</button>
+                  </div>
 
-                        <div className="mt-6 mb-5 text-center">
-                              <Image className='auth-icon' height="130" width="130" src="/assets/images/email-verify.jpg" alt="email verify" />
+                  <div className="mt-10 mb-5 text-center">
+                        <Image className='mx-auto' height="130" width="130" src="/assets/images/email-verify.jpg" alt="email verify" />
 
-                              <h1 className="auth-title">Verify Email</h1>
+                        <p className="my-5 px-4 font-bold! text-[12px]">
+                              We Have Sent A Verification Code To
+                              <span className='font-bold! text-[12px] underline mx-1'>{registrationObj.email}</span> <br />
+                              Please Enter The Code Below <br /><br />
+                              If You Have Entered An Incorrect Email, Click The Back Button At The Top Of This Page To Make Changes
+                        </p>
 
-                              <p className="auth-help my-5 px-4 font-bold!">
-                                    We Have Sent A Verification Code To
-                                    <span className='font-bold! text-[12px] underline mx-1'>{registrationObj.email}</span> <br />
-                                    Please Enter The Code Below <br /><br />
-                                    If You Have Entered An Incorrect Email, Click The Back Button At The Top Of This Page To Make Changes
-                              </p>
+                  </div>
 
-                        </div>
+                  <div className="mt-5">
 
                         <AlertMessage2 />
 
-                        <div className="w-full mx-auto">
+                        <div className="w-[80%] sm:w-[50%] mx-auto">
 
                               <div className="w-full mt-3 mb-3">
                                     <LabelInput value={registrationObj.verificationCode} label='Verification Code' type='number'
@@ -71,15 +70,15 @@ const EmailVerifyPage = () => {
                               </div>
 
                               <div className="w-full mt-8 text-end">
-                                    <button onClick={handleNext} className="btn text-white br-5 w-full"> Next </button>
+                                    <button onClick={handleNext} className="btn bg-black text-white br-5 w-full"> Next </button>
                               </div>
 
                         </div>
 
                   </div>
+
             </div>
       )
 }
 
 export default EmailVerifyPage
-
