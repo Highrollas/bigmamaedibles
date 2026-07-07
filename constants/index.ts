@@ -173,13 +173,13 @@ export const USER_MENU_LINKS = [
       { name: "Orders", emoji: "📦", slug: "/account/orders/" },
       { name: "Addresses", emoji: "🏡", slug: "/account/addresses/" },
       { name: "Balance", emoji: "💷", slug: "/account/dashboard/" },
-      { name: "Contact Us", imageUrl: "/assets/images/contact-icon.png", slug: "/contact" }
+      { name: "Contact Us", imageUrl: "/assets/images/contact-icon-ed.png", slug: "/contact" }
 ]
 
 export const MENU_QUICK_LINKS = [
       { name: "Blogs", url: "/blog", emoji: "📕" },
       { name: "How To Order", url: "/how-to-order", emoji: "📦" },
-      { name: "Contact Us", url: "/contact", imageUrl: "/assets/images/contact-icon.png" },
+      { name: "Contact Us", url: "/contact", imageUrl: "/assets/images/contact-icon-ed.png" },
       { name: "Chat Rooms", url: "/chat-rooms", emoji: "💬", pwaOnly: true, authOnly: true },
 ];
 

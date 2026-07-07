@@ -131,7 +131,7 @@ const Menu = () => {
                                                                         <div className='flex items-center cursor-pointer z-[1000] close-explore-drawer menu-item-btn py-4'>
                                                                               {m.imageUrl
                                                                                     ? <Image height={250} width={250} src={m.imageUrl} alt={m.name + ' Category'} className='h-[60px] w-auto' />
-                                                                                    : <div className='text-[40px]'>{m.emoji}</div>
+                                                                                    : <div className='text-[50px] leading-[60px]!'>{m.emoji}</div>
                                                                               }
                                                                               <div className='mt-4 text-[90%]'> {m.name} </div>
                                                                         </div>
