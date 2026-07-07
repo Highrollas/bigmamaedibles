@@ -62,6 +62,26 @@ export const MENU_CATEGORIES = [
             slug: "bundles",
       },
       {
+            emoji: "🍬",
+            name: "Candy",
+            slug: "candy",
+      },
+      {
+            emoji: "🍫",
+            name: "Chocolates",
+            slug: "chocolates",
+      },
+      {
+            emoji: "🍪",
+            name: "Bakery",
+            slug: "bakery",
+      },
+      {
+            emoji: "🥤",
+            name: "Syrup",
+            slug: "syrup",
+      },
+      {
             imageUrl: "/assets/images/edibles-emoji.png",
             name: "Edibles 1000mg",
             slug: "edibles-1000mg",
@@ -70,6 +90,11 @@ export const MENU_CATEGORIES = [
             imageUrl: "/assets/images/edibles-emoji.png",
             name: "Edibles 500mg",
             slug: "edibles-500mg",
+      },
+      {
+            emoji: "🧑‍🍳",
+            name: "Make Your Own",
+            slug: "make-your-own",
       },
 ];
 
@@ -155,7 +180,6 @@ export const MENU_QUICK_LINKS = [
       { name: "Blogs", url: "/blog", emoji: "📕" },
       { name: "How To Order", url: "/how-to-order", emoji: "📦" },
       { name: "Contact Us", url: "/contact", imageUrl: "/assets/images/contact-icon.png" },
-      { name: "Scam Warning", url: "/scammers-list", emoji: "🚨" },
       { name: "Chat Rooms", url: "/chat-rooms", emoji: "💬", pwaOnly: true, authOnly: true },
 ];
 

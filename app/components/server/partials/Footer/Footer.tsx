@@ -50,7 +50,6 @@ const Footer = () => {
                                     <h2 className='text-2xl sm:text-4xl'>Help</h2>
                                     <div className="mt-5">
                                           <p className='mt-3'><Link href="/faq">🙋🏻‍♂ Frequently Asked Questions</Link></p>
-                                          <p className='mt-3'><Link href="/scammers-list">🚨 Scam Warning</Link></p>
                                           <p className='mt-3'><Link href="/how-to-order">🤷🏻‍♂ How To Order</Link></p>
                                           <p className='mt-3'><Link href="/contact">👩🏼‍💻 Contact Us</Link></p>
                                     </div>

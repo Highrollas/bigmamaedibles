@@ -94,7 +94,11 @@ const Menu = () => {
                                                 MENU_CATEGORIES.map((c, i) =>
                                                       <Link title={c.name + ' Category'} href={'/product-category/' + c.slug} className="font-bold! cursor-pointer w-[30%] mt-4" key={i}>
                                                             <div className='flex items-center cursor-pointer z-[1000] close-category-drawer menu-item-btn py-4'>
-                                                                  <Image height={250} width={250} src={c.imageUrl} alt={c.name + ' Category'} className='h-[60px] w-auto' />
+
+                                                                  {c.imageUrl
+                                                                        ? <Image height={250} width={250} src={c.imageUrl} alt={c.name + ' Category'} className='h-[60px] w-auto' />
+                                                                        : <div className='text-[40px]'>{c.emoji}</div>
+                                                                  }
                                                                   <div className='mt-4 text-[90%]'> {c.name} </div>
                                                             </div>
                                                       </Link>

@@ -117,10 +117,6 @@
       line-height: 1.45;
 }
 
-.text-blue-700 {
-      color: var(--brand-secondary-deep) !important;
-}
-
 * .text-blue-700 {
       color: var(--brand-secondary-deep) !important;
 }
