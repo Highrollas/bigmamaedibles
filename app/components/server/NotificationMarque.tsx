@@ -14,7 +14,7 @@ const NotificationMarque = () => {
             <>
                   <AutoScroller scrollClass='auto-scroll-1' />
 
-                  <div className="brand-strip flex flex-nowrap items-center whitespace-nowrap text-[80%] mb-[15px] pb-2 overflow-x-scroll auto-scroll-1" style={{ scrollbarWidth: 'none' }}>
+                  <div className="bg-[#e21893] flex flex-nowrap items-center whitespace-nowrap text-[80%] mb-[15px] pb-2 overflow-x-scroll auto-scroll-1" style={{ scrollbarWidth: 'none' }}>
                         {arr.map(i =>
 
                               <React.Fragment key={i}>

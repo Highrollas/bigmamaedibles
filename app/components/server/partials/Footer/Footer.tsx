@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer = () => {
       return (
-            <div className='brand-footer pb-12'>
+            <div className='bg-[#e21893] pb-12'>
                   <div className='w-[fit-content] mx-auto py-[30px] text-center'>
 
                         <div className='flex flex-wrap gap-[35px]'>
@@ -69,7 +69,7 @@ const Footer = () => {
                                     </Link>
                               </div>
                               <div className="w-[100%] sm:w-[50%] mt-8 mt-sm:0 flex items-center justify-center sm:justify-start">
-                                    © 2023-2026 bigmamasedibles.cc ByBig Mama Edibles
+                                    © 2026 - Big Mamas Edibles By High Rolla INC
                               </div>
                         </div>
 

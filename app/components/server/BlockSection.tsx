@@ -11,7 +11,7 @@ export interface BlockSectionProps {
 const BlockSection = ({ children, imageUrl, title }: BlockSectionProps) => {
       return (
             <div className="my-5">
-                  <div className='brand-panel-secondary flex flex-wrap border-3 rounded-md brand-border-secondary'>
+                  <div className='bg-[#e21893] flex flex-wrap border-3 rounded-md border-[#e21893]'>
                         <div className="w-[100%] sm:w-[50%]">
                               <FallbackImage height={1000} width={1000} className='w-[101%] rounded-l-sm rounded-r-sm' src={imageUrl} alt={title} />
                         </div>
