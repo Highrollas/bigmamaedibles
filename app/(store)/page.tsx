@@ -101,7 +101,7 @@ export default async function Home() {
 
                   <div className="flex my-10">
                         <div className="w-[90%] sm:w-[80%] mx-auto">
-                              <BlockSection title="Create An Account" imageUrl="/assets/images/create-account-home-ed.png">
+                              <BlockSection title="Create An Account" imageUrl="/assets/images/create-account-home-1.png">
                                     <Heading>Create An Account</Heading>
                                     <p className="mt-3">-Pick An Avatar</p>
                                     <p className="mt-3">-Save Your Addresses For Faster Checkout</p>

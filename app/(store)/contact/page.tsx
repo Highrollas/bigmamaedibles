@@ -5,8 +5,11 @@ import Link from 'next/link'
 
 const ContactPage = () => {
       return (
-            <div className='w-[100%] sm:[70%] lg:w-[60%] mx-auto'>
-                  <Heading>Contact Us</Heading>
+            <div className='w-[80%] sm:w-[100%] mx-auto'>
+
+                  <div className="flex justify-center mt-6">
+                        <Image src="/assets/images/contact-banner.jpg" className="w-[80%] sm:w-[60%] h-auto" alt="Contact Us" width={500} height={300} />
+                  </div>
 
                   <div className="flex flex-wrap text-center font-[550] mt-6 mb-12">
 

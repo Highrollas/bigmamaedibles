@@ -7,14 +7,10 @@ const Footer = () => {
                   <div className='w-[fit-content] mx-auto py-[30px] text-center'>
 
                         <div className='flex flex-wrap gap-[35px]'>
+
                               <div>
                                     <Link href="https://wa.me/447388603709" target="_blank" rel="noopener">
                                           <FallbackImage alt='whatsapp' height={250} width={250} src="/assets/images/whatsapp-icon.png" className='w-[50px]' />
-                                    </Link>
-                              </div>
-                              <div>
-                                    <Link href="/email-contact-form" rel="noopener">
-                                          <FallbackImage alt='Mail' height={250} width={250} src="/assets/images/mail-icon.png" className='w-[50px]' />
                                     </Link>
                               </div>
 
@@ -29,6 +25,13 @@ const Footer = () => {
                                           <FallbackImage alt='reddit' height={250} width={250} src="/assets/images/reddit-icon.png" className='w-[50px]' />
                                     </Link>
                               </div>
+
+                              <div>
+                                    <Link href="/email-contact-form" rel="noopener">
+                                          <FallbackImage alt='Mail' height={250} width={250} src="/assets/images/mail-icon.png" className='w-[50px]' />
+                                    </Link>
+                              </div>
+
 
                         </div>
                   </div>

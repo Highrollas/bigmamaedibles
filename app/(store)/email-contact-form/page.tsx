@@ -59,7 +59,7 @@ const EmailContactForm = () => {
 
 
                   <div>
-                        <Image className='w-[100%] h-auto mx-auto' src='/assets/images/contact-form-image.webp' alt='form image' width={300} height={300} />
+                        <Image className='w-[100%] h-auto mx-auto' src='/assets/images/email-contact.jpg' alt='form image' width={300} height={300} />
                   </div>
 
 
