@@ -79,4 +79,3 @@ const EditProductPage = ({ params }: Props) => {
 }
 
 export default EditProductPage
-

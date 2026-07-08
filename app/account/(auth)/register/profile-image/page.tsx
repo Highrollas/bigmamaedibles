@@ -41,12 +41,12 @@ const RegProfileImageSelectPage = () => {
             <div className='w-[90%] sm:w-[70%] lg:w-[55%] mx-auto text-center'>
 
                   <div className="flex justify-between mt-10">
-                        <button className="btn bg-black text-white px-3! py-1!"
+                        <button className="btn bg-[#e21893] text-white px-3! py-1!"
                               onClick={() => {
                                     setRegStage('address');
                                     redirect('/account/register/address');
                               }}>Back</button>
-                        <button onClick={handleUserRegistration} className="btn bg-black text-white px-3! py-1!">Next</button>
+                        <button onClick={handleUserRegistration} className="btn bg-[#e21893] text-white px-3! py-1!">Next</button>
                   </div>
 
                   <ProfileAvatarSelector

@@ -14,7 +14,7 @@ const DashboardPage = () => {
             <div className='w-[85%] mx-auto pb-8'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn bg-black text-white px-3! py-1!">Back</Link>
+                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!">Back</Link>
                   </div>
 
                   <div className="w-full mt-2 text-center">
@@ -50,7 +50,7 @@ const DashboardPage = () => {
 
                   <div className="w-full mt-4">
                         <div className="form-box-2 rounded-[5px]!">
-                              <div className="input-prepend justify-center! bg-black! w-[20%]! cursor-pointer">
+                              <div className="input-prepend justify-center! bg-[#e21893]! w-[20%]! cursor-pointer">
                                     <Image src='/assets/images/input-coupon.png' alt='coupon icon' width={25} height={25} />
                               </div>
                               <input readOnly value={user?.coupon} className='text-center w-[80%] font-bold!' />

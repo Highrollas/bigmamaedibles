@@ -56,7 +56,7 @@ export default async function Home() {
                         <div className="w-[90%] sm:w-[80%] mx-auto">
 
                               <div className="my-5">
-                                    <div className="flex flex-wrap border-3 bg-black border-black rounded-md'>
+                                    <div className="flex flex-wrap border-3 bg-[#e21893] border-[#e21893] rounded-md'>
                                           <div className="w-[100%] sm:w-[50%] flex h-[180px] sm:h-[300px] items-center justify-center">
 
                                                 <TrustpilotWidget />

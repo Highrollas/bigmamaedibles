@@ -5,4 +5,3 @@ const AdminDashboard2Redirect = () => {
 };
 
 export default AdminDashboard2Redirect;
-

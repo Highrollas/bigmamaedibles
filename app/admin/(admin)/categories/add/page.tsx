@@ -61,4 +61,3 @@ const AdminAddCategoryPage = () => {
 }
 
 export default AdminAddCategoryPage
-

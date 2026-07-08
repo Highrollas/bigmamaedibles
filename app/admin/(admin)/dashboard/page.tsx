@@ -66,8 +66,8 @@ const AdminDashboardPage = () => {
 
       const { stats, loading, filterQuery, setFilterQuery, fetchStats } = useStatsStore();
       const router = useRouter();
-      const [filterLoaded, setFilterLoaded] = useState(false);
-      const [filterType, setFilterType] = useState<FilterType>("monthly");
+      const [filterLoaded, setFilterLoaded] = useState(true);
+      const [filterType, setFilterType] = useState<FilterType>("weekly");
 
       const orderPackagingCost = parseFloat(stats?.orderPackagingCost || "0");
       const productPackagingCost = parseFloat(stats?.productPackagingCost || "0");
@@ -188,16 +188,6 @@ const AdminDashboardPage = () => {
                   return;
             }
 
-            const { dateStart, dateEnd } = getFridayRange();
-            setFilterQuery({
-                  dateStart: dateStart.toISOString() as any,
-                  dateEnd: dateEnd.toISOString() as any,
-                  month: undefined,
-                  startFromReset: "true"
-            });
-            setFilterLoaded(true);
-            setFilterType("weekly");
-            fetchStats();
             // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
@@ -231,7 +221,7 @@ const AdminDashboardPage = () => {
                               onClick={handleApplyFilter}
                         >
                               Apply Filter
-                              {loading && <span className="loading loading-spinner w-5 h-5 brand-border"></span>}
+                              {loading && <span className="loading loading-spinner w-5 h-5 border-[#e21893]"></span>}
                         </button>
 
                         <div className="flex gap-2 flex-wrap">
@@ -369,4 +359,3 @@ const AdminDashboardPage = () => {
 };
 
 export default AdminDashboardPage;
-

@@ -90,4 +90,3 @@ const EditBlogPage = ({ params }: Props) => {
 }
 
 export default EditBlogPage
-

@@ -104,10 +104,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       return (
             <>
                   <AdminSessionProvider />
-                  <div className="brand-hero min-h-[100dvh] grid">
+                  <div className="bg-[#e21893] min-h-[100dvh] grid">
                         {children}
                   </div>
             </>
       );
 }
-

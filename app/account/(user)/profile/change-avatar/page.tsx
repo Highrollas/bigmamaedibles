@@ -47,11 +47,11 @@ const ChangeUserAvatar = () => {
             <div className='w-[90%] sm:w-[70%] lg:w-[55%] mx-auto text-center'>
 
                   <div className="flex justify-between mt-10">
-                        <button className="btn bg-black text-white px-3! py-1!"
+                        <button className="btn bg-[#e21893] text-white px-3! py-1!"
                               onClick={() => {
                                     redirect('/account/profile');
                               }}>Back</button>
-                        <button onClick={() => saveChanges()} className="btn bg-black text-white px-3! py-1!">Next</button>
+                        <button onClick={() => saveChanges()} className="btn bg-[#e21893] text-white px-3! py-1!">Next</button>
                   </div>
 
                   <ProfileAvatarSelector

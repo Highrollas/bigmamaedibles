@@ -72,4 +72,3 @@ const AddBlogPostPage = () => {
 }
 
 export default AddBlogPostPage
-

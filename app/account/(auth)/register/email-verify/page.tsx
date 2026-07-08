@@ -43,7 +43,7 @@ const EmailVerifyPage = () => {
             <div className="w-[90%] sm:w-[70%] lg:w-[55%] mx-auto">
 
                   <div className="flex justify-between mt-10">
-                        <button onClick={() => redirect('/account/register')} className="btn bg-black text-white px-3! py-1!">Back</button>
+                        <button onClick={() => redirect('/account/register')} className="btn bg-[#e21893] text-white px-3! py-1!">Back</button>
                   </div>
 
                   <div className="mt-10 mb-5 text-center">
@@ -70,7 +70,7 @@ const EmailVerifyPage = () => {
                               </div>
 
                               <div className="w-full mt-8 text-end">
-                                    <button onClick={handleNext} className="btn bg-black text-white br-5 w-full"> Next </button>
+                                    <button onClick={handleNext} className="btn bg-[#e21893] text-white br-5 w-full"> Next </button>
                               </div>
 
                         </div>

@@ -61,11 +61,11 @@ const LoginPage = () => {
             <div className='h-screen w-full bg-auth'>
 
                   {showAuthRequiredModal && (
-                        <div className="fixed inset-0 z-[9999999999999999] bg-black/40 flex items-center justify-center px-3">
+                        <div className="fixed inset-0 z-[9999999999999999] bg-[#e21893]/40 flex items-center justify-center px-3">
                               <div className="w-full max-w-[420px] rounded-[22px] bg-[#efefef] p-5 text-center relative" style={{ zoom: .9 }}>
                                     <div
                                           onClick={() => setShowAuthRequiredModal(false)}
-                                          className="absolute right-4 top-4 h-7 w-7 rounded-[8px] bg-black text-white flex items-center justify-center"
+                                          className="absolute right-4 top-4 h-7 w-7 rounded-[8px] bg-[#e21893] text-white flex items-center justify-center"
                                     >
                                           <X className="h-5 w-5 text-white" />
                                     </div>

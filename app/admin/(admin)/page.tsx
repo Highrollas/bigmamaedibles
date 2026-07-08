@@ -5,4 +5,3 @@ const AdminPageEntry = () => {
 }
 
 export default AdminPageEntry
-

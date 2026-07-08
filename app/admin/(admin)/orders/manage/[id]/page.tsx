@@ -54,7 +54,7 @@ const AdminManageOrderPage = ({ params }: Props) => {
 
       if (Object.keys(orderObj).length == 0) return (
             < div className='w-[90%] p-4 flex justify-center items-center h-[100px] rounded mx-auto bg-white mt-10'>
-                  <span className="loading loading-spinner w-5 h-5 brand-border"></span>
+                  <span className="loading loading-spinner w-5 h-5 border-[#e21893]"></span>
             </div>
       )
 
@@ -198,7 +198,7 @@ const AdminManageOrderPage = ({ params }: Props) => {
                                           </div>
 
                                           <div
-                                                className="absolute top-0 right-0 p-2 brand-panel text-white rounded cursor-pointer"
+                                                className="absolute top-0 right-0 p-2 bg-[#e21893] text-white rounded cursor-pointer"
                                                 onClick={() => setEditBilling(!editBilling)}
                                                 title="Edit"
                                           >
@@ -206,7 +206,7 @@ const AdminManageOrderPage = ({ params }: Props) => {
                                           </div>
 
                                           <div
-                                                className="absolute top-10 right-0 p-2 brand-panel text-white rounded cursor-pointer"
+                                                className="absolute top-10 right-0 p-2 bg-[#e21893] text-white rounded cursor-pointer"
                                                 onClick={() => printShippingLabels([orderObj])}
                                           >
                                                 <Printer size={16} />
@@ -328,7 +328,7 @@ const AdminManageOrderPage = ({ params }: Props) => {
 
                                           {/* <hr className='mt-3' />
 
-                                          <div className='sm:w-[40%] ms-auto mt-5 brand-tint p-4 rounded'>
+                                          <div className='sm:w-[40%] ms-auto mt-5 bg-[#e21893]/30 p-4 rounded'>
 
                                                 <div className="flex justify-between">
                                                       <div className=""><b> Subtotal:</b></div>

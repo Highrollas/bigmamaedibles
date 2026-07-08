@@ -182,7 +182,7 @@ const AdminDashboardPage = () => {
                               onClick={handleApplyFilter}
                         >
                               Apply Filter
-                              {loading && <span className="loading loading-spinner w-5 h-5 brand-border"></span>}
+                              {loading && <span className="loading loading-spinner w-5 h-5 border-[#e21893]"></span>}
                         </button>
 
                         {/* Quick filter buttons */}
@@ -323,4 +323,3 @@ const AdminDashboardPage = () => {
 };
 
 export default AdminDashboardPage;
-

@@ -79,4 +79,3 @@ const EditPostPage = ({ params }: Props) => {
 }
 
 export default EditPostPage
-

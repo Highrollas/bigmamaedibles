@@ -78,4 +78,3 @@ const AddProductCopyPage = ({ params }: Props) => {
 }
 
 export default AddProductCopyPage
-

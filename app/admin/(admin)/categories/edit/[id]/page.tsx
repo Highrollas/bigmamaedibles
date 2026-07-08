@@ -88,4 +88,3 @@ const AdminEditCategoryPage = ({ params }: Props) => {
 }
 
 export default AdminEditCategoryPage
-
