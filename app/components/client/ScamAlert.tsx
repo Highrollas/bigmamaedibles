@@ -41,7 +41,7 @@ export default function ScamAlert() {
                   <div className="w-full max-w-[420px] rounded-[22px] bg-[#efefef] p-5 text-center relative" style={{ zoom: .9 }}>
                         <div
                               onClick={hideScamAlertForThreeDays}
-                              className="brand-badge absolute right-4 top-4 h-7 w-7 rounded-[8px] flex items-center justify-center"
+                              className="bg-[#e21893] absolute right-4 top-4 h-7 w-7 rounded-[8px] flex items-center justify-center"
                         >
                               <X className="h-5 w-5 text-white" />
                         </div>

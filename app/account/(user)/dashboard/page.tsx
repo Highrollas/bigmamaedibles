@@ -14,7 +14,7 @@ const DashboardPage = () => {
             <div className='w-[85%] mx-auto pb-8'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn brand-panel text-white px-3! py-1!">Back</Link>
+                        <Link href='/' className="btn bg-black text-white px-3! py-1!">Back</Link>
                   </div>
 
                   <div className="w-full mt-2 text-center">
@@ -50,13 +50,13 @@ const DashboardPage = () => {
 
                   <div className="w-full mt-4">
                         <div className="form-box-2 rounded-[5px]!">
-                              <div className="input-prepend justify-center! brand-panel w-[20%]! cursor-pointer">
+                              <div className="input-prepend justify-center! bg-black! w-[20%]! cursor-pointer">
                                     <Image src='/assets/images/input-coupon.png' alt='coupon icon' width={25} height={25} />
                               </div>
                               <input readOnly value={user?.coupon} className='text-center w-[80%] font-bold!' />
                               <div onClick={() =>
-                                    copyToClipboard(`${user?.username} Has Invited You To Create A Big Mamas Edibles Account 🍃 You Get £10 Of Your First Order Over £50 By Clicking The Link Below 👇🏻 
-https://bigmamasedibles.cc/account/register?coupon=${user?.coupon}`, 'Your Referral Link Has Been Copied.You Can Now Share It With Your Friends And Family')}
+                                    copyToClipboard(`${user?.username} Has Invited You To Create A High Rollas Account 🍃 You Get £10 Of Your First Order Over £50 By Clicking The Link Below 👇🏻 
+https://highrollas.cc/account/register?coupon=${user?.coupon}`, 'Your Referral Link Has Been Copied.You Can Now Share It With Your Friends And Family')}
                                     className="input-append w-[20%]! cursor-pointer">
                                     <Image src='/assets/images/upload.png' alt='coupon icon' width={20} height={25} />
                               </div>
@@ -69,4 +69,3 @@ https://bigmamasedibles.cc/account/register?coupon=${user?.coupon}`, 'Your Refer
 }
 
 export default DashboardPage
-

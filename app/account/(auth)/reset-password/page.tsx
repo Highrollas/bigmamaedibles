@@ -72,20 +72,19 @@ const ForgotPasswordPage = () => {
       };
 
       return (
-            <div className="auth-screen bg-auth">
+            <div className="w-full h-[99dvh] flex justify-center items-center">
 
-                  <div className='auth-card'>
+                  <div className='w-full'>
 
                         <div className="mb-5">
-                              <Image src="/assets/images/lock.png" className='auth-icon' height={120} width={120} alt='lock image' />
+                              <Image src="/assets/images/lock.png" className='mx-auto' height={120} width={120} alt='user image' />
                         </div>
 
-                        <h1 className="auth-title">Reset Password</h1>
-                        <p className='auth-help my-5 font-bold!'>{stepText}</p>
+                        <p className='text-center my-5 font-bold! text-[12px]'>{stepText}</p>
 
                         <AlertMessage2 />
 
-                        <div className="w-full mx-auto">
+                        <div className="w-[75%] sm:w-[60%] md:w-[40%] lg:w-[35%] mx-auto">
 
                               {step === 1 && (
                                     <>
@@ -135,4 +134,3 @@ const ForgotPasswordPage = () => {
 };
 
 export default ForgotPasswordPage;
-

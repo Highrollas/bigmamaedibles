@@ -44,7 +44,7 @@ const UserOrdersPage = () => {
             <div className='w-[90%] mx-auto'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn brand-panel text-white px-3! py-1!">Back</Link>
+                        <Link href='/' className="btn bg-black text-white px-3! py-1!">Back</Link>
                   </div>
 
                   <div className='flex flex-col justify-center items-center mt-5'>
@@ -90,7 +90,7 @@ const UserOrdersPage = () => {
 
                                                                   <table id='cartItemsTable' className="table bordered-table table-sm font-bold! mt-5">
 
-                                                                        <thead className='brand-panel text-white text-center'>
+                                                                        <thead className='bg-black text-white text-center'>
                                                                               <tr>
                                                                                     <th className="w-[20%]">Pic</th>
                                                                                     <th className="w-[55%]">Product</th>
@@ -195,4 +195,3 @@ const UserOrdersPage = () => {
 }
 
 export default UserOrdersPage
-

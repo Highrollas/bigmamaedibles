@@ -52,12 +52,12 @@ export const GATEWAY_ENDPOINT = "https://bchadmin.bigmamasedibles.cc/api/deposit
 
 export const MENU_CATEGORIES = [
       {
-            imageUrl: "/assets/images/cheeky-deals-emoji.png",
+            emoji: "😏",
             name: "Cheeky Deals",
             slug: "cheeky-deals",
       },
       {
-            imageUrl: "/assets/images/bundles-emoji.png",
+            emoji: "🛍️",
             name: "Bundles",
             slug: "bundles",
       },
@@ -82,20 +82,35 @@ export const MENU_CATEGORIES = [
             slug: "syrup",
       },
       {
-            imageUrl: "/assets/images/edibles-emoji.png",
-            name: "Edibles 1000mg",
-            slug: "edibles-1000mg",
-      },
-      {
-            imageUrl: "/assets/images/edibles-emoji.png",
-            name: "Edibles 500mg",
+            emoji: "🫩",
+            name: "500mg",
             slug: "edibles-500mg",
       },
       {
-            emoji: "🧑‍🍳",
+            emoji: "😴",
+            name: "1000mg",
+            slug: "edibles-1000mg",
+      },
+      {
+            emoji: "🥣",
             name: "Make Your Own",
             slug: "make-your-own",
       },
+];
+
+export const USER_MENU_LINKS = [
+      { name: "Profile", emoji: "⚙️", slug: "/account/profile" },
+      { name: "Orders", emoji: "📦", slug: "/account/orders/" },
+      { name: "Addresses", emoji: "🏡", slug: "/account/addresses/" },
+      { name: "Balance", emoji: "💷", slug: "/account/dashboard/" },
+      { name: "Contact Us", imageUrl: "/assets/images/contact-icon-ed.png", slug: "/contact" }
+]
+
+export const MENU_QUICK_LINKS = [
+      { name: "Blogs", url: "/blog", emoji: "📚" },
+      { name: "How To Order", url: "/how-to-order", emoji: "📦" },
+      { name: "Contact Us", url: "/contact", imageUrl: "/assets/images/contact-icon-ed.png" },
+      { name: "Chat Rooms", url: "/chat-rooms", emoji: "💬", pwaOnly: true, authOnly: true },
 ];
 
 export const productTypes: ProductType[] = ["Single", "Bundles", "CheekyDeals"];
@@ -166,22 +181,6 @@ export const EMPTY_CATEGORYOBJ: CategoryObj = {
             keywords: ""
       }
 }
-
-
-export const USER_MENU_LINKS = [
-      { name: "Profile", emoji: "⚙️", slug: "/account/profile" },
-      { name: "Orders", emoji: "📦", slug: "/account/orders/" },
-      { name: "Addresses", emoji: "🏡", slug: "/account/addresses/" },
-      { name: "Balance", emoji: "💷", slug: "/account/dashboard/" },
-      { name: "Contact Us", imageUrl: "/assets/images/contact-icon-ed.png", slug: "/contact" }
-]
-
-export const MENU_QUICK_LINKS = [
-      { name: "Blogs", url: "/blog", emoji: "📕" },
-      { name: "How To Order", url: "/how-to-order", emoji: "📦" },
-      { name: "Contact Us", url: "/contact", imageUrl: "/assets/images/contact-icon-ed.png" },
-      { name: "Chat Rooms", url: "/chat-rooms", emoji: "💬", pwaOnly: true, authOnly: true },
-];
 
 
 export const TEMPLATE_MAP: Record<string, { template: string; subject: string }> = {

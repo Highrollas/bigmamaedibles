@@ -35,18 +35,17 @@ const UsernameReminderPage = () => {
 
       return (
 
-            <div className='auth-screen bg-auth'>
+            <div className='h-[99dvh] w-full flex items-center'>
 
-                  <div className='auth-card'>
+                  <div className='w-full'>
 
                         <div className="mb-5">
-                              <Image src="/assets/images/username-reminder.png" className='auth-icon' height={120} width={120} alt='username reminder image' />
+                              <Image src="/assets/images/username-reminder.png" className='mx-auto' height={120} width={120} alt='user image' />
                         </div>
-                        <h1 className="auth-title">Username Reminder</h1>
 
                         <AlertMessage2 />
 
-                        <div className="w-full mx-auto">
+                        <div className="w-[75%] sm:w-[50%] mx-auto">
                               <div className='mt-5'>
                                     <LabelInput label='Email' type='text' pre={<MailIcon />} value={email}
                                           onChange={(v) => setEmail(v)} />
@@ -65,4 +64,3 @@ const UsernameReminderPage = () => {
 }
 
 export default UsernameReminderPage
-

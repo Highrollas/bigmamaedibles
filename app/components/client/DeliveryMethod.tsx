@@ -160,7 +160,7 @@ const DeliveryMethod = () => {
                                                 <td>
                                                       <div className='flex items-center justify-between'>
                                                             <div>-{c.discountType == "discount" ? "%" : CURRENCY_SYMBOL}{c.cartDiscount} <span className='border-b-2 ms-2'> {c.code}</span></div>
-                                                            <div onClick={() => removeCoupon(c._id)} className='brand-badge h-5 w-5 flex items-center justify-center cursor-pointer rounded-[100%]'>
+                                                            <div onClick={() => removeCoupon(c._id)} className='bg-[#e21893] h-5 w-5 flex items-center justify-center cursor-pointer rounded-[100%]'>
                                                                   {<XIcon color="white" size={12} strokeWidth={4} />}
                                                             </div>
                                                       </div>
@@ -177,7 +177,7 @@ const DeliveryMethod = () => {
                                           <td>
                                                 <div className='flex items-center justify-between'>
                                                       <div>-{CURRENCY_SYMBOL}{checkoutObj.useBalance}</div>
-                                                      <div onClick={() => setCheckoutObj(d => { d.useBalance = "0" })} className='brand-badge h-5 w-5 flex items-center justify-center rounded-[100%]'>
+                                                      <div onClick={() => setCheckoutObj(d => { d.useBalance = "0" })} className='bg-[#e21893] h-5 w-5 flex items-center justify-center rounded-[100%]'>
                                                             {<XIcon color="white" size={12} strokeWidth={4} />}
                                                       </div>
                                                 </div>

@@ -72,7 +72,7 @@ const UserProfilePage = () => {
                   <div className='w-[85%] mx-auto'>
 
                         <div className="flex justify-between mt-10">
-                              <Link href='/' className="btn brand-panel text-white px-3! py-1!">Back</Link>
+                              <Link href='/' className="btn bg-black text-white px-3! py-1!">Back</Link>
                         </div>
 
                         <div className='flex flex-col justify-center items-center mt-5'>
@@ -155,4 +155,3 @@ const UserProfilePage = () => {
 }
 
 export default UserProfilePage
-

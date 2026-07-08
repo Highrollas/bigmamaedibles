@@ -88,7 +88,7 @@ const LoginPage = () => {
                         <div className='w-full'>
 
                               <div className="mb-2">
-                                    <Image src="/assets/images/logo-transparent.png" className='mx-auto' height={120} width={120} alt='user image' />
+                                    <Image src="/assets/images/logo-transparent-ed.png" className='mx-auto' height={120} width={120} alt='user image' />
                               </div>
 
                               <AlertMessage2 />
