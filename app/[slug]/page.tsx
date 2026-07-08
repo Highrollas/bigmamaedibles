@@ -37,10 +37,6 @@ const ExplorePageContent = async ({ params }: Props) => {
                   <AppHeader />
                   <div className='w-[90%] sm:w-[80%] lg:w-[60%] mx-auto mb-12 mt-6'>
 
-                        <div className='text-center mt-10'>
-                              <Heading>{postObj.title}</Heading>
-                        </div>
-
                         <div>
                               <HtmlParser text={postObj.content || ""} />
                         </div>
