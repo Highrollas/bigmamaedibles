@@ -58,7 +58,7 @@ const EmailContactForm = () => {
             <div className='w-[90%] sm:w-[70%] lg:w-[50%] mx-auto mb-12'>
 
 
-                  <div>
+                  <div className='text-center mt-6'>
                         <Image className='w-[100%] h-auto mx-auto' src='/assets/images/email-contact.jpg' alt='form image' width={300} height={300} />
                   </div>
 

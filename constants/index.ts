@@ -52,11 +52,6 @@ export const GATEWAY_ENDPOINT = "https://bchadmin.bigmamasedibles.cc/api/deposit
 
 export const MENU_CATEGORIES = [
       {
-            emoji: "😏",
-            name: "Cheeky Deals",
-            slug: "cheeky-deals",
-      },
-      {
             emoji: "🛍️",
             name: "Bundles",
             slug: "bundles",
@@ -82,14 +77,24 @@ export const MENU_CATEGORIES = [
             slug: "syrup",
       },
       {
-            emoji: "🫩",
-            name: "500mg",
-            slug: "edibles-500mg",
+            emoji: "💊 ",
+            name: "Meds",
+            slug: "meds",
       },
       {
-            emoji: "😴",
+            emoji: "🪦",
+            name: "Death",
+            slug: "death",
+      },
+      {
+            emoji: "🫨",
+            name: "500mg",
+            slug: "500mg",
+      },
+      {
+            emoji: "🫠",
             name: "1000mg",
-            slug: "edibles-1000mg",
+            slug: "1000mg",
       },
       {
             emoji: "🥣",

@@ -4,7 +4,7 @@ import BlockSection from "../components/server/BlockSection";
 import Link from "next/link";
 import { fetchNewStock, fetchProductsByCategory } from "@/queries/products";
 import { DEFAULT_METAOBJ } from "@/constants";
-import TrustpilotWidget from "../components/client/TrustpilotWidget";
+// import TrustpilotWidget from "../components/client/TrustpilotWidget";
 // import Product from "@/models/Products";
 
 export const revalidate = 60;

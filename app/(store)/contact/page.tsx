@@ -1,14 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
-import Heading from '@/app/components/server/partials/Heading'
 import Link from 'next/link'
 
 const ContactPage = () => {
       return (
-            <div className='w-[80%] sm:w-[100%] mx-auto'>
+            <div className='w-[90%] sm:w-[100%] mx-auto'>
 
                   <div className="flex justify-center mt-6">
-                        <Image src="/assets/images/contact-banner.jpg" className="w-[80%] sm:w-[60%] h-auto" alt="Contact Us" width={500} height={300} />
+                        <Image src="/assets/images/contact-banner.jpg" className="w-full sm:w-[60%] h-auto" alt="Contact Us" width={500} height={300} />
                   </div>
 
                   <div className="flex flex-wrap text-center font-[550] mt-6 mb-12">
