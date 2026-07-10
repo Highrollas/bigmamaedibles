@@ -7,9 +7,11 @@ import LabelInput from '@/app/components/client/LabelInput'
 import useRegistrationStore from '@/app/hooks/auth/register'
 import useAlertStore from '@/app/hooks/store/alert'
 import APIClient from '@/app/services/apiClient'
-import Image from 'next/image'
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
+import BlockSection from '@/app/components/server/BlockSection';
+import Heading from '@/app/components/server/partials/Heading';
+
 
 const EmailVerifyPage = () => {
 
@@ -17,8 +19,10 @@ const EmailVerifyPage = () => {
       const { registrationObj, setRegistrationObj, regStage, setRegStage } = useRegistrationStore();
       const { setMessage2 } = useAlertStore();
 
+      const router = useRouter();
+
       useEffect(() => {
-            if (regStage != "verify-code") return redirect("/account/register");
+            // if (regStage != "verify-code") return redirect("/account/register");
       }, [])
 
       const handleNext = async () => {
@@ -42,43 +46,55 @@ const EmailVerifyPage = () => {
 
       return (
 
-            <div className="w-[90%] sm:w-[70%] lg:w-[55%] mx-auto">
+            <div>
 
-                  <div className="flex justify-between mt-10">
-                        <button onClick={() => redirect('/account/register')} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
+                  <div className='h-[7dvh] w-full flex items-end absolute'>
+                        <div className="flex justify-between mt-0 px-5">
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
+                        </div>
                   </div>
 
-                  <div className="mt-10 mb-5 text-center">
-                        <Image className='mx-auto' height="130" width="130" src="/assets/images/email-verify.jpg" alt="email verify" />
+                  <div className='h-[99dvh] w-full flex items-center'>
 
-                        <p className="my-5 px-4 font-bold! text-[12px]">
-                              We Have Sent A Verification Code To
-                              <span className='font-bold! text-[12px] underline mx-1'>{registrationObj.email}</span> <br />
-                              Please Enter The Code Below <br /><br />
-                              If You Have Entered An Incorrect Email, Click The Back Button At The Top Of This Page To Make Changes
-                        </p>
+                        <div className="w-full">
 
-                  </div>
+                              <div className="flex my-10">
+                                    <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
+                                          <BlockSection title="How To Order" imageUrl="/assets/images/forgot-password.png">
+                                                <Heading>Email Verification</Heading>
+                                                <p className="pb-5 text-center font-bold! text-[12px]">
+                                                      We Have Sent A Verification Code To
+                                                      <span className='font-bold! text-[12px] underline mx-1'>{registrationObj.email}</span> <br />
+                                                      Please Enter The Code Below <br /><br />
+                                                      If You Have Entered An Incorrect Email, Click The Back Button At The Top Of This Page To Make Changes
 
-                  <div className="mt-5">
-
-                        <AlertMessage2 />
-
-                        <div className="w-[80%] sm:w-[50%] mx-auto">
-
-                              <div className="w-full mt-3 mb-3">
-                                    <LabelInput value={registrationObj.verificationCode} label='Verification Code' type='number'
-                                          onChange={(v) => setRegistrationObj((d) => { d.verificationCode = v })} />
+                                                </p>
+                                          </BlockSection>
+                                    </div>
                               </div>
 
-                              <div className="w-full mt-8 text-end">
-                                    <button onClick={handleNext} className="btn bg-[#e21893] text-white br-5 w-full"> Next </button>
-                              </div>
 
+                              <div className="mt-5">
+
+                                    <AlertMessage2 />
+
+                                    <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
+
+                                          <div className="w-full mt-3 mb-3">
+                                                <LabelInput value={registrationObj.verificationCode} label='Verification Code' type='number'
+                                                      onChange={(v) => setRegistrationObj((d) => { d.verificationCode = v })} />
+                                          </div>
+
+                                          <div className="w-full mt-8 text-end">
+                                                <button onClick={handleNext} className="btn bg-[#e21893] text-white br-5 w-full"> Next </button>
+                                          </div>
+
+                                    </div>
+
+                              </div>
                         </div>
 
                   </div>
-
             </div>
       )
 }

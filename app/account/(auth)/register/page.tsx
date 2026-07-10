@@ -5,9 +5,10 @@ import LabelInput from '@/app/components/client/LabelInput'
 import useRegistrationStore from '@/app/hooks/auth/register';
 import useAlertStore from '@/app/hooks/store/alert';
 import APIClient from '@/app/services/apiClient';
+import { ChevronLeft } from 'lucide-react';
 import Image from 'next/image'
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 
@@ -15,6 +16,7 @@ const RegisterPage = () => {
 
       const { registrationObj, setRegistrationObj, setRegStage } = useRegistrationStore();
       const { setModalMessage, setMessage2 } = useAlertStore();
+      const router = useRouter();
       const [referralCodeWarned, setReferralCodeWarned] = useState(false);
       const [couponEditDisabled, setCouponEditDisabled] = useState(false);
 
@@ -76,49 +78,60 @@ const RegisterPage = () => {
 
       return (
 
-            <div className='h-[99dvh] w-full flex items-center'>
+            <div>
 
-                  <div className='w-full'>
-
-                        <div className="mb-5">
-                              <Image src="/assets/images/user-ed.png" className='mx-auto' height={120} width={120} alt='user image' />
+                  <div className='h-[7dvh] w-full flex items-end absolute'>
+                        <div className="flex justify-between mt-0 px-5">
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
                         </div>
+                  </div>
 
-                        <AlertMessage2 />
+                  <div className='h-[99dvh] w-full flex items-center'>
 
-                        <div className="w-[75%] sm:w-[50%] mx-auto">
-                              <div className='mt-5'>
-                                    <LabelInput label='Username' type='text' pre={"@"} value={registrationObj.username}
-                                          onChange={(v) => setRegistrationObj(d => { d.username = v ? v.trim() : "" })} />
-                              </div>
-                              <div className='mt-5'>
-                                    <LabelInput label='Email' type='text' value={registrationObj.email}
-                                          onChange={(v) => setRegistrationObj(d => { d.email = v ? v.trim() : ""; d.billingObj.email = v ? v.trim() : "" })} />
-                              </div>
-                              <div className='mt-5'>
-                                    <LabelInput label='Password' type='password' value={registrationObj.password}
-                                          onChange={(v) => setRegistrationObj(d => { d.password = v ? v.trim() : "" })} />
-                              </div>
-                              <div className='mt-5'>
-                                    <LabelInput label='Re-enter Password' type='password' value={registrationObj.rePassword}
-                                          onChange={(v) => setRegistrationObj(d => { d.rePassword = v ? v.trim() : "" })} />
-                              </div>
-                              <div className='mt-5'>
-                                    <LabelInput readOnly={couponEditDisabled} label='Referral Code' className='uppercase' type='text' value={registrationObj.referralCoupon}
-                                          onChange={(v) => setRegistrationObj(d => { d.referralCoupon = v ? v.trim().toLocaleUpperCase() : "" })} />
+                        <div className='w-full'>
+
+                              <div className="mb-5">
+                                    <Image src="/assets/images/user-ed.png" className='mx-auto' height={120} width={120} alt='user image' />
                               </div>
 
-                              <div className='mt-6'>
-                                    <button onClick={() => handleRegister()} className='btn w-full'>Next</button>
-                              </div>
+                              <AlertMessage2 />
 
-                              <div className='mt-6 text-center'>
-                                    <Link className='text-blue-700 font-bold text-[90%]' href="/account/login">Already Have An Account ? Login Here</Link>
-                              </div>
+                              <div className="w-[75%] sm:w-[50%] mx-auto">
+                                    <div className='mt-5'>
+                                          <LabelInput label='Username' type='text' pre={"@"} value={registrationObj.username}
+                                                onChange={(v) => setRegistrationObj(d => { d.username = v ? v.trim() : "" })} />
+                                    </div>
+                                    <div className='mt-5'>
+                                          <LabelInput label='Email' type='text' value={registrationObj.email}
+                                                onChange={(v) => setRegistrationObj(d => { d.email = v ? v.trim() : ""; d.billingObj.email = v ? v.trim() : "" })} />
+                                    </div>
+                                    <div className='mt-5'>
+                                          <LabelInput label='Password' type='password' value={registrationObj.password}
+                                                onChange={(v) => setRegistrationObj(d => { d.password = v ? v.trim() : "" })} />
+                                    </div>
+                                    <div className='mt-5'>
+                                          <LabelInput label='Re-enter Password' type='password' value={registrationObj.rePassword}
+                                                onChange={(v) => setRegistrationObj(d => { d.rePassword = v ? v.trim() : "" })} />
+                                    </div>
+                                    <div className='mt-5'>
+                                          <LabelInput readOnly={couponEditDisabled} label='Referral Code' className='uppercase' type='text' value={registrationObj.referralCoupon}
+                                                onChange={(v) => setRegistrationObj(d => { d.referralCoupon = v ? v.trim().toLocaleUpperCase() : "" })} />
+                                    </div>
 
+                                    <div className='mt-6'>
+                                          <button onClick={() => handleRegister()} className='btn w-full'>Next</button>
+                                    </div>
+
+                                    <div className='mt-6 text-center'>
+                                          <Link className='text-blue-700 font-bold text-[90%]' href="/account/login">Already Have An Account ? Login Here</Link>
+                                    </div>
+
+                              </div>
                         </div>
                   </div>
             </div>
+
+
       )
 }
 

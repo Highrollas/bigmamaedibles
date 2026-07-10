@@ -6,8 +6,10 @@ import useAlertStore from '@/app/hooks/store/alert';
 import APIClient from '@/app/services/apiClient';
 import { useImmer } from 'use-immer';
 import { useState } from 'react';
-import Image from 'next/image';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
+import { ChevronLeft } from 'lucide-react';
+import BlockSection from '@/app/components/server/BlockSection';
+import Heading from '@/app/components/server/partials/Heading';
 
 const ForgotPasswordPage = () => {
       const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -16,6 +18,7 @@ const ForgotPasswordPage = () => {
       const [code, setCode] = useState('');
       const [passwords, setPasswords] = useImmer({ password: '', confirmPassword: '' });
       const { setMessage2, setModalMessage } = useAlertStore();
+      const router = useRouter();
 
       // Step 1: Request Reset Code
       const handleSendCode = async () => {
@@ -72,61 +75,75 @@ const ForgotPasswordPage = () => {
       };
 
       return (
-            <div className="w-full h-[99dvh] flex justify-center items-center">
+            <div>
 
-                  <div className='w-full'>
-
-                        <div className="mb-5">
-                              <Image src="/assets/images/lock.png" className='mx-auto' height={120} width={120} alt='user image' />
+                  <div className='h-[7dvh] w-full flex items-end absolute'>
+                        <div className="flex justify-between mt-0 px-5">
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
                         </div>
+                  </div>
 
-                        <p className='text-center my-5 font-bold! text-[12px]'>{stepText}</p>
+                  <div className='h-[99dvh] w-full flex items-center'>
 
-                        <AlertMessage2 />
+                        <div className='w-full'>
 
-                        <div className="w-[75%] sm:w-[60%] md:w-[40%] lg:w-[35%] mx-auto">
+                              <div className="flex my-10">
+                                    <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
+                                          <BlockSection title="How To Order" imageUrl="/assets/images/forgot-password.png">
+                                                <Heading>Forgot Password</Heading>
+                                                <p className="pb-5 text-center font-bold! text-[12px]">
+                                                      {stepText}
+                                                </p>
+                                          </BlockSection>
+                                    </div>
+                              </div>
 
-                              {step === 1 && (
-                                    <>
-                                          <LabelInput label="Email" type="email" value={email} onChange={setEmail} />
-                                          <button className="btn mt-4 w-full" onClick={handleSendCode}>
-                                                Next
-                                          </button>
-                                    </>
-                              )}
+                              <AlertMessage2 />
 
-                              {step === 2 && (
-                                    <>
-                                          <LabelInput label="Verification Code" type="text" value={code} onChange={setCode} />
-                                          <button className="btn mt-4 w-full" onClick={handleVerifyCode}>
-                                                Next
-                                          </button>
-                                    </>
-                              )}
+                              <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
 
-                              {step === 3 && (
-                                    <>
-                                          <div>
-                                                <LabelInput
-                                                      label="New Password"
-                                                      type="password"
-                                                      value={passwords.password}
-                                                      onChange={(v) => setPasswords((d) => { d.password = v })}
-                                                />
-                                          </div>
-                                          <div className='mt-3'>
-                                                <LabelInput
-                                                      label="Confirm Password"
-                                                      type="password"
-                                                      value={passwords.confirmPassword}
-                                                      onChange={(v) => setPasswords((d) => { d.confirmPassword = v })}
-                                                />
-                                          </div>
-                                          <button className="btn mt-4 w-full" onClick={handleResetPassword}>
-                                                Reset Password
-                                          </button>
-                                    </>
-                              )}
+                                    {step === 1 && (
+                                          <>
+                                                <LabelInput label="Email" type="email" value={email} onChange={setEmail} />
+                                                <button className="btn mt-4 w-full" onClick={handleSendCode}>
+                                                      Next
+                                                </button>
+                                          </>
+                                    )}
+
+                                    {step === 2 && (
+                                          <>
+                                                <LabelInput label="Verification Code" type="text" value={code} onChange={setCode} />
+                                                <button className="btn mt-4 w-full" onClick={handleVerifyCode}>
+                                                      Next
+                                                </button>
+                                          </>
+                                    )}
+
+                                    {step === 3 && (
+                                          <>
+                                                <div>
+                                                      <LabelInput
+                                                            label="New Password"
+                                                            type="password"
+                                                            value={passwords.password}
+                                                            onChange={(v) => setPasswords((d) => { d.password = v })}
+                                                      />
+                                                </div>
+                                                <div className='mt-3'>
+                                                      <LabelInput
+                                                            label="Confirm Password"
+                                                            type="password"
+                                                            value={passwords.confirmPassword}
+                                                            onChange={(v) => setPasswords((d) => { d.confirmPassword = v })}
+                                                      />
+                                                </div>
+                                                <button className="btn mt-4 w-full" onClick={handleResetPassword}>
+                                                      Reset Password
+                                                </button>
+                                          </>
+                                    )}
+                              </div>
                         </div>
                   </div>
             </div>

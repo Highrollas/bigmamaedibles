@@ -9,9 +9,10 @@ import APIClient from '@/app/services/apiClient';
 import { UserObj } from '@/Interface';
 import Image from 'next/image'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useImmer } from 'use-immer';
-import { X } from 'lucide-react';
+import { ChevronLeft, X } from 'lucide-react';
 
 
 const LoginPage = () => {
@@ -20,6 +21,7 @@ const LoginPage = () => {
       const [loginObj, setloginObj] = useImmer({ username: "", password: "" });
       const { setModalMessage, setMessage2 } = useAlertStore();
       const { setUserSession } = useSessionStore()
+      const router = useRouter();
 
       useEffect(() => {
             const timeoutId = window.setTimeout(() => {
@@ -59,6 +61,12 @@ const LoginPage = () => {
       return (
 
             <div className='h-screen w-full bg-auth'>
+
+                  <div className='h-[7dvh] w-full flex items-end absolute'>
+                        <div className="flex justify-between mt-0 px-5">
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
+                        </div>
+                  </div>
 
                   {showAuthRequiredModal && (
                         <div className="fixed inset-0 z-[9999999999999999] bg-[#e21893]/40 flex items-center justify-center px-3">
