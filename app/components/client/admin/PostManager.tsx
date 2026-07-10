@@ -106,3 +106,4 @@ const PostManager = ({ postObj, setPostObj, type }: Props) => {
 
 export default PostManager
 
+

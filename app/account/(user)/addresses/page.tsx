@@ -1,5 +1,7 @@
 'use client'
 
+import { ChevronLeft } from 'lucide-react';
+
 import AlertMessage2 from '@/app/components/client/AlertMessage2'
 import BillingAddress from '@/app/components/client/BillingAddress'
 import DefaultAddress from '@/app/components/client/DefaultAddress'
@@ -133,7 +135,7 @@ const UserAddressPage = () => {
             <div className='w-[90%] mx-auto mb-5'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!">Back</Link>
+                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></Link>
                   </div>
 
                   <div className='mt-5 mb-3 text-center'>
@@ -221,3 +223,5 @@ const UserAddressPage = () => {
 }
 
 export default UserAddressPage
+
+

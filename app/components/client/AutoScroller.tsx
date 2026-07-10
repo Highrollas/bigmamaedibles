@@ -63,3 +63,4 @@ const AutoScroller = ({ scrollClass }: { scrollClass: string }) => {
 
 export default AutoScroller;
 
+

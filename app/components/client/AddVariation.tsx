@@ -119,3 +119,4 @@ const AddVariation = ({ setProductObj, categories: _categories }: Props) => {
 
 export default AddVariation;
 
+

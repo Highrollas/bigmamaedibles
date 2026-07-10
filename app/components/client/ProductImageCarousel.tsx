@@ -109,3 +109,4 @@ const ProductImageCarousel = ({ images, productName }: Props) => {
 };
 
 export default ProductImageCarousel;
+

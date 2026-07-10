@@ -82,3 +82,4 @@ const CategoryManager = ({ categoryObj, setCategoryObj }: Props) => {
 
 export default CategoryManager
 
+

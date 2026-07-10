@@ -52,3 +52,4 @@ const LabelInput = ({ label, value, pre, apn, className, type, readOnly, onChang
 
 export default LabelInput
 
+

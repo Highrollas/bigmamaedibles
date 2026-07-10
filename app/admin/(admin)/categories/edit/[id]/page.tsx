@@ -1,5 +1,6 @@
 'use client'
 
+import { ChevronLeft } from 'lucide-react';
 import CategoryManager from '@/app/components/client/admin/CategoryManager';
 import useAlertStore from '@/app/hooks/store/alert';
 import useCategoriesStore from '@/app/hooks/store/category';
@@ -66,7 +67,7 @@ const AdminEditCategoryPage = ({ params }: Props) => {
 
                   <div className='my-3 flex justify-between items-center'>
                         <strong className='text-white text-2xl ms-3'>Edit Category</strong>
-                        <Link href="/admin/categories" className='btn'>Back</Link>
+                        <Link href="/admin/categories" className='btn'><ChevronLeft size={20} color='white' /></Link>
                   </div>
 
                   <div className="bg-white rounded max-w-[95vw] sm:w-[100%] mx-auto mb-6 sm:mb-12">
@@ -88,3 +89,5 @@ const AdminEditCategoryPage = ({ params }: Props) => {
 }
 
 export default AdminEditCategoryPage
+
+

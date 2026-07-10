@@ -1,5 +1,7 @@
 'use client'
 
+import { ChevronLeft } from 'lucide-react';
+
 import AlertMessage2 from '@/app/components/client/AlertMessage2'
 import LabelInput from '@/app/components/client/LabelInput'
 import useRegistrationStore from '@/app/hooks/auth/register'
@@ -43,7 +45,7 @@ const EmailVerifyPage = () => {
             <div className="w-[90%] sm:w-[70%] lg:w-[55%] mx-auto">
 
                   <div className="flex justify-between mt-10">
-                        <button onClick={() => redirect('/account/register')} className="btn bg-[#e21893] text-white px-3! py-1!">Back</button>
+                        <button onClick={() => redirect('/account/register')} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
                   </div>
 
                   <div className="mt-10 mb-5 text-center">
@@ -82,3 +84,5 @@ const EmailVerifyPage = () => {
 }
 
 export default EmailVerifyPage
+
+

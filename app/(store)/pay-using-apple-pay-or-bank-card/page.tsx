@@ -48,3 +48,4 @@ const HowToPayWithApplePayOrBankCard = () => {
 
 export default HowToPayWithApplePayOrBankCard
 
+

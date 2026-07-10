@@ -26,3 +26,4 @@ const ImageSlider = ({ itemsLength, activeIndex = 0, onIndexChange }: Props) => 
 };
 
 export default ImageSlider;
+

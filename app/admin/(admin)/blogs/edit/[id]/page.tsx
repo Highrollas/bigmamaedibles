@@ -1,4 +1,6 @@
 'use client'
+
+import { ChevronLeft } from 'lucide-react';
 import MediaUploader from '@/app/components/client/admin/MediaUploader'
 import PostManager from '@/app/components/client/admin/PostManager'
 import useAdminSessionStore from '@/app/hooks/auth/admin'
@@ -66,7 +68,7 @@ const EditBlogPage = ({ params }: Props) => {
                                           <MediaUploader />
                                     </div>
                               }
-                              <Link href="/admin/blogs" className='btn'>Back</Link>
+                              <Link href="/admin/blogs" className='btn'><ChevronLeft size={20} color='white' /></Link>
                         </div>
 
                   </div>
@@ -90,3 +92,5 @@ const EditBlogPage = ({ params }: Props) => {
 }
 
 export default EditBlogPage
+
+

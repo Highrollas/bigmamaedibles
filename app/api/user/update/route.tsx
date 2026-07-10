@@ -10,3 +10,4 @@ export async function GET() {
 export async function POST(req: NextRequest) {
       return await updateUser(req);
 }
+

@@ -41,3 +41,4 @@ const UpsellAddToCart = ({ productObj, productType }: Props) => {
 
 export default UpsellAddToCart
 
+

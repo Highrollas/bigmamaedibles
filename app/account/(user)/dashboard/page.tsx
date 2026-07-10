@@ -1,4 +1,6 @@
 'use client'
+
+import { ChevronLeft } from 'lucide-react';
 import { copyToClipboard } from '@/app/Helper'
 import useSessionStore from '@/app/hooks/auth/user'
 import { CURRENCY_SYMBOL } from '@/constants'
@@ -14,7 +16,7 @@ const DashboardPage = () => {
             <div className='w-[85%] mx-auto pb-8'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!">Back</Link>
+                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></Link>
                   </div>
 
                   <div className="w-full mt-2 text-center">
@@ -69,3 +71,5 @@ https://highrollas.cc/account/register?coupon=${user?.coupon}`, 'Your Referral L
 }
 
 export default DashboardPage
+
+

@@ -105,3 +105,4 @@ const BlogPage = async ({ searchParams }: Props) => {
 
 export default BlogPage;
 
+

@@ -15,3 +15,4 @@ const Heading = ({ children }: TitleProp) => {
 
 export default Heading
 
+

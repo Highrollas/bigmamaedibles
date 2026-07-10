@@ -6,6 +6,7 @@ import useSessionStore from '@/app/hooks/auth/user';
 import useAlertStore from '@/app/hooks/store/alert';
 import APIClient from '@/app/services/apiClient';
 import { UserObj } from '@/Interface';
+import { ChevronLeft } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import React, { useEffect } from 'react'
 
@@ -45,7 +46,9 @@ const RegProfileImageSelectPage = () => {
                               onClick={() => {
                                     setRegStage('address');
                                     redirect('/account/register/address');
-                              }}>Back</button>
+                              }}>
+                              <ChevronLeft size={20} color='white' />
+                        </button>
                         <button onClick={handleUserRegistration} className="btn bg-[#e21893] text-white px-3! py-1!">Next</button>
                   </div>
 
@@ -59,3 +62,4 @@ const RegProfileImageSelectPage = () => {
 }
 
 export default RegProfileImageSelectPage
+

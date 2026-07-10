@@ -12,3 +12,4 @@ export function GET() {
 export async function POST() {
       return await logout();
 }
+

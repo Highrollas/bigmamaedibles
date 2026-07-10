@@ -152,3 +152,4 @@ const FullScreenImageViewer: React.FC = () => {
 
 export default FullScreenImageViewer;
 
+

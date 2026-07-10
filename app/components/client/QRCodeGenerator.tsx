@@ -26,3 +26,4 @@ export default function QRCodeGenerator({ text }: Props) {
       );
 
 }
+

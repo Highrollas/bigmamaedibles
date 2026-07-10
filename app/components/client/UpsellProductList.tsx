@@ -43,3 +43,4 @@ const UpsellProductList = ({ mixers, accessories }: Props) => {
 
 export default UpsellProductList
 
+

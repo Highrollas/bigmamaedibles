@@ -137,3 +137,4 @@ const ChatRow = ({ chat, onEllipsis, openSwipe, onSwipeOpen }: Props) => {
 
 export default ChatRow
 
+

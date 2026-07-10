@@ -107,3 +107,4 @@ const ProceedToCheckout = ({ accessories, mixers }: Props) => {
 
 export default ProceedToCheckout
 
+

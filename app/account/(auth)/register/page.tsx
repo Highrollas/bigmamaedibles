@@ -81,7 +81,7 @@ const RegisterPage = () => {
                   <div className='w-full'>
 
                         <div className="mb-5">
-                              <Image src="/assets/images/user.png" className='mx-auto' height={120} width={120} alt='user image' />
+                              <Image src="/assets/images/user-ed.png" className='mx-auto' height={120} width={120} alt='user image' />
                         </div>
 
                         <AlertMessage2 />
@@ -123,3 +123,4 @@ const RegisterPage = () => {
 }
 
 export default RegisterPage
+

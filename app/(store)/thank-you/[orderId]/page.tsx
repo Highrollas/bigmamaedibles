@@ -50,3 +50,4 @@ const ThankYouPage = async ({ params }: Props) => {
 
 export default ThankYouPage
 
+

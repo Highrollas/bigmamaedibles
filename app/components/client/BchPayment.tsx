@@ -290,3 +290,4 @@ const BchPayment = ({ transactionId, alias }: { transactionId: string; alias: st
 
 export default BchPayment
 
+

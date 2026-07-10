@@ -245,3 +245,4 @@ const PaymentTutorialPage = ({ params }: PageProps) => {
 
 export default PaymentTutorialPage
 
+

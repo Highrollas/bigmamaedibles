@@ -1,4 +1,6 @@
 'use client'
+
+import { ChevronLeft } from 'lucide-react';
 import PostManager from '@/app/components/client/admin/PostManager'
 import useAlertStore from '@/app/hooks/store/alert'
 import usePostsStore from '@/app/hooks/store/post'
@@ -39,7 +41,7 @@ const AddPostPage = () => {
 
                   <div className='my-3 flex justify-between items-center'>
                         <strong className='text-white text-2xl ms-3'>Add Post</strong>
-                        <Link href="/admin/posts" className='btn'>Back</Link>
+                        <Link href="/admin/posts" className='btn'><ChevronLeft size={20} color='white' /></Link>
                   </div>
 
                   <div className="bg-white rounded max-w-[95vw] sm:w-[100%] mx-auto mb-6 sm:mb-12">
@@ -61,3 +63,5 @@ const AddPostPage = () => {
 }
 
 export default AddPostPage
+
+

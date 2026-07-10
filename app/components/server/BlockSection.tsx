@@ -25,3 +25,4 @@ const BlockSection = ({ children, imageUrl, title }: BlockSectionProps) => {
 
 export default BlockSection
 
+

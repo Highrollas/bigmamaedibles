@@ -122,3 +122,4 @@ const ProductDetailsPage = async ({ params }: Props) => {
 }
 
 export default ProductDetailsPage
+

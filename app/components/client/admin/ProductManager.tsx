@@ -269,3 +269,4 @@ const ProductManager = ({ productObj, setProductObj }: Props) => {
 
 export default ProductManager
 
+

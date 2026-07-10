@@ -132,3 +132,4 @@ const WertPayment = ({ transactionId }: { transactionId: string }) => {
 
 export default WertPayment
 
+

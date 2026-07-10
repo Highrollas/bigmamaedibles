@@ -12,3 +12,4 @@ export async function GET() {
             message: 'Hello mother fucker 🫡',
       });
 }
+

@@ -7,7 +7,7 @@ import useAlertStore from '@/app/hooks/store/alert';
 import APIClient from '@/app/services/apiClient';
 import { CURRENCY_SYMBOL } from '@/constants';
 import { OrderObj } from '@/Interface';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
@@ -44,7 +44,7 @@ const UserOrdersPage = () => {
             <div className='w-[90%] mx-auto'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!">Back</Link>
+                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></Link>
                   </div>
 
                   <div className='flex flex-col justify-center items-center mt-5'>
@@ -195,3 +195,5 @@ const UserOrdersPage = () => {
 }
 
 export default UserOrdersPage
+
+

@@ -48,3 +48,4 @@ const HowToPayWithMoonpay = () => {
 
 export default HowToPayWithMoonpay
 
+

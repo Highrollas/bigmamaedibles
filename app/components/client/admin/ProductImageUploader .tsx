@@ -43,3 +43,4 @@ const ProductImageUploader = ({ setProductObj }: Props) => {
 
 export default ProductImageUploader;
 
+

@@ -44,7 +44,7 @@ const Menu = () => {
                                                       </label>
                                                       :
                                                       <Link href="/account/login">
-                                                            <Image src={'/assets/images/user.png'} className='h-8 w-8' alt="user icon" width="250" height="250" />
+                                                            <Image src={'/assets/images/user-ed.png'} className='h-8 w-8' alt="user icon" width="250" height="250" />
                                                       </Link>
                                                 }
                                           </>
@@ -191,4 +191,5 @@ const Menu = () => {
 }
 
 export default Menu
+
 

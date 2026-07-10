@@ -96,3 +96,4 @@ const ProductCategoryPage = async ({ params, searchParams }: Props) => {
 
 export default ProductCategoryPage;
 
+

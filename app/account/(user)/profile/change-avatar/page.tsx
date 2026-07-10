@@ -1,5 +1,7 @@
 'use client'
 
+import { ChevronLeft } from 'lucide-react';
+
 import ProfileAvatarSelector from '@/app/components/client/ProfileAvatarSelector';
 import useSessionStore from '@/app/hooks/auth/user'
 import useAlertStore from '@/app/hooks/store/alert';
@@ -50,7 +52,7 @@ const ChangeUserAvatar = () => {
                         <button className="btn bg-[#e21893] text-white px-3! py-1!"
                               onClick={() => {
                                     redirect('/account/profile');
-                              }}>Back</button>
+                              }}><ChevronLeft size={20} color='white' /></button>
                         <button onClick={() => saveChanges()} className="btn bg-[#e21893] text-white px-3! py-1!">Next</button>
                   </div>
 
@@ -65,3 +67,5 @@ const ChangeUserAvatar = () => {
 }
 
 export default ChangeUserAvatar
+
+

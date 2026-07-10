@@ -108,3 +108,4 @@ interface BeforeInstallPromptEvent extends Event {
             platform: string
       }>
 }
+

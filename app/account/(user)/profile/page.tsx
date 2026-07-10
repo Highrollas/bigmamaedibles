@@ -1,5 +1,7 @@
 'use client'
 
+import { ChevronLeft } from 'lucide-react';
+
 import AlertMessage2 from '@/app/components/client/AlertMessage2';
 import FallbackImage from '@/app/components/client/FallbackImage';
 import LabelInput from '@/app/components/client/LabelInput';
@@ -72,7 +74,7 @@ const UserProfilePage = () => {
                   <div className='w-[85%] mx-auto'>
 
                         <div className="flex justify-between mt-10">
-                              <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!">Back</Link>
+                              <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></Link>
                         </div>
 
                         <div className='flex flex-col justify-center items-center mt-5'>
@@ -155,3 +157,5 @@ const UserProfilePage = () => {
 }
 
 export default UserProfilePage
+
+

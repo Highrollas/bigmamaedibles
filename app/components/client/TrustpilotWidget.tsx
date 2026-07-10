@@ -38,3 +38,4 @@ const TrustpilotWidget = () => {
 
 export default TrustpilotWidget
 
+
