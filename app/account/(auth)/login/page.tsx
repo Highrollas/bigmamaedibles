@@ -64,7 +64,7 @@ const LoginPage = () => {
 
                   <div className='h-[7dvh] w-full flex items-end absolute'>
                         <div className="flex justify-between mt-0 px-5">
-                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"> <ChevronLeft className='mr-[1px]' size={20} color='white' /></button>
                         </div>
                   </div>
 

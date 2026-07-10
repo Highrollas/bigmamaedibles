@@ -41,7 +41,7 @@ const AddProductPage = () => {
 
                   <div className='my-3 flex justify-between items-center'>
                         <strong className='text-white text-2xl ms-3'>Add Product</strong>
-                        <Link href="/admin/products" className='btn'><ChevronLeft size={20} color='white' /></Link>
+                        <Link href="/admin/products" className='btn'> <ChevronLeft className='mr-[1px]' size={20} color='white' /></Link>
                   </div>
 
                   <div className="bg-white rounded max-w-[95vw] sm:w-[100%] mx-auto mb-6 sm:mb-12">

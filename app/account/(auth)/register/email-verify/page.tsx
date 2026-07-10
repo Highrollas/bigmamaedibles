@@ -50,7 +50,9 @@ const EmailVerifyPage = () => {
 
                   <div className='h-[7dvh] w-full flex items-end absolute'>
                         <div className="flex justify-between mt-0 px-5">
-                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!">
+                                    <ChevronLeft className='mr-[1px]' size={20} color='white' />
+                              </button>
                         </div>
                   </div>
 
@@ -58,9 +60,9 @@ const EmailVerifyPage = () => {
 
                         <div className="w-full">
 
-                              <div className="flex my-10">
+                              <div className="flex mt-10">
                                     <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
-                                          <BlockSection title="How To Order" imageUrl="/assets/images/forgot-password.png">
+                                          <BlockSection title="How To Order" imageUrl="/assets/images/email-verify.png">
                                                 <Heading>Email Verification</Heading>
                                                 <p className="pb-5 text-center font-bold! text-[12px]">
                                                       Verification Code Sent To
@@ -74,18 +76,18 @@ const EmailVerifyPage = () => {
                               </div>
 
 
-                              <div className="mt-5">
+                              <div className="">
 
                                     <AlertMessage2 />
 
                                     <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
 
-                                          <div className="w-full mt-3 mb-3">
+                                          <div className="w-full mt-2">
                                                 <LabelInput value={registrationObj.verificationCode} label='Verification Code' type='number'
                                                       onChange={(v) => setRegistrationObj((d) => { d.verificationCode = v })} />
                                           </div>
 
-                                          <div className="w-full mt-8 text-end">
+                                          <div className="w-full mt-6 text-end">
                                                 <button onClick={handleNext} className="btn bg-[#e21893] text-white br-5 w-full"> Next </button>
                                           </div>
 

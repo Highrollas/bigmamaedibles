@@ -16,7 +16,7 @@ const DashboardPage = () => {
             <div className='w-[85%] mx-auto pb-8'>
 
                   <div className="flex justify-between mt-10">
-                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></Link>
+                        <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"> <ChevronLeft className='mr-[1px]' size={20} color='white' /></Link>
                   </div>
 
                   <div className="w-full mt-2 text-center">

@@ -47,7 +47,7 @@ const RegProfileImageSelectPage = () => {
                                     setRegStage('address');
                                     redirect('/account/register/address');
                               }}>
-                              <ChevronLeft size={20} color='white' />
+                              <ChevronLeft className='mr-[1px]' size={20} color='white' />
                         </button>
                         <button onClick={handleUserRegistration} className="btn bg-[#e21893] text-white px-3! py-1!">Next</button>
                   </div>

@@ -79,7 +79,7 @@ const ForgotPasswordPage = () => {
 
                   <div className='h-[7dvh] w-full flex items-end absolute'>
                         <div className="flex justify-between mt-0 px-5">
-                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"><ChevronLeft size={20} color='white' /></button>
+                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"> <ChevronLeft className='mr-[1px]' size={20} color='white' /></button>
                         </div>
                   </div>
 
@@ -87,7 +87,7 @@ const ForgotPasswordPage = () => {
 
                         <div className='w-full'>
 
-                              <div className="flex my-10">
+                              <div className="flex mt-10">
                                     <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
                                           <BlockSection title="How To Order" imageUrl="/assets/images/forgot-password.png">
                                                 <Heading>Forgot Password</Heading>
@@ -100,12 +100,12 @@ const ForgotPasswordPage = () => {
 
                               <AlertMessage2 />
 
-                              <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto">
+                              <div className="w-[75%] sm:w-[65%] lg:w-[50%] mx-auto mt-2">
 
                                     {step === 1 && (
                                           <>
                                                 <LabelInput label="Email" type="email" value={email} onChange={setEmail} />
-                                                <button className="btn mt-4 w-full" onClick={handleSendCode}>
+                                                <button className="btn mt-6 w-full" onClick={handleSendCode}>
                                                       Next
                                                 </button>
                                           </>
@@ -114,7 +114,7 @@ const ForgotPasswordPage = () => {
                                     {step === 2 && (
                                           <>
                                                 <LabelInput label="Verification Code" type="text" value={code} onChange={setCode} />
-                                                <button className="btn mt-4 w-full" onClick={handleVerifyCode}>
+                                                <button className="btn mt-6 w-full" onClick={handleVerifyCode}>
                                                       Next
                                                 </button>
                                           </>
@@ -138,7 +138,7 @@ const ForgotPasswordPage = () => {
                                                             onChange={(v) => setPasswords((d) => { d.confirmPassword = v })}
                                                       />
                                                 </div>
-                                                <button className="btn mt-4 w-full" onClick={handleResetPassword}>
+                                                <button className="btn mt-6 w-full" onClick={handleResetPassword}>
                                                       Reset Password
                                                 </button>
                                           </>

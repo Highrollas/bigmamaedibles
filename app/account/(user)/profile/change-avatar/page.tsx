@@ -52,7 +52,7 @@ const ChangeUserAvatar = () => {
                         <button className="btn bg-[#e21893] text-white px-3! py-1!"
                               onClick={() => {
                                     redirect('/account/profile');
-                              }}><ChevronLeft size={20} color='white' /></button>
+                              }}> <ChevronLeft className='mr-[1px]' size={20} color='white' /></button>
                         <button onClick={() => saveChanges()} className="btn bg-[#e21893] text-white px-3! py-1!">Next</button>
                   </div>
 

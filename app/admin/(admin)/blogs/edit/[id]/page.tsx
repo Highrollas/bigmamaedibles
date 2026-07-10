@@ -68,7 +68,7 @@ const EditBlogPage = ({ params }: Props) => {
                                           <MediaUploader />
                                     </div>
                               }
-                              <Link href="/admin/blogs" className='btn'><ChevronLeft size={20} color='white' /></Link>
+                              <Link href="/admin/blogs" className='btn'> <ChevronLeft className='mr-[1px]' size={20} color='white' /></Link>
                         </div>
 
                   </div>
