@@ -63,10 +63,10 @@ const EmailVerifyPage = () => {
                                           <BlockSection title="How To Order" imageUrl="/assets/images/forgot-password.png">
                                                 <Heading>Email Verification</Heading>
                                                 <p className="pb-5 text-center font-bold! text-[12px]">
-                                                      We Have Sent A Verification Code To
-                                                      <span className='font-bold! text-[12px] underline mx-1'>{registrationObj.email}</span> <br />
+                                                      Verification Code Sent To
+                                                      <span className='font-bold! text-[12px] text-blue-700 underline mx-1'>****@****</span> <br />
                                                       Please Enter The Code Below <br /><br />
-                                                      If You Have Entered An Incorrect Email, Click The Back Button At The Top Of This Page To Make Changes
+                                                      Incorrect Email? Go Back To Make Changes
 
                                                 </p>
                                           </BlockSection>

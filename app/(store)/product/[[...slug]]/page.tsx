@@ -10,7 +10,7 @@ import { ProductObj } from '@/Interface';
 import Products from '@/models/Products';
 import { redirect } from 'next/navigation';
 import HtmlParser from '@/app/components/server/HtmlParser';
-import { generateProductMetadata, getUserFromSession } from '@/app/Helper/server';
+import { generateProductMetadata } from '@/app/Helper/server';
 
 interface Props {
       params: Promise<{ slug: string[] }> | undefined;
@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: Props) {
 
 const ProductDetailsPage = async ({ params }: Props) => {
 
-      const userSession = await getUserFromSession();
+      // const userSession = await getUserFromSession();
 
-      if (!userSession) {
-            redirect('/account/login?authRequired=1');
-      }
+      // if (!userSession) {
+      //       redirect('/account/login?authRequired=1');
+      // }
 
       if (!params) return
 
