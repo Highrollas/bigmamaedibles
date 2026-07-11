@@ -152,7 +152,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
                   <table id='cartItemsTable' className={`table bordered-table table-sm font-bold! mt-5 border-separate rounded-[5px] border-spacing-0 " ${voucherEnabled && " rounded-b-[0px]!"}`}>
 
-                        <thead className='brand-table-head text-center'>
+                        <thead className='bg-[#e21893] text-white text-center'>
                               <tr>
                                     <th className="w-[5%]"></th>
                                     <th className="w-[20%]">Pic</th>
