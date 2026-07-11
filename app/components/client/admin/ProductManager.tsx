@@ -146,7 +146,7 @@ const ProductManager = ({ productObj, setProductObj }: Props) => {
                                                 >
                                                       {/* Delete Button */}
                                                       <div
-                                                            className="absolute top-0 right-0 p-2 brand-panel text-white rounded cursor-pointer"
+                                                            className="absolute top-0 right-0 p-2 bg-[#e21893] text-white rounded cursor-pointer"
                                                             onClick={() => handleDeleteVariation(i)}
                                                             title="Delete"
                                                       >

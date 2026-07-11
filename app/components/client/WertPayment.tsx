@@ -56,7 +56,7 @@ const WertPayment = ({ transactionId }: { transactionId: string }) => {
 
       return (
             <div>
-                  <div className='h-30 brand-panel w-full flex items-center justify-between'>
+                  <div className='h-30 bg-[#e21893] w-full flex items-center justify-between'>
                         <div className='w-[60%]'>
                               <Image width={250} height={200} src='/assets/images/hero-logo.png' alt='Bigmamasedibles' />
                         </div>
@@ -103,12 +103,12 @@ const WertPayment = ({ transactionId }: { transactionId: string }) => {
                         </div>
 
                         <div className='mt-6 flex justify-between sm:justify-around'>
-                              <Link className='btn brand-panel text-white flex items-center justify-center p-7 rounded'
+                              <Link className='btn bg-[#e21893] text-white flex items-center justify-center p-7 rounded'
                                     href='/pay-using-apple-pay-or-bank-card'>
                                     <Image className='h-5 w-4' src='/assets/images/watch-tutorial-icon.png' width={50} height={50} alt='Play Tutorial' />
                                     <span className='ms-2 font-bold!'> Watch Tutorial</span>
                               </Link>
-                              <Link target='_blank' className='btn brand-panel text-white flex items-center justify-center p-7 rounded'
+                              <Link target='_blank' className='btn bg-[#e21893] text-white flex items-center justify-center p-7 rounded'
                                     href={'https://widget.wert.io/01HCKZD4AEX5VG0ETTAXRB31H3/widget/login?commodity=USDT&network=polygon&currency_amount=' + paymentObj.amountEur + '&commodities=%5B%7B%22commodity%22%3A%22USDT%22,%22network%22%3A%22polygon%22%7D%5D&currency=EUR&address=' + paymentObj.address + ' &commodity_id=usdt.erc-20.polygon'}>
                                     <Image className='h-6 w-6' src='/assets/images/pay-now-icon.png' width={50} height={50} alt='Play Tutorial' />
                                     <span className='ms-2 font-bold!'> Pay Now</span>

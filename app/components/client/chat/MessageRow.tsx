@@ -12,7 +12,7 @@ export default function MessageRow({ m, user, isLastOfBlock, isFirstOfBlock, all
                   {allowPFP && (
                         <div className="chat-image avatar flex-shrink-0">
                               {isLastOfBlock ? (
-                                    <div className="w-8 rounded-full brand-panel overflow-hidden">
+                                    <div className="w-8 rounded-full bg-[#e21893] overflow-hidden">
                                           <Image
                                                 width={100}
                                                 height={100}
@@ -27,7 +27,7 @@ export default function MessageRow({ m, user, isLastOfBlock, isFirstOfBlock, all
                   )}
 
                   <div
-                        className={`${isLastOfBlock ? 'chat-bubble' : 'px-[1rem] py-[0.5rem]'} max-w-[80%] rounded-2xl ${isMe ? 'bg-gray-200 text-black' : 'brand-panel text-white'}`}
+                        className={`${isLastOfBlock ? 'chat-bubble' : 'px-[1rem] py-[0.5rem]'} max-w-[80%] rounded-2xl ${isMe ? 'bg-gray-200 text-black' : 'bg-[#e21893] text-white'}`}
                   >
                         {isFirstOfBlock && !isMe && (
                               <div className="flex items-center gap-1 mb-0.5 pe-4 text-[80%] font-bold!">

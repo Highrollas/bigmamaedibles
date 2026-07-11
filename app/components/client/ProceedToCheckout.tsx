@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import UpsellProductList from './UpsellProductList';
+// import UpsellProductList from './UpsellProductList';
 import Link from 'next/link';
 import useCartStore from '@/app/hooks/store/cart';
 import useSessionStore from '@/app/hooks/auth/user';
@@ -16,10 +16,10 @@ interface Props {
 }
 
 
-const ProceedToCheckout = ({ accessories, mixers }: Props) => {
+const ProceedToCheckout = ({ }: Props) => {
 
       const { carts } = useCartStore();
-      const [action, setAction] = useState<action>('checkout');
+      // const [action, setAction] = useState<action>('checkout');
       const [mounted, setMounted] = useState(false);
       const { user } = useSessionStore();
 
@@ -32,8 +32,8 @@ const ProceedToCheckout = ({ accessories, mixers }: Props) => {
       if (carts.length === 0) return null;
 
       const handleSetAction = (a: action) => {
-
-            setAction(a);
+            // setAction(a);
+            console.log(a);
             (document.getElementById('cartUpsellModal') as unknown as { showModal: () => void })?.showModal()
       }
 
@@ -56,8 +56,7 @@ const ProceedToCheckout = ({ accessories, mixers }: Props) => {
                   }
 
                   <div className=''>
-                        <button onClick={() => handleSetAction('checkout')}
-                              className='btn'>
+                        <Link href='/checkout' className='btn'>
                               {user ?
                                     <div className='flex items-center justify-around gap-3'>
                                           <Image src="/assets/images/user-white.png" alt="proceed as user" width={20} height={20} />
@@ -68,22 +67,22 @@ const ProceedToCheckout = ({ accessories, mixers }: Props) => {
                                     </div>
                                     :
                                     <div className='flex items-center justify-around gap-3'>
-                                          <Image src="/assets/images/logo-white-2.png" alt="proceed as guest" width={23} height={23} />
+                                          <Image src="/assets/images/logo-white.png" alt="proceed as guest" width={23} height={23} />
                                           <div>
                                                 Guest
                                           </div>
                                           <div>→</div>
                                     </div>
                               }
-                        </button>
+                        </Link>
                   </div>
-
+                  {/* 
                   <dialog id="cartUpsellModal" className="modal modal-middle flex justify-center" onClick={e => {
                         // Only close if the user clicked the overlay, not the modal content
                         if (e.target === e.currentTarget) (e.currentTarget as HTMLDialogElement).close();
                   }}>
                         <div className="modal-box p-2 min-w-[80%] w-[80%] sm:min-w-[50%] sm:w-[50%]">
-                              <div className='brand-panel border-3 brand-border rounded-[5px]'>
+                              <div className='bg-[#e21893] border-3 brand-border rounded-[5px]'>
                                     <div className='py-3 w-full text-center rounded-[5px] text-white font-bold!'>
                                           Forgot Something?
                                     </div>
@@ -100,7 +99,7 @@ const ProceedToCheckout = ({ accessories, mixers }: Props) => {
                                     </div>
                               </div>
                         </div>
-                  </dialog>
+                  </dialog> */}
             </div>
       )
 }

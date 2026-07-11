@@ -17,7 +17,7 @@ const TrustpilotWidget = () => {
 
       return (
             <div
-                  className="trustpilot-widget brand-panel"
+                  className="trustpilot-widget bg-[#e21893]"
                   data-locale="en-GB"
                   data-template-id="56278e9abfbbba0bdcd568bc"
                   data-businessunit-id="64852503bdcb3cc9a772228c"

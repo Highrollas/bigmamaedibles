@@ -77,7 +77,7 @@ const ScammersListPage = () => {
 
                                     <div
                                           onClick={() => setShowTipsModal(false)}
-                                          className="absolute top-3 right-3 h-9 w-9 brand-panel rounded flex items-center justify-center"
+                                          className="absolute top-3 right-3 h-9 w-9 bg-[#e21893] rounded flex items-center justify-center"
                                     >
                                           <X className="h-5 w-5 text-white" />
                                     </div>

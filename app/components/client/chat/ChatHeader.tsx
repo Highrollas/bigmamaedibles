@@ -15,7 +15,7 @@ export default function ChatHeader({ chat, closeRoom }: ChatHeaderProps) {
       const { setShowChatInfo } = useChatsStore();
 
       return (
-            <div className="brand-panel text-white flex items-center gap-2 h-[9dvh] sm:h-[12dvh] px-3 cursor-pointer">
+            <div className="bg-[#e21893] text-white flex items-center gap-2 h-[9dvh] sm:h-[12dvh] px-3 cursor-pointer">
                   <div onClick={closeRoom} className="w-10 ps-2 cursor-pointer">
                         <ChevronLeft className="sm:hidden" />
                   </div>

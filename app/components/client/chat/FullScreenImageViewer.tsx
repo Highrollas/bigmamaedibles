@@ -67,7 +67,7 @@ const FullScreenImageViewer: React.FC = () => {
 
       return (
             <div
-                  className="fixed inset-0 brand-panel z-[999999] flex flex-col"
+                  className="fixed inset-0 bg-[#e21893] z-[999999] flex flex-col"
                   onClick={() => setFullscreenImage(null)}
             >
                   {/* Top Bar */}
@@ -123,7 +123,7 @@ const FullScreenImageViewer: React.FC = () => {
                   </div>
 
                   {/* Thumbnails */}
-                  <div ref={thumbsRef} className="w-full overflow-x-auto flex gap-2 p-2 pb-8 brand-panel">
+                  <div ref={thumbsRef} className="w-full overflow-x-auto flex gap-2 p-2 pb-8 bg-[#e21893]">
                         {mediaMessages?.map((m, i) => (
                               <Image
                                     key={m.id}

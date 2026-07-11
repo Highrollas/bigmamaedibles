@@ -46,7 +46,7 @@ const BlogPage = async ({ searchParams }: Props) => {
                                           key={blog._id.toString()}
                                           className="w-[100%] sm:w-[32%] lg:w-[24%] mb-5"
                                     >
-                                          <div className="card brand-border-secondary border-3 rounded-md">
+                                          <div className="card border-[#e21893] border-3 rounded-md">
                                                 <Link href={`/blog/${blog.slug}`}>
                                                       <Image
                                                             src={blog.coverImage || '/assets/images/notFoundImage.jpg'}
@@ -80,14 +80,14 @@ const BlogPage = async ({ searchParams }: Props) => {
                         {/* Pagination */}
                         {totalPages > 1 && (
                               <div className='w-full flex justify-center'>
-                                    <div className="brand-panel-secondary flex justify-center mb-2 border-[3px] gap-[2.5px] brand-border-secondary rounded-[6px] w-fit">
+                                    <div className="bg-[#e21893] flex justify-center mb-2 border-[3px] gap-[2.5px] border-[#e21893] rounded-[6px] w-fit">
                                           {[...Array(totalPages)].map((_, i) => {
                                                 const pageNum = i + 1;
                                                 return (
                                                       <Link
                                                             key={pageNum}
                                                             href={`/blog?page=${pageNum}`}
-                                                            className={`px-3 py-2 font-bold! flex justify-center items-center w-[40px] ${pageNum === currentPage ? 'brand-panel text-white' : 'bg-white text-black'} ${pageNum == 1 ? 'rounded-s-[4px]' : pageNum == totalPages ? 'rounded-e-[4px]' : ''}`}
+                                                            className={`px-3 py-2 font-bold! flex justify-center items-center w-[40px] ${pageNum === currentPage ? 'bg-[#e21893] text-white' : 'bg-white text-black'} ${pageNum == 1 ? 'rounded-s-[4px]' : pageNum == totalPages ? 'rounded-e-[4px]' : ''}`}
                                                       >
                                                             {pageNum}
                                                       </Link>

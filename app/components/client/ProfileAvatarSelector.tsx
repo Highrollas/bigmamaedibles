@@ -30,7 +30,7 @@ const ProfileAvatarSelector = ({ selectedAvatarAlias, setSelectedAvater }: Props
                                           <div key={a.alias} className='border-3 brand-border relative h-[100px] flex justify-center items-end cursor-pointer rounded-[8px] overflow-hidden bg-white'
                                                 onClick={() => setSelectedAvater(a.alias)}>
                                                 <Image src={a.imageUrl} width={250} height={250} alt={a.name} className='h-[80px] w-[80px]' />
-                                                <div className='brand-panel absolute top-[-1px] left-[-1px] text-white text-[60%] px-2 leading-[15px]! font-[550]! text-center'>{a.name}</div>
+                                                <div className='bg-[#e21893] absolute top-[-1px] left-[-1px] text-white text-[60%] px-2 leading-[15px]! font-[550]! text-center'>{a.name}</div>
                                           </div>
                                     )
                               }

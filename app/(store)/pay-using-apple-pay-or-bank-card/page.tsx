@@ -28,7 +28,7 @@ const HowToPayWithApplePayOrBankCard = () => {
 
                         <div className="relative border-[3.5px] border-[#e21893] rounded">
 
-                              <div className="max-w-[60%] rounded-br-[5px] text-center brand-panel flex justify-center h-[32px] items-center">
+                              <div className="max-w-[60%] rounded-br-[5px] text-center bg-[#e21893] flex justify-center h-[32px] items-center">
                                     <Image width={250} height={250} alt="Apple Pay Or Bank Card" src={gatewayObj.image}
                                           className="w-[80%] sm:w-[50%] max-h-[90%] me-[8px]!" />
                               </div>

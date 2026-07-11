@@ -145,7 +145,7 @@ export default function ChatMessages({
                         {chat?.allowPFP && (
                               <div className="chat-image avatar flex-shrink-0">
                                     {isLastOfBlock ? (
-                                          <div className="w-8 rounded-full brand-panel overflow-hidden">
+                                          <div className="w-8 rounded-full bg-[#e21893] overflow-hidden">
                                                 <Image
                                                       width={100}
                                                       height={100}
@@ -161,7 +161,7 @@ export default function ChatMessages({
 
 
                         <div
-                              className={`relative break-word max-w-[80%] min-w-[10px] rounded-2xl ${m.type === 'media' ? 'p-[0.3rem]' : 'p-[0.5rem]'} ${isLastOfBlock ? 'chat-bubble' : ''} ${isMe ? 'bg-gray-200 text-black' : 'brand-panel text-white'} cursor-pointer select-none`}
+                              className={`relative break-word max-w-[80%] min-w-[10px] rounded-2xl ${m.type === 'media' ? 'p-[0.3rem]' : 'p-[0.5rem]'} ${isLastOfBlock ? 'chat-bubble' : ''} ${isMe ? 'bg-gray-200 text-black' : 'bg-[#e21893] text-white'} cursor-pointer select-none`}
                               onTouchStart={(e) => handleHoldStart(e, m.id || `${i}`, isMe, m)}
                               onTouchEnd={handleHoldEnd}
                               onTouchMove={() => {
@@ -246,7 +246,7 @@ export default function ChatMessages({
                   return (
                         <div key={dateKey} className="relative">
                               <div className="flex justify-center my-3">
-                                    <span className="text-xs brand-panel text-white font-bold px-4 py-1 rounded-full">
+                                    <span className="text-xs bg-[#e21893] text-white font-bold px-4 py-1 rounded-full">
                                           {label}
                                     </span>
                               </div>
@@ -320,7 +320,7 @@ export default function ChatMessages({
                               <div className={`flex flex-col  ${isMe ? 'items-end' : 'items-start'} gap-3 animate-in zoom-in-95 duration-200 w-full`}>
                                     {/* Held Message Display */}
                                     <div className="rounded-3xl shadow-2xl min-w-fit max-w-[80%]">
-                                          <div className={`rounded-2xl ${contextMenu.message?.sender?.username === user?.username ? 'bg-gray-200 text-black' : 'brand-panel text-white'} p-4 max-w-xs`}>
+                                          <div className={`rounded-2xl ${contextMenu.message?.sender?.username === user?.username ? 'bg-gray-200 text-black' : 'bg-[#e21893] text-white'} p-4 max-w-xs`}>
                                                 {contextMenu.message.type === 'media' ? (
                                                       <div>
                                                             <Image

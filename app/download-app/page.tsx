@@ -41,7 +41,7 @@ const DonwloadAppPage = () => {
                                     <div className="text-[8px] font-bold!">iPhone / Android</div>
                               </div>
 
-                              <div className="mx-4 border-l-[3px] brand-border brand-panel h-8"></div>
+                              <div className="mx-4 border-l-[3px] brand-border bg-[#e21893] h-8"></div>
 
                               <div className="text-center">
                                     <div className="text-[10px] font-bold!"> Size </div>
@@ -49,7 +49,7 @@ const DonwloadAppPage = () => {
                                     <div className="text-[8px] font-bold!">MB</div>
                               </div>
 
-                              <div className="mx-4 border-l-[3px] brand-border brand-panel h-8"></div>
+                              <div className="mx-4 border-l-[3px] brand-border bg-[#e21893] h-8"></div>
 
                               <div className="text-center">
                                     <div className="text-[10px] font-bold!"> Language </div>
@@ -57,7 +57,7 @@ const DonwloadAppPage = () => {
                                     <div className="text-[8px] font-bold!">English</div>
                               </div>
 
-                              <div className="mx-4 border-l-[3px] brand-border brand-panel h-8"></div>
+                              <div className="mx-4 border-l-[3px] brand-border bg-[#e21893] h-8"></div>
 
                               <div className="text-center">
                                     <div className="text-[10px] font-bold!"> Developer </div>

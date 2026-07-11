@@ -34,7 +34,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
       const { user } = useSessionStore();
       const { setModalMessage } = useAlertStore();
       const [couponLoading, setCouponLoading] = useState(false);
-      const [couponUsed, setCouponUsed] = useState(false);
+      // const [couponUsed, setCouponUsed] = useState(false);
 
       const applyVoucher = React.useCallback(async (_coupon: string | null = null, silent = false) => {
 
@@ -166,7 +166,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
                               {
                                     carts.map((c, i) =>
-                                          <tr key={i} className='text-center'>
+                                          <tr key={i} className='text-center text-[#e21893]'>
                                                 <th onClick={() => remove(c.id)} className='text-2xl cursor-pointer'>×</th>
                                                 <td>
                                                       <FallbackImage height={250} width={250} className='w-[60px] h-auto  mx-auto' src={c.productObj.images[0]} alt={c.productObj.name} />

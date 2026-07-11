@@ -17,7 +17,7 @@ const ImageSlider = ({ itemsLength, activeIndex = 0, onIndexChange }: Props) => 
                         <button          // 👈 button instead of <a href>, no anchor jump
                               key={index}
                               onClick={() => onIndexChange?.(index)}
-                              className={`rounded-full! p-3! h-[15px] w-[15px] brand-panel transition-opacity duration-300 ${activeIndex === index ? 'opacity-100' : 'opacity-25'
+                              className={`rounded-full! p-3! h-[15px] w-[15px] bg-[#e21893] transition-opacity duration-300 ${activeIndex === index ? 'opacity-100' : 'opacity-25'
                                     }`}
                         />
                   ))}

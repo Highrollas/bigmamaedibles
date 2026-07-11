@@ -57,7 +57,7 @@ const ProductImages = ({
                                     <Image src={img} alt={`image-${i}`} height={75} width={75} />
                                     <div
                                           onClick={() => handleDelete(i)}
-                                          className="absolute brand-panel top-0 right-0 text-white text-xs p-1 rounded-bl"
+                                          className="absolute bg-[#e21893] top-0 right-0 text-white text-xs p-1 rounded-bl"
                                     >
                                           <X size={12} />
                                     </div>

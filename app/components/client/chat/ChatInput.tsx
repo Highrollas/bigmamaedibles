@@ -39,7 +39,7 @@ export default function ChatInput({
 
       return (
             <div className='fixed bottom-0 left-0 right-0'>
-                  <div className={`relative brand-panel px-2 py-3 ${keyboardOpen ? '' : 'pb-6'} sm:px-5`}>
+                  <div className={`relative bg-[#e21893] px-2 py-3 ${keyboardOpen ? '' : 'pb-6'} sm:px-5`}>
                         {/* Reply Preview Bar */}
                         {replyingTo && (
                               <div className="mb-2 bg-gray-800 rounded-lg px-3 py-2 flex items-center justify-between">

@@ -149,7 +149,7 @@ export default function ChatRoom() {
 
       return (
 
-            <div {...swipeHandlers} className="flex flex-col h-100dvh overflow-y-hidden brand-panel">
+            <div {...swipeHandlers} className="flex flex-col h-100dvh overflow-y-hidden bg-[#e21893]">
 
                   <ChatHeader chat={chat} closeRoom={closeRoom} />
 
@@ -211,9 +211,9 @@ export default function ChatRoom() {
 
                   {pendingMedia && (
                         <div className="fixed inset-0 z-[200] bg-white flex flex-col">
-                              <div className="flex items-center brand-panel justify-between p-4 text-white/95">
+                              <div className="flex items-center bg-[#e21893] justify-between p-4 text-white/95">
                                     <div
-                                          className="p-1 h-12 w-12 flex justify-center items-center rounded-full brand-panel"
+                                          className="p-1 h-12 w-12 flex justify-center items-center rounded-full bg-[#e21893]"
                                           onClick={() => closePendingMedia()}
                                     >
                                           <X className="w-8 h-8" />
@@ -231,7 +231,7 @@ export default function ChatRoom() {
                                     />
                               </div>
 
-                              <div className="absolute bottom-0 left-0 right-0 brand-panel pt-5 pb-8 px-5 flex items-center">
+                              <div className="absolute bottom-0 left-0 right-0 bg-[#e21893] pt-5 pb-8 px-5 flex items-center">
 
                                     <div className="w-[85%] sm:w-[80%] flex items-end">
                                           <textarea

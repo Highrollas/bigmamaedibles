@@ -19,9 +19,9 @@ const PaymentMethod = () => {
                         </div>
 
 
-                        <div className="relative border-[3.5px] brand-border-secondary rounded w-[90%]">
+                        <div className="relative border-[3.5px] border-[#e21893] rounded w-[90%]">
 
-                              <div className="brand-panel-secondary max-w-[60%] rounded-br-[5px] text-center flex justify-center h-[32px] items-center">
+                              <div className="bg-[#e21893] max-w-[60%] rounded-br-[5px] text-center flex justify-center h-[32px] items-center">
                                     <Image width={250} height={250} alt="Apple Pay Or Bank Card" src={p.image}
                                           className="w-[80%] sm:w-[50%] max-h-[90%] me-[8px]!" />
                               </div>
@@ -34,7 +34,7 @@ const PaymentMethod = () => {
                                     {/* <div className='font-bold! text-[70%] text-red-600' key={i}>– {p.fee}</div> */}
 
                                     <Link title={p.name} href={p.tutorialLink!}
-                                          className="brand-panel absolute bottom-[-1px] right-[-1px] h-[30px] text-white px-[10px] font-bold! text-[85%] rounded-tl-[5px] flex items-center justify-center">
+                                          className="bg-[#e21893] absolute bottom-[-1px] right-[-1px] h-[30px] text-white px-[10px] font-bold! text-[85%] rounded-tl-[5px] flex items-center justify-center">
                                           <Image width={250} height={250} alt='Watch Tutorial' src="/assets/images/watch-tutorial-icon.png"
                                                 className="h-[13px] w-auto me-[8px]!" />
                                           <span className="mt-[3px] font-bold!  text-[80%]">Watch Tutorial</span>

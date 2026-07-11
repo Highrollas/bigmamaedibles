@@ -180,7 +180,7 @@ const BchPayment = ({ transactionId, alias }: { transactionId: string; alias: st
 
                                           <div className='flex justify-between bg-[#0ac18e] items-center p-3'>
                                                 <div className='w-[20%]'>
-                                                      <button className='btn brand-panel text-white py-0! px-4! text-[80%]! brand-border scale-70'
+                                                      <button className='btn bg-[#e21893] text-white py-0! px-4! text-[80%]! brand-border scale-70'
                                                             onClick={() => copyToClipboard(paymentObj.address, "Address Copied")}>Copy</button>
                                                 </div>
                                                 <div className='w-[80%] text-[75%] text-center text-black'>
@@ -193,7 +193,7 @@ const BchPayment = ({ transactionId, alias }: { transactionId: string; alias: st
                                                 <div className='flex items-center'>
                                                       <div className='ms-2'>
                                                             <div className='font-[550]!'>
-                                                                  <button className='btn brand-panel text-white py-0! px-4! text-[80%]! brand-border scale-70'
+                                                                  <button className='btn bg-[#e21893] text-white py-0! px-4! text-[80%]! brand-border scale-70'
                                                                         onClick={() => copyToClipboard(paymentObj.amountCrypto, "Amount Copied")}>
                                                                         Copy
                                                                   </button>

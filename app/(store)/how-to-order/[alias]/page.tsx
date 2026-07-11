@@ -164,7 +164,7 @@ const PaymentTutorialPage = ({ params }: PageProps) => {
                         showPopup && currentPopups.length > 0 && (
                               <div className="fixed bg-white inset-0 h-screen w-full bg-opacity-75 flex pt-6 justify-center z-[99999999999999] p-4">
                                     <div
-                                          className="brand-panel rounded-lg max-w-4xl w-full overflow-hidden relative"
+                                          className="bg-[#e21893] rounded-lg max-w-4xl w-full overflow-hidden relative"
                                           onTouchStart={handleTouchStart}
                                           onTouchEnd={handleTouchEnd}
                                     >
@@ -178,7 +178,7 @@ const PaymentTutorialPage = ({ params }: PageProps) => {
                                           </div>
 
                                           {/* Header */}
-                                          <div className="brand-panel p-4 border-b">
+                                          <div className="bg-[#e21893] p-4 border-b">
                                                 <h2 className="text-xl font-bold text-center text-white">{popupTitle}</h2>
                                           </div>
 

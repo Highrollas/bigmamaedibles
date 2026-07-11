@@ -63,7 +63,7 @@ const EmailContactForm = () => {
                   </div>
 
 
-                  {formObj.formSubmitted && <div className='p-3 brand-panel text-white mt-10 text-center'>Thanks for contacting us! We will be in touch with you shortly.</div>}
+                  {formObj.formSubmitted && <div className='p-3 bg-[#e21893] text-white mt-10 text-center'>Thanks for contacting us! We will be in touch with you shortly.</div>}
 
 
                   {!formObj.formSubmitted &&

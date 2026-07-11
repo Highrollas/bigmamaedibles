@@ -154,7 +154,7 @@ const BillingAddress = ({ billingObj, setBillingObj, showNickname = false, hideE
                   </div>
 
                   <div className='mt-5'>
-                        <div className='brand-panel-secondary w-fit text-white px-3 text-[9px] font-[550]! tracking-[1px] rounded leading-[25px]!'>Select Your Country</div>
+                        <div className='bg-[#e21893] w-fit text-white px-3 text-[9px] font-[550]! tracking-[1px] rounded leading-[25px]!'>Select Your Country</div>
                   </div>
 
                   <div className='flex justify-between flex-wrap'>
