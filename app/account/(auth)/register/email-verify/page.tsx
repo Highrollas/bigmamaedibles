@@ -68,7 +68,7 @@ const EmailVerifyPage = () => {
                                                       Verification Code Sent To
                                                       <span className='font-bold! text-[12px] text-blue-700 mx-1'>{registrationObj.email}</span> <br />
                                                       Please Enter The Code Below <br /><br />
-                                                      Incorrect Email? Go Back To Make Change
+                                                      Incorrect Email? Go Back To Make Changes
 
                                                 </p>
                                           </BlockSection>
