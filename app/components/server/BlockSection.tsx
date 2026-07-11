@@ -15,7 +15,7 @@ const BlockSection = ({ children, imageUrl, title }: BlockSectionProps) => {
                         <div className="w-[100%] sm:w-[50%]">
                               <FallbackImage height={1000} width={1000} className='w-[101%] rounded-tr-[5px] rounded-tl-[5px] sm:rounded-tr-[0px] sm:rounded-l-[5px]' src={imageUrl} alt={title} />
                         </div>
-                        <div className="w-[100%] sm:w-[50%] flex justify-center flex-col rounded-b-[3px]  sm:rounded-bl-[0px] sm:rounded-tr-[3px] text-center px-5 sm:px-12 text-[16px]! bg-white">
+                        <div className="w-[100%] sm:w-[50%] flex justify-center flex-col rounded-b-[3px]  sm:rounded-bl-[0px] sm:rounded-tr-[3px] text-center px-1 sm:px-12 text-[16px]! bg-white">
                               {children}
                         </div>
                   </div >

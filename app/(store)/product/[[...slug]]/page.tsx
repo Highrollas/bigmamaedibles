@@ -84,7 +84,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
 
                               {productObj.stockQty < 1 && productObj.productType === "Single" && <p className='text-red-600 text-center my-[30px] font-bold!'>Out Of Stock</p>}
 
-                              <div className="text-center">
+                              <div className="text-center mt-3">
                                     <HtmlParser text={productObj.shortDescription || ""} />
                               </div>
 

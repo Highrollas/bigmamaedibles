@@ -39,15 +39,15 @@ const UsernameReminderPage = () => {
 
                   <div className='w-full'>
 
-                        <div className="mb-5">
-                              <Image src="/assets/images/username-reminder.png" className='mx-auto' height={120} width={120} alt='user image' />
+                        <div className="mb-5 w-[75%] sm:w-[50%] mx-auto">
+                              <Image src="/assets/images/username-reminder-ed.png" className='mx-auto w-full h-auto' height={1200} width={1200} alt='user image' />
                         </div>
 
                         <AlertMessage2 />
 
                         <div className="w-[75%] sm:w-[50%] mx-auto">
                               <div className='mt-5'>
-                                    <LabelInput label='Email' type='text' pre={<MailIcon />} value={email}
+                                    <LabelInput label='Email' type='text' value={email}
                                           onChange={(v) => setEmail(v)} />
                               </div>
 

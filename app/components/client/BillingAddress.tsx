@@ -198,7 +198,7 @@ const BillingAddress = ({ billingObj, setBillingObj, showNickname = false, hideE
                         {addressSelected &&
                               <>
                                     <div className="w-[100%] mt-5">
-                                          <LabelInput value={billingObj.addressObj.street} type='text' label='House Number And Steet Address'
+                                          <LabelInput value={billingObj.addressObj.street} type='text' label='House / Flat Number & Street Address'
                                                 onChange={(v) => setBillingObj(d => { d.addressObj.street = v })} />
                                     </div>
 

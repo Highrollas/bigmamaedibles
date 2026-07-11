@@ -144,7 +144,7 @@ const CheckoutPage = () => {
                               <div className='flex items-center'>
                                     <input readOnly checked={checkoutObj.termsAndCondtionAccepted} className='h-4 w-4' type="checkbox" />
                               </div>
-                              <p> I Have Read And Agreed To The <Link className="text-blue-700 underline" href="/terms-and-conditions">T&C</Link> </p>
+                              <p> I Have Read And Agreed To The <Link className="text-blue-700 underline text-bold!" href="/terms-and-conditions">T&C</Link> </p>
                         </div>
                   </div>
 

@@ -89,12 +89,12 @@ export const MENU_CATEGORIES = [
       {
             emoji: "🫨",
             name: "500mg",
-            slug: "500mg",
+            slug: "edibles-500mg",
       },
       {
             emoji: "🫠",
             name: "1000mg",
-            slug: "1000mg",
+            slug: "edibles-1000mg",
       },
       {
             emoji: "🥣",
