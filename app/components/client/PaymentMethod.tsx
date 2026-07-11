@@ -26,7 +26,7 @@ const PaymentMethod = () => {
                                           className="w-[80%] sm:w-[50%] max-h-[90%] me-[8px]!" />
                               </div>
 
-                              <div className="p-3 gateway-text">
+                              <div className="p-3">
 
                                     <div className='font-bold! text-[70%] mb-7'>
                                           Watch Our <Link className='text-blue-700 underline' href="/how-to-order">Tutorials</Link> To Learn How To Pay For Your Order Using Bitcoin Cash (BCH)

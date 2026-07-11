@@ -62,12 +62,6 @@ const LoginPage = () => {
 
             <div className='h-screen w-full bg-auth'>
 
-                  <div className='h-[7dvh] w-full flex items-end absolute'>
-                        <div className="flex justify-between mt-0 px-5">
-                              <button type="button" onClick={() => router.back()} className="btn bg-[#e21893] text-white px-3! py-1!"> <ChevronLeft className='mr-[1px]' size={20} color='white' /></button>
-                        </div>
-                  </div>
-
                   {showAuthRequiredModal && (
                         <div className="fixed inset-0 z-[9999999999999999] bg-[#e21893]/40 flex items-center justify-center px-3">
                               <div className="w-full max-w-[420px] rounded-[22px] bg-[#efefef] p-5 text-center relative" style={{ zoom: .9 }}>

@@ -211,19 +211,19 @@ export const TEMPLATE_MAP: Record<string, { template: string; subject: string }>
 export const SHIPPING_COUNTRIES: ShippingCountriesObj[] = [
       {
             name: "England",
-            imageUrl: "/assets/images/england-icon.png",
+            imageUrl: "/assets/images/england-icon-ed.png",
       },
       {
             name: "Scotland",
-            imageUrl: "/assets/images/scotland-icon.png",
+            imageUrl: "/assets/images/scotland-icon-ed.png",
       },
       {
             name: "Wales",
-            imageUrl: "/assets/images/wales-icon.png",
+            imageUrl: "/assets/images/wales-icon-ed.png",
       },
       {
             name: "Nothern Ireland",
-            imageUrl: "/assets/images/nothern-ireland-icon.png",
+            imageUrl: "/assets/images/nothern-ireland-icon-ed.png",
       },
 ];
 

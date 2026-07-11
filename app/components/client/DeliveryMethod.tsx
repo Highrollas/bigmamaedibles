@@ -120,7 +120,7 @@ const DeliveryMethod = () => {
       return (
 
             <div className='w-full'>
-                  <table id='deliveryMethod' className={`table bordered-table table-sm font-bold!  border-separate rounded-[5px] border-spacing-0 ${cartTotal > 50 && "rounded-b-[0px]!"}`}>
+                  <table id='deliveryMethod' className={`table bordered-table table-sm font-bold! text-[70%] border-separate rounded-[5px] border-spacing-0 ${cartTotal > 50 && "rounded-b-[0px]!"}`}>
                         <tbody>
 
                               <tr>

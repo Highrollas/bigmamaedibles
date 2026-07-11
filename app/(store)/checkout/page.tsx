@@ -14,6 +14,7 @@ import useSessionStore from '@/app/hooks/auth/user';
 import DefaultAddress from '@/app/components/client/DefaultAddress';
 import APIClient from '@/app/services/apiClient';
 import useAlertStore from '@/app/hooks/store/alert';
+import Link from 'next/link';
 
 interface CheckoutResp {
       status: "success" | "failed";
@@ -143,7 +144,7 @@ const CheckoutPage = () => {
                               <div className='flex items-center'>
                                     <input readOnly checked={checkoutObj.termsAndCondtionAccepted} className='h-4 w-4' type="checkbox" />
                               </div>
-                              <p> I Have Read And Agreed To The T&C</p>
+                              <p> I Have Read And Agreed To The <Link className="text-blue-700 underline" href="/terms-and-conditions">T&C</Link> </p>
                         </div>
                   </div>
 

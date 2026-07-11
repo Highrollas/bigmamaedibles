@@ -24,7 +24,7 @@ const CountrySelectBtn = ({ imageUrl, label, onClick, selectedCountry, handleUns
                         selectedCountry === label &&
                         <div className="absolute top-[-10px] right-[-25px]"
                               onClick={() => handleUnselect ? handleUnselect() : null} >
-                              {<XIcon color="black" size={17} strokeWidth={4} />}
+                              {<XIcon className="text-[#e21893]" size={17} strokeWidth={4} />}
                         </div>
                   }
             </div>

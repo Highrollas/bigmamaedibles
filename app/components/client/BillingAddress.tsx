@@ -143,6 +143,13 @@ const BillingAddress = ({ billingObj, setBillingObj, showNickname = false, hideE
                               </div>
                         }
 
+                        {!hideEmail &&
+                              <div className="w-[100%] mt-5">
+                                    <LabelInput value={billingObj.email} type='text' label='Email Address'
+                                          onChange={(v) => setBillingObj(d => { d.email = v })} />
+                              </div>
+                        }
+
                         <div className="w-[49%] mt-5">
                               <LabelInput value={billingObj.firstName} type='string' label='First Name'
                                     onChange={(v) => setBillingObj(d => { d.firstName = v })} />
@@ -186,6 +193,23 @@ const BillingAddress = ({ billingObj, setBillingObj, showNickname = false, hideE
                                           }}
                                     />
                               </div>
+                        }
+
+                        {addressSelected &&
+                              <>
+                                    <div className="w-[100%] mt-5">
+                                          <LabelInput value={billingObj.addressObj.street} type='text' label='House Number And Steet Address'
+                                                onChange={(v) => setBillingObj(d => { d.addressObj.street = v })} />
+                                    </div>
+
+
+                                    <div className="w-[100%] mt-5">
+                                          <LabelInput value={billingObj.addressObj.city} type='text' label='City  / Town'
+                                                onChange={(v) => setBillingObj(d => { d.addressObj.city = v })} />
+                                    </div>
+
+                              </>
+
                         }
 
                         {selectedCountry &&
@@ -233,29 +257,7 @@ const BillingAddress = ({ billingObj, setBillingObj, showNickname = false, hideE
                         } */}
 
 
-                        {addressSelected &&
-                              <>
-                                    <div className="w-[100%] mt-5">
-                                          <LabelInput value={billingObj.addressObj.street} type='text' label='House Number And Steet Address'
-                                                onChange={(v) => setBillingObj(d => { d.addressObj.street = v })} />
-                                    </div>
 
-
-                                    <div className="w-[100%] mt-5">
-                                          <LabelInput value={billingObj.addressObj.city} type='text' label='City  / Town'
-                                                onChange={(v) => setBillingObj(d => { d.addressObj.city = v })} />
-                                    </div>
-
-                                    {!hideEmail &&
-                                          <div className="w-[100%] mt-5">
-                                                <LabelInput value={billingObj.email} type='text' label='Email Address'
-                                                      onChange={(v) => setBillingObj(d => { d.email = v })} />
-                                          </div>
-                                    }
-
-                              </>
-
-                        }
 
                   </div>
             </>
