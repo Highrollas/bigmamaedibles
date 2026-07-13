@@ -65,6 +65,14 @@ button,
       zoom: 0.8;
       box-shadow: none !important;
       --btn-shadow: none !important;
+      border: none !important;
+}
+
+.btn:not(.btn-outline) {
+      --btn-border: transparent !important;
+      --btn-shadow: 0 0 #0000 !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
 }
 
 .btn.btn-outline {

@@ -55,7 +55,7 @@ const UsernameReminderPage = () => {
                                           <BlockSection title="How To Order" imageUrl="/assets/images/username-reminder-ed.png">
                                                 <Heading >Username Reminder</Heading>
                                                 <p className="pb-5 text-center font-bold! text-[12px]">
-                                                      Kindly Enter Email Address Associated With Your Account To Receive Your Username
+                                                      Enter Email Address Associated With Your Account To Receive Your Username
                                                 </p>
                                           </BlockSection>
                                     </div>

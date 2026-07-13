@@ -112,6 +112,16 @@ const CheckoutPage = () => {
                         <CartItemList voucherEnabled={true} />
                   </div>
 
+                  <div className='flex justify-center items-center gap-2 mt-12 mb-8'>
+                        <h3 className='text-[20px] sm:text-2xl'>
+                              🚚 Delivery Method
+                        </h3>
+                  </div>
+
+                  <DeliveryMethod />
+
+                  <div></div>
+
 
                   {checkoutObj.finalTotal! > 0 &&
                         <>

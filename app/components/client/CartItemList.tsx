@@ -212,7 +212,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                         </tbody>
                   </table>
                   {voucherEnabled &&
-                        <div className="brand-strip text-white p-3 flex justify-between rounded-b-[5px]">
+                        <div className="bg-[#e21893] text-white p-3 flex justify-between rounded-b-[5px]">
 
                               {useVoucherState &&
 
@@ -238,7 +238,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                               {(!useVoucherState && !useBalanceState) &&
 
                                     <div onClick={() => setUseVoucherState(true)} className="flex items-center cursor-pointer">
-                                          <Image className='h-[21px] w-auto me-3' width={250} height={250} alt='voucher icon' src="/assets/images/voucher-icon.png" />
+                                          <Image className='h-[21px] w-auto me-3 bg-[#e21893]' width={250} height={250} alt='voucher icon' src="/assets/images/voucher-icon.png" />
                                           <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Voucher</div>
                                     </div>
 

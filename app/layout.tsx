@@ -68,7 +68,7 @@ export default function RootLayout({
                         </ErrorBoundary>
 
 
-                        <Script id="prevent-zoom" strategy="afterInteractive">
+                        {/* <Script id="prevent-zoom" strategy="afterInteractive">
                               {`
                                     document.addEventListener("keydown", function(event) {
                                     if (event.ctrlKey && (
@@ -101,7 +101,7 @@ export default function RootLayout({
                                           e.preventDefault();
                                     });
                               `}
-                        </Script>
+                        </Script> */}
 
                   </body>
             </html>
