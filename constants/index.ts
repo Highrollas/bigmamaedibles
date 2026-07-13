@@ -229,7 +229,7 @@ export const SHIPPING_COUNTRIES: ShippingCountriesObj[] = [
 
 export const DELIVERY_METHODS: DeliveryMethodObj[] = [
       {
-            name: "24hrs £5",
+            name: "24hrs Delivery",
             alias: "24hrs-delivery",
             fee: 5,
             minOrderAmount: 1,

@@ -13,6 +13,7 @@ import useSessionStore from '@/app/hooks/auth/user';
 import { scrollIntoViewById } from '@/app/Helper';
 import useAlertStore from '@/app/hooks/store/alert';
 import Link from 'next/link';
+import DeliveryMethod from './DeliveryMethod';
 
 
 interface fetchCouponResp {
@@ -150,7 +151,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
             <div>
 
-                  <table id='cartItemsTable' className={`table bordered-table table-sm font-bold! mt-5 border-separate rounded-[5px] border-spacing-0 " ${voucherEnabled && " rounded-b-[0px]!"}`}>
+                  <table id='cartItemsTable' className={`table bordered-table table-sm font-bold! mt-5 border-separate rounded-[5px] border-spacing-0 border-b-0! " ${voucherEnabled && " rounded-b-[0px]!"}`}>
 
                         <thead className='bg-[#e21893] text-white text-center'>
                               <tr>
@@ -206,11 +207,18 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                                                 <td>{c.cartQty}</td>
                                                 <td>{CURRENCY_SYMBOL}{c.cartQty * (c.productType === "Bundles" ? c.bundleVariation!.price : c.productObj.price)}</td>
                                           </tr>
+
+
                                     )
                               }
 
+                              <DeliveryMethod />
+
                         </tbody>
                   </table>
+
+
+
                   {voucherEnabled &&
                         <div className="bg-[#e21893] text-white p-3 flex justify-between rounded-b-[5px]">
 
@@ -241,7 +249,6 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                                           <Image className='h-[21px] w-auto me-3 bg-[#e21893]' width={250} height={250} alt='voucher icon' src="/assets/images/voucher-icon.png" />
                                           <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Voucher</div>
                                     </div>
-
                               }
 
                               {useBalanceState &&

@@ -395,6 +395,10 @@ select:focus {
 }
 
 
+.table.no-radius {
+      border-radius: 0px !important;
+}
+
 .table-sm :not(thead, tfoot) tr {
       font-size: inherit !important;
 }

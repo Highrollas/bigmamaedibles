@@ -119,94 +119,99 @@ const DeliveryMethod = () => {
 
       return (
 
-            <div className='w-full'>
-                  <table id='deliveryMethod' className={`table bordered-table table-sm font-bold! text-[72%] border-separate rounded-[5px] border-spacing-0 ${cartTotal > 50 && "rounded-b-[0px]!"}`}>
-                        <tbody>
+            <>
 
-                              <tr>
-                                    <td className='text-center'>
-                                          Delivery
-                                    </td>
-                                    <td >
-                                          {
-                                                DELIVERY_METHODS.map((dm, i) =>
-                                                      <div key={i}>
-                                                            {(dm.minOrderAmount <= cartTotal && dm.maxOrderAmount >= cartTotal) &&
-                                                                  <div className='flex gap-2'
-                                                                        onClick={() => setCheckoutObj(d => { d.shippingMethodAlias = dm.alias })}>
-                                                                        <input checked={checkoutObj.shippingMethodAlias == dm.alias} type="radio" readOnly name={'radio-' + { i }} />
-                                                                        <div> {dm.name} <span className='ms-1'>[{getDeliveryDate()}]</span></div>
-                                                                  </div>
-                                                            }
+                  <tr className='text-center'>
+                        <td className='text-2xl cursor-pointer'></td>
+                        <td >
+                              🚚
+                        </td>
+                        <td>
+                              {
+                                    DELIVERY_METHODS.map((dm, i) =>
+                                          <div key={i}>
+                                                {(dm.minOrderAmount <= cartTotal && dm.maxOrderAmount >= cartTotal) &&
+                                                      <div className='flex gap-2'>
+                                                            <div> {dm.name} <span className='ms-1'>[{getDeliveryDate()}]</span></div>
                                                       </div>
-                                                )
-                                          }
-                                    </td>
-                              </tr>
-
-                              {(checkoutObj.billingObj.addressObj.country === "Nothern Ireland" || checkoutObj.billingObj.addressObj.country === "Scotland") &&
-                                    <tr className='brand-accent-bg'>
-                                          <td className='text-center'>⚠️</td>
-                                          <td className='text-[70%]'>May Be Delayed By 24Hrs Because Of Distance </td>
-                                    </tr>
-                              }
-
-                              {checkoutObj.coupons.length > 0 &&
-                                    checkoutObj.coupons.map((c, i) =>
-                                          <tr key={i}>
-                                                <td className='text-center'>
-                                                      {c.voucherType === "referral" ? "Referral" : "Voucher"}
-                                                </td>
-                                                <td>
-                                                      <div className='flex items-center justify-between'>
-                                                            <div>-{c.discountType == "discount" ? "%" : CURRENCY_SYMBOL}{c.cartDiscount} <span className='border-b-2 ms-2'> {c.code}</span></div>
-                                                            <div onClick={() => removeCoupon(c._id)} className='bg-[#e21893] h-5 w-5 flex items-center justify-center cursor-pointer rounded-[100%]'>
-                                                                  {<XIcon color="white" size={12} strokeWidth={4} />}
-                                                            </div>
-                                                      </div>
-                                                </td>
-                                          </tr>
+                                                }
+                                          </div>
                                     )
                               }
+                        </td>
 
-                              {(checkoutObj.useBalance && parseFloat(checkoutObj.useBalance) >= 1) ?
-                                    <tr >
-                                          <td className='text-center'>
-                                                Use Balance
-                                          </td>
-                                          <td>
-                                                <div className='flex items-center justify-between'>
-                                                      <div>-{CURRENCY_SYMBOL}{checkoutObj.useBalance}</div>
-                                                      <div onClick={() => setCheckoutObj(d => { d.useBalance = "0" })} className='bg-[#e21893] h-5 w-5 flex items-center justify-center rounded-[100%]'>
-                                                            {<XIcon color="white" size={12} strokeWidth={4} />}
-                                                      </div>
-                                                </div>
-                                          </td>
-                                    </tr> : null
-                              }
+                        <td>
+                              1
+                        </td>
 
-                              <tr>
+                        <td>
+                              {CURRENCY_SYMBOL}{shippingFee}
+                        </td>
+                  </tr>
+
+                  {(checkoutObj.billingObj.addressObj.country === "Nothern Ireland" || checkoutObj.billingObj.addressObj.country === "Scotland") &&
+                        <tr className='brand-accent-bg'>
+                              <td className='text-center'>⚠️</td>
+                              <td className='text-[70%]'>May Be Delayed By 24Hrs Because Of Distance </td>
+                        </tr>
+                  }
+
+                  {checkoutObj.coupons.length > 0 &&
+                        checkoutObj.coupons.map((c, i) =>
+                              <tr key={i}>
                                     <td className='text-center'>
-                                          Total
+                                          {c.voucherType === "referral" ? "Referral" : "Voucher"}
                                     </td>
                                     <td>
-                                          {CURRENCY_SYMBOL}{checkoutObj?.finalTotal?.toFixed(2)}
+                                          <div className='flex items-center justify-between'>
+                                                <div>-{c.discountType == "discount" ? "%" : CURRENCY_SYMBOL}{c.cartDiscount} <span className='border-b-2 ms-2'> {c.code}</span></div>
+                                                <div onClick={() => removeCoupon(c._id)} className='bg-[#e21893] h-5 w-5 flex items-center justify-center cursor-pointer rounded-[100%]'>
+                                                      {<XIcon color="white" size={12} strokeWidth={4} />}
+                                                </div>
+                                          </div>
                                     </td>
                               </tr>
+                        )
+                  }
 
-                        </tbody>
+                  {(checkoutObj.useBalance && parseFloat(checkoutObj.useBalance) >= 1) ?
+                        <tr >
+                              <td className='text-center'>
+                                    Use Balance
+                              </td>
+                              <td>
+                                    <div className='flex items-center justify-between'>
+                                          <div>-{CURRENCY_SYMBOL}{checkoutObj.useBalance}</div>
+                                          <div onClick={() => setCheckoutObj(d => { d.useBalance = "0" })} className='bg-[#e21893] h-5 w-5 flex items-center justify-center rounded-[100%]'>
+                                                {<XIcon color="white" size={12} strokeWidth={4} />}
+                                          </div>
+                                    </div>
+                              </td>
+                        </tr> : null
+                  }
 
-                  </table>
+                  {/* <tr>
+                        <td className='text-center'>
+                              Total
+                        </td>
+                        <td>
+                              {CURRENCY_SYMBOL}{checkoutObj?.finalTotal?.toFixed(2)}
+                        </td>
+                  </tr> */}
+
+
+
+
 
                   {((cartTotal > 50 && cartTotal < 100) || cartTotal >= 100) &&
 
-                        <div className="bg-[#e21893] text-white p-3 flex justify-center font-bold! text-[85%] rounded-b-[5px]">
+                        <div className="bg-[#e21893] text-white p-3 flex justify-center font-bold! text-[85%]">
                               {(cartTotal > 50 && cartTotal < 100) && `You Are ${CURRENCY_SYMBOL}${100 - cartTotal} Away From Free 24hr Delivery 😏`}
                               {cartTotal >= 100 && `This Order Includes Free 24hr Delivery 🥳`}
                         </div>
                   }
 
-            </div>
+            </>
       )
 }
 

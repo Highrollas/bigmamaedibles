@@ -4,7 +4,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 import CartItemList from '@/app/components/client/CartItemList';
-import DeliveryMethod from '@/app/components/client/DeliveryMethod';
 import PaymentMethod from '@/app/components/client/PaymentMethod';
 import useCheckoutStore from '@/app/hooks/store/checkout';
 import useCartStore from '@/app/hooks/store/cart';
@@ -112,16 +111,6 @@ const CheckoutPage = () => {
                         <CartItemList voucherEnabled={true} />
                   </div>
 
-                  <div className='flex justify-center items-center gap-2 mt-12 mb-8'>
-                        <h3 className='text-[20px] sm:text-2xl'>
-                              🚚 Delivery Method
-                        </h3>
-                  </div>
-
-                  <DeliveryMethod />
-
-                  <div></div>
-
 
                   {checkoutObj.finalTotal! > 0 &&
                         <>
@@ -133,7 +122,6 @@ const CheckoutPage = () => {
 
                               <PaymentMethod />
                         </>
-
                   }
 
                   <hr className='mt-12' />
