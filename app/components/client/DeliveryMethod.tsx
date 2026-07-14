@@ -131,8 +131,8 @@ const DeliveryMethod = () => {
                                     DELIVERY_METHODS.map((dm, i) =>
                                           <div key={i}>
                                                 {(dm.minOrderAmount <= cartTotal && dm.maxOrderAmount >= cartTotal) &&
-                                                      <div className='flex gap-2 justify-center'>
-                                                            <div> {dm.name} <br /> <span className='ms-1'>[{getDeliveryDate()}]</span></div>
+                                                      <div className='flex gap-2 justify-center text-[80%]'>
+                                                            <div> {dm.name} <br /> <span className='ms-1'>{getDeliveryDate()}</span></div>
                                                       </div>
                                                 }
                                           </div>

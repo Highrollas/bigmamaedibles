@@ -523,7 +523,7 @@ export const DESC_TEMPLATES = [
                         style="object-fit: contain; width: 100%; height: 100%;"
                         src="/assets/images/bme.png" alt="produced by">
                   </div>
-                  <div class="desc-list-text" style="color: #cc0f81">Produced By - Big MaMa's Edibles</div>
+                  <div class="desc-list-text" style="color: #e21893">Produced By - Big MaMa's Edibles</div>
                   </div>
                   <div class="mt-4 d-flex align-items-center px-2">
                   <div class="desc-list-img"><img
