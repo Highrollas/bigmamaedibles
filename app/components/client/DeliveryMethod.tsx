@@ -124,7 +124,7 @@ const DeliveryMethod = () => {
                   <tr className='text-center'>
                         <td className='text-2xl cursor-pointer'></td>
                         <td >
-                              🚚
+                              <span className='text-3xl'> 🚚</span>
                         </td>
                         <td>
                               {

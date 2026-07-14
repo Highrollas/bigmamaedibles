@@ -101,14 +101,27 @@ export default async function Home() {
 
                   <div className="flex my-10">
                         <div className="w-[90%] sm:w-[80%] mx-auto">
-                              <BlockSection title="Create An Account" imageUrl="/assets/images/create-account-home-1.png">
-                                    <Heading>Create An Account</Heading>
-                                    <p className="mt-3">-Pick An Avatar</p>
-                                    <p className="mt-3">-Save Your Addresses For Faster Checkout</p>
-                                    <p className="mt-3">-View The Status Of Your Orders</p>
-                                    <p className="mt-3">– Weekly Stock Updates</p>
-                                    <p className="mt-3">-Discounts And Promotional Offers</p>
-                                    <p className="mt-3">-Unique Referral Link To Invite Your Friends And Earn Money</p>
+                              <BlockSection title="Create Account" imageUrl="/assets/images/create-account-home-1.png">
+                                    <Heading>Create Account</Heading>
+                                    <p className="mt-3">
+                                          Pick Avatar
+                                    </p>
+                                    <p className="mt-3">
+                                          Save Addresses For Fast Checkout
+                                    </p>
+                                    <p className="mt-3">
+                                          View Status Of Orders
+                                    </p>
+                                    <p className="mt-3">
+                                          Weekly Stock Updates
+                                    </p>
+                                    <p className="mt-3">
+                                          Discounts & Offers
+                                    </p>
+                                    <p className="mt-3">
+                                          Unique Referral Link To Invite Friends & Earn Money
+                                    </p>
+
                                     <div className="mt-5 mb-10">
                                           <Link className='text-blue-700 font-bold text-[90%] underline mt-4' href="/account/register">Create Account</Link>
                                     </div>
