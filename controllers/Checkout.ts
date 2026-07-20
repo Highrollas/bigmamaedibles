@@ -373,7 +373,7 @@ export const processOrder = async (req: NextRequest) => {
                         ? Number((total * 0.10).toFixed(2))
                         : 0;
 
-                  total = Number((total + gatewayFee).toFixed(2));
+                  const onrampPaymentTotal = Number((total + gatewayFee).toFixed(2));
 
                   // ---------------- CREATE ORDER ----------------
                   const counter = await Counter.findOneAndUpdate(
@@ -421,7 +421,7 @@ export const processOrder = async (req: NextRequest) => {
                   if (total > 0) {
                         if (paymentMethod.alias.toLowerCase() === "onramp") {
                               const onrampPayment = await createOnrampPaymentLink({
-                                    amount: total,
+                                    amount: onrampPaymentTotal,
                                     email: checkoutObj.billingObj.email,
                                     orderId,
                                     origin: req.nextUrl.origin,

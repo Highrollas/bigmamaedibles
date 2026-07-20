@@ -40,6 +40,11 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
             provider: "",
       });
 
+      const amount = parseFloat(paymentObj.amount || "0");
+      const gatewayFee = parseFloat(paymentObj.gatewayFee || "0");
+      const orderTotal = amount.toFixed(2);
+      const totalToPay = Number((amount + gatewayFee).toFixed(2));
+
       const checkPaymentStatus = async () => {
             const resp = await new APIClient<reqResponse>(`transaction?transactionId=${transactionId}`).get();
             if (resp.status === "success") {
@@ -94,8 +99,9 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
 
                         <div className='mt-6 rounded-[5px] border-[3px] border-[#e21893] p-4 text-[85%] font-bold!'>
                               <div>Order ID: {paymentObj.orderId}</div>
-                              {paymentObj.gatewayFee && <div className='mt-2'>Fee: {CURRENCY_SYMBOL}{paymentObj.gatewayFee}</div>}
-                              <div className='mt-2'>Total: {CURRENCY_SYMBOL}{paymentObj.amount}</div>
+                              <div className='mt-2'>Order Total: {CURRENCY_SYMBOL}{orderTotal}</div>
+                              {paymentObj.gatewayFee && <div className='mt-2'>Payment Gateway Fee: {CURRENCY_SYMBOL}{paymentObj.gatewayFee}</div>}
+                              <div className='mt-2'>Total To Pay: {CURRENCY_SYMBOL}{totalToPay.toFixed(2)}</div>
                         </div>
 
                         {paymentObj.paymentStatus === "cancelled" && (
