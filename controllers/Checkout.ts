@@ -80,16 +80,9 @@ async function createOnrampPaymentLink({
             throw new Error("Could Not Create Onramp Payment Wallet");
       }
 
-      const checkoutParams = new URLSearchParams({
-            address: walletObj.address_in,
-            amount: amount.toFixed(2),
-            email,
-            currency: "GBP",
-      });
-
       return {
             walletObj,
-            paymentLink: `https://checkout.onramp-pay.com/pay.php?${checkoutParams.toString()}`,
+            paymentLink: `https://checkout.onramp-pay.com/pay.php?address=${walletObj.address_in}&amount=${amount.toFixed(2)}&email=${email}&currency=GBP`,
       };
 }
 
