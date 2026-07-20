@@ -215,7 +215,7 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
                   }
             );
 
-            if (pending === "0" && txidOut) {
+            if (pending == "0" && txidOut) {
                   const txObj = await Transaction.findOne<ITransaction>({ refrenceId: invoiceId });
                   const order = await Order.findOne({ orderId: invoiceId }).lean<OrderObj>();
 
@@ -240,27 +240,34 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
                                     }
                               );
                         } else {
-                              const balanceCredited = await creditUnderpaymentToBalance(order, paidUsd, requiredConversion.exchangeRate);
 
-                              await setOrderStatus({ status: "cancelled", orderId: invoiceId });
-                              await Transaction.updateOne(
-                                    { refrenceId: invoiceId },
-                                    {
-                                          status: "cancelled",
-                                          amountPaidUsd: paidUsd.toFixed(2),
-                                          amountRequiredUsd: requiredUsd.toFixed(2),
-                                          balanceCredited,
-                                          webhookData: {
-                                                ...webhookData,
-                                                underpaid: true,
-                                                paidUsd: paidUsd.toFixed(2),
-                                                requiredUsd: requiredUsd.toFixed(2),
-                                                balanceCredited,
-                                          },
-                                    }
-                              );
+                              console.log(`Underpayment detected for order ${invoiceId}: Paid USD ${paidUsd.toFixed(2)}, Required USD ${requiredUsd.toFixed(2)}`);
+
+                              // const balanceCredited = await creditUnderpaymentToBalance(order, paidUsd, requiredConversion.exchangeRate);
+
+                              // await setOrderStatus({ status: "cancelled", orderId: invoiceId });
+                              // await Transaction.updateOne(
+                              //       { refrenceId: invoiceId },
+                              //       {
+                              //             status: "cancelled",
+                              //             amountPaidUsd: paidUsd.toFixed(2),
+                              //             amountRequiredUsd: requiredUsd.toFixed(2),
+                              //             balanceCredited,
+                              //             webhookData: {
+                              //                   ...webhookData,
+                              //                   underpaid: true,
+                              //                   paidUsd: paidUsd.toFixed(2),
+                              //                   requiredUsd: requiredUsd.toFixed(2),
+                              //                   balanceCredited,
+                              //             },
+                              //       }
+                              // );
                         }
+                  } else {
+                        console.warn(`Transaction or Order not found for invoiceId ${invoiceId} during Onramp webhook processing.`);
                   }
+            } else {
+                  console.log(`Onramp webhook received for invoiceId ${invoiceId} with pending status: ${pending} and txidOut: ${txidOut}`);
             }
 
             return NextResponse.json({ message: "received" });
