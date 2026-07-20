@@ -120,6 +120,7 @@ export interface TransactionObj {
       _gid: string;
       refrenceId: string;
       amount: string;
+      gatewayFee?: string;
       amountUsd: string;
       amountEur: string;
       paymentGateway: object;
@@ -127,6 +128,17 @@ export interface TransactionObj {
       amountCrypto: string;
       coin: string;
       network: string;
+      paymentLink?: string;
+      provider?: string;
+      addressIn?: string;
+      txidIn?: string;
+      txidOut?: string;
+      valueCoin?: string;
+      valueForwardedCoin?: string;
+      amountPaidUsd?: string;
+      amountRequiredUsd?: string;
+      balanceCredited?: string;
+      webhookData?: object;
       status: "completed" | "pending" | "cancelled" | string;
       createdAt?: string;
 }

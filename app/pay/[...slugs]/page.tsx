@@ -1,4 +1,5 @@
 import BchPayment from '@/app/components/client/BchPayment';
+import OnrampPayment from '@/app/components/client/OnrampPayment';
 import WertPayment from '@/app/components/client/WertPayment';
 import React from 'react'
 
@@ -18,6 +19,7 @@ const PaymentPage = async ({ params }: Props) => {
       return (
             <div>
                   {paymentMethod === "wert" && <WertPayment transactionId={txId} />}
+                  {paymentMethod === "onramp" && <OnrampPayment transactionId={txId} />}
                   {(paymentMethod === "moonpay" || paymentMethod === "bch") && <BchPayment alias={paymentMethod} transactionId={txId} />}
             </div>
       );

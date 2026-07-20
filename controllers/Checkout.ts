@@ -51,6 +51,48 @@ async function runWithRetry<T>(fn: (session: ClientSession) => Promise<T>, retri
       throw new Error("Transaction failed after max retries");
 }
 
+async function createOnrampPaymentLink({
+      amount,
+      email,
+      orderId,
+      origin,
+}: {
+      amount: number;
+      email: string;
+      orderId: string;
+      origin: string;
+}) {
+      const merchantAddress = process.env.ONRAMP_PAY_MERCHANT_ADDRESS;
+      if (!merchantAddress) {
+            throw new Error("Onramp Pay Merchant Address Is Not Configured");
+      }
+
+      const callbackUrl = `${APP_URL || origin}/api/onramp-pay/webhook/${orderId}`;
+      const walletResp = await axios.get("https://api.onramp-pay.com/control/wallet.php", {
+            params: {
+                  address: merchantAddress,
+                  callback: callbackUrl,
+            },
+      });
+
+      const walletObj = walletResp.data;
+      if (!walletObj?.address_in) {
+            throw new Error("Could Not Create Onramp Payment Wallet");
+      }
+
+      const checkoutParams = new URLSearchParams({
+            address: walletObj.address_in,
+            amount: amount.toFixed(2),
+            email,
+            currency: "GBP",
+      });
+
+      return {
+            walletObj,
+            paymentLink: `https://checkout.onramp-pay.com/pay.php?${checkoutParams.toString()}`,
+      };
+}
+
 export const processOrder = async (req: NextRequest) => {
 
       const result = CheckoutSchema.safeParse(await req.json());
@@ -334,6 +376,12 @@ export const processOrder = async (req: NextRequest) => {
 
                   total = total < 0 ? 0 : total;
 
+                  const gatewayFee = paymentMethod.alias.toLowerCase() === "onramp" && total > 0
+                        ? Number((total * 0.10).toFixed(2))
+                        : 0;
+
+                  total = Number((total + gatewayFee).toFixed(2));
+
                   // ---------------- CREATE ORDER ----------------
                   const counter = await Counter.findOneAndUpdate(
                         { _id: "orderId" },
@@ -378,6 +426,44 @@ export const processOrder = async (req: NextRequest) => {
                   };
 
                   if (total > 0) {
+                        if (paymentMethod.alias.toLowerCase() === "onramp") {
+                              const onrampPayment = await createOnrampPaymentLink({
+                                    amount: total,
+                                    email: checkoutObj.billingObj.email,
+                                    orderId,
+                                    origin: req.nextUrl.origin,
+                              });
+
+                              const txObjArr: ITransaction[] = await Transaction.create(
+                                    [
+                                          {
+                                                _gid: authUser._gid,
+                                                refrenceId: orderId,
+                                                amount: total,
+                                                gatewayFee,
+                                                paymentGateway: paymentMethod,
+                                                status: "pending",
+                                                paymentLink: onrampPayment.paymentLink,
+                                                provider: "hosted",
+                                                address: onrampPayment.walletObj.polygon_address_in || onrampPayment.walletObj.address_in,
+                                                addressIn: onrampPayment.walletObj.address_in,
+                                                coin: "USDC",
+                                                network: "POLYGON",
+                                                webhookData: {
+                                                      callbackUrl: onrampPayment.walletObj.callback_url,
+                                                      ipnToken: onrampPayment.walletObj.ipn_token,
+                                                },
+                                          },
+                                    ],
+                                    { session }
+                              );
+
+                              res.paymentStatus = "pending";
+                              res.paymentId = txObjArr[0]._id.toString();
+
+                              return NextResponse.json(res);
+                        }
+
                         const postObj: any = {
                               amount: total,
                               deposit_id: orderId,

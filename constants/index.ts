@@ -48,7 +48,7 @@ export const POST_OFFICE_PARCEL_COST = 5.70;
 
 export const STATS_START_DATE_ISO = "2026-06-19T15:00:00.000Z";
 
-export const GATEWAY_ENDPOINT = "https://bchadmin.bigmamasedibles.cc/api/deposit";
+export const GATEWAY_ENDPOINT = "https://ediblesadmin.bigmamasedibles.cc/api/deposit";
 
 export const MENU_CATEGORIES = [
       {
@@ -258,15 +258,26 @@ export const DELIVERY_METHODS: DeliveryMethodObj[] = [
 ];
 
 export const PAYMENT_METHODS: _PaymentMethod[] = [
+      // {
+      //       alias: "bch",
+      //       name: "Bitcoin Cash",
+      //       image: "/assets/images/bitcoincash-icon.png",
+      //       details: [
+      //             "Watch Our Tutorials To Learn How To Pay For Your Order Using Bitcoin Cash (BCH"
+      //       ],
+      //       fee: "No Fees",
+      //       tutorialLink: "/how-to-order",
+      // },
       {
-            alias: "bch",
-            name: "Bitcoin Cash",
-            image: "/assets/images/bitcoincash-icon.png",
+            alias: "onramp",
+            name: "Onramp Pay",
+            image: "/assets/images/wert-pay-icon.png",
             details: [
-                  "Watch Our Tutorials To Learn How To Pay For Your Order Using Bitcoin Cash (BCH"
+                  "Pay By Card Through The Onramp Pay Hosted Checkout",
+                  "A Secure Payment Link Will Be Created For Your Order After Checkout",
             ],
-            fee: "No Fees",
-            tutorialLink: "/how-to-order",
+            fee: "Provider Fees May Apply",
+            tutorialLink: null,
       },
 ];
 

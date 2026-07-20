@@ -16,6 +16,9 @@ const TransactionSchema = new Schema<ITransaction>(
             amount: {
                   type: String,
             },
+            gatewayFee: {
+                  type: String,
+            },
             amountUsd: {
                   type: String,
             },
@@ -36,6 +39,39 @@ const TransactionSchema = new Schema<ITransaction>(
             },
             network: {
                   type: String
+            },
+            paymentLink: {
+                  type: String
+            },
+            provider: {
+                  type: String
+            },
+            addressIn: {
+                  type: String
+            },
+            txidIn: {
+                  type: String
+            },
+            txidOut: {
+                  type: String
+            },
+            valueCoin: {
+                  type: String
+            },
+            valueForwardedCoin: {
+                  type: String
+            },
+            amountPaidUsd: {
+                  type: String
+            },
+            amountRequiredUsd: {
+                  type: String
+            },
+            balanceCredited: {
+                  type: String
+            },
+            webhookData: {
+                  type: Object
             },
             status: {
                   type: String,
