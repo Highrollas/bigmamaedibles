@@ -229,7 +229,9 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
                         const paidUsd = paidConversion.valueUsd;
                         const requiredUsd = requiredConversion.valueUsd;
 
-                        if (paidUsd + 0.01 >= requiredUsd) {
+                        const underpaymentToleranceUsd = 1.50;
+
+                        if (paidUsd + underpaymentToleranceUsd >= requiredUsd) {
                               await setOrderStatus({ status: "on-hold", orderId: invoiceId });
                               await Transaction.updateOne(
                                     { refrenceId: invoiceId },
