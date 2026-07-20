@@ -31,7 +31,7 @@ const useCheckoutStore = create<CheckoutStore>((set) => ({
       checkoutObj: {
             cartItems: [],
             billingObj: EMPTY_BILLING_OBJ,
-            paymentGatewayAlias: "bch",
+            paymentGatewayAlias: "onramp",
             shippingMethodAlias: "24hrs-delivery",
             termsAndCondtionAccepted: false,
             coupons: [],
