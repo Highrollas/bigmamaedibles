@@ -490,7 +490,7 @@ export const DESC_TEMPLATES = [
      <div class="px-2">
       <div class="mt-4 d-flex align-items-center">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/logo-round.png" alt="produced by">
+                        src="/assets/images/logo-round-ed.png" alt="produced by">
             </div>
             <div class="desc-list-text" style="color: #e21893">Produced By - Big MaMa's Edibles</div>
       </div>
@@ -511,23 +511,23 @@ export const DESC_TEMPLATES = [
       </div>
       <div class="mt-4 d-flex align-items-center">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/feelings-icon-ed.png" alt="Cross"></div>
+                        src="/assets/images/feelings-icon-edd.png" alt="Cross"></div>
             <div class="desc-list-text">Effects - 😵‍💫 Euphoric 😌 Relaxed</div>
       </div>
       <div class="mt-4 d-flex align-items-center">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/taste-icon-ed.png" alt="Cross"></div>
+                        src="/assets/images/taste-icon-edd.png" alt="Cross"></div>
             <div class="desc-list-text">Taste - 🍏 🍒 🍇 🥭 🍉</div>
       </div>
       <div class="mt-4 d-flex align-items-center">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/helpswith-icon-ed.png" alt="Cross"></div>
+                        src="/assets/images/helpswith-icon-edd.png" alt="Cross"></div>
             <div class="desc-list-text">Helps - 🙁 Depression 😖 Anxiety</div>
       </div>
       <div class="mt-4 mb-2 d-flex align-items-center">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/origin-icon-ed.png" alt="Cross"></div>
-            <div class="desc-list-text">Origin- 🇬🇧 United Kingdom</div>
+                        src="/assets/images/origin-icon-edd.png" alt="Cross"></div>
+            <div class="desc-list-text">Origin - 🇬🇧 United Kingdom</div>
       </div>
      </div>
 </div>

@@ -69,9 +69,13 @@
 
 .desc-border .desc-list-img {
       min-height: 35px;
-      min-width: 35px;
+      min-width: 40px;
       height: 35px;
-      width: 35px;
+      width: 40px;
+}
+
+.desc-border .desc-list-img img {
+      object-fit: cover !important;
 }
 
 
