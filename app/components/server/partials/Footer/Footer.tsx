@@ -64,8 +64,16 @@ const Footer = () => {
 
                   <div className="w-full sm:w-[80%] mx-auto text-white text-center mt-12 pb-12">
 
-                        © 2026 - Big Mamas Edibles By High Rolla INC
-
+                        <div className="flex flex-wrap sm:flex-row-reverse">
+                              <div className="w-[100%] sm:w-[50%] flex items-center justify-center sm:justify-end">
+                                    <Link href="/how-to-order" className=''>
+                                          <FallbackImage className='w-auto' src="/assets/images/footer-icon.png" alt='bitcoin-cash' height={200} width={200} />
+                                    </Link>
+                              </div>
+                              <div className="w-[100%] sm:w-[50%] mt-8 mt-sm:0 flex items-center justify-center sm:justify-start">
+                                    © 2026 - Big Mamas Edibles By High Rolla INC
+                              </div>
+                        </div>
                   </div>
 
             </div>

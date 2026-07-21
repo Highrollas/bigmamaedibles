@@ -86,7 +86,7 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
                               <Image className='h-20 w-20' width={250} height={200} src='/assets/images/logo.png' alt='Bigmamasedibles' />
                         </div>
                         <div className='w-[50%] flex items-center gap-1.5 text-white justify-end pe-7 font-bold!'>
-                              <Image className='h-8 w-15' width={250} height={200} src='/assets/images/onramp-pay.png' alt='Onramp Pay' />
+                              <Image className='h-8 w-15' width={250} height={200} src='/assets/images/onramp-pay-white.png' alt='Onramp Pay' />
                               Onramp Pay
                         </div>
                   </div>
