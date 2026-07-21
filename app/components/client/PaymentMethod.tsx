@@ -19,7 +19,7 @@ const PaymentMethod = () => {
                         </div> */}
 
 
-                        <div className="relative border-[3.5px] border-[#e21893] rounded w-[90%]">
+                        <div className="relative border-[3.5px] border-[#e21893] rounded w-full">
 
                               <div className="bg-[#e21893] w-full text-center flex justify-center h-[50px] items-center">
                                     <Image width={350} height={350} alt="Apple Pay Or Bank Card" src={p.image}
