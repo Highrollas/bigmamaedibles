@@ -76,6 +76,7 @@
 
 .desc-border .desc-list-img img {
       object-fit: cover !important;
+      scale: 1.01;
 }
 
 
