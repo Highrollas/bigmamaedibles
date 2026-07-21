@@ -274,7 +274,7 @@ export const PAYMENT_METHODS: _PaymentMethod[] = [
             image: "/assets/images/wert-pay-icon.png",
             details: [
                   "Pay By Card Through The Onramp Pay Hosted Checkout",
-                  "A Secure Payment Link Will Be Created For Your Order After Checkout",
+                  "A Secure Payment Link Will Be Created For Your Order After Checkout"
             ],
             fee: "Provider Fees May Apply",
             tutorialLink: null,
@@ -461,578 +461,78 @@ export const DEFAULT_METAOBJ: Metadata = {
 
 export const DESC_TEMPLATES = [
       {
-            name: "UK Grow Template",
-            content: `<div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-                        <div class="d-flex justify-content-between my-2 px-2">
-                        <div class="desc-box hybrid" style="width: 18%;">
-                        <div class="wd-type">Hybrid</div>
-                        </div>
-                        <div class="desc-box d-flex align-items-center" style="width: 35%;">
-                        <div class="desc-img"><img style="height: 23px; min-width: 20px;" src="/assets/images/thc-icon.png" alt="therpene"></div>
-                        <div class="desc-text">THC 18%</div>
-                        </div>
-                        <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                        <div class="desc-img"><img style="height: 20px; min-width: 20px;" src="/assets/images/desc-weight-icon.png" alt="weight"></div>
-                        <div class="desc-text">14g</div>
-                        </div>
-                        <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                        <div class="desc-img">&pound;</div>
-                        <div class="desc-text">35</div>
-                        </div>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/produced-by-icon.png" alt="produced by"></div>
-                        <div class="desc-list-text">Produced By - theloudlabs</div>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/cross-Icon.png" alt="Cross"></div>
-                        <div class="desc-list-text">Cross - Sunset Sherbet &amp; Girl Scout Cookies</div>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/feelings-icon.png" alt="Effects"></div>
-                        <div class="desc-list-text">Effects - 🫨 Tingly 😌 Relaxed 😂 Giggly</div>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/taste-icon.png" alt="Taste"></div>
-                        <div class="desc-list-text">Taste - 🍋 Lemon 🍋&zwj;🟩 Citrus 🧈 Butter</div>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/helpswith-icon.png" alt="Helps With"></div>
-                        <div class="desc-list-text">Helps - 😖 Anxiety 🙁 Depression 😓 Stress</div>
-                        </div>
-                        <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/terpenes-icon.png" alt="Terpene"></div>
-                        <div class="desc-list-text">Terpenes - Caryophyllene Linalool Limonene</div>
-                        </div>
-                        <div class="mt-4 mb-2 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;" src="/assets/images/origin-icon.png" alt="Origin"></div>
-                        <div class="desc-list-text d-flex align-items-center">Origin - 🇬🇧 United Kingdom</div>
-                        </div>
-                        </div>
-            `
+            name: "Blank",
+            content: ""
       },
       {
             name: "Edibles template",
             content:
                   `
-                  <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-                  <div class="d-flex justify-content-between my-2 px-2">
-                  <div class="desc-box d-flex align-items-center" style="width: 75%;">
-                        <div class="desc-img">
-                        <img style="height: 23px; min-width: 20px;" src="/assets/images/thc-icon.png"
-                        alt="therpene">
-                        </div>
-                        <div class="desc-text">THC 18%</div>
+                 <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
+      <div class="d-flex justify-content-between my-2 px-2">
+            <div class="desc-box d-flex align-items-center" style="width: 40%;">
+                  <div class="desc-img">
+                        <img style="height: 23px; min-width: 20px;" src="/assets/images/thc-icon.png" alt="therpene">
                   </div>
-                  <div class="desc-box d-flex align-items-center" style="width: 20%;">
-                        <div class="desc-img">&pound;</div>
-                        <div class="desc-text">35</div>
+                  <div class="desc-text">THC 500mg</div>
+            </div>
+            <div class="desc-box d-flex align-items-center" style="width: 35%;">
+                  <div class="desc-img">
+                        <img style="height: 23px; min-width: 20px;" src="/assets/images/piece-ed.png" alt="therpene">
                   </div>
-                  </div>
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/bme.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text" style="color: #e21893">Produced By - Big MaMa's Edibles</div>
-                  </div>
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/ingredients-icon.png" alt="Cross"></div>
-                  <div class="desc-list-text">Ingredients- Glucose Syrup, Starch, Sugar, Gelatine, Food Colouring,
-                        Flavouring &amp; D9 Distillate</div>
-                  </div>
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
+                  <div class="desc-text">5 Pieces</div>
+            </div>
+            <div class="desc-box d-flex align-items-center" style="width: 20%;">
+                  <div class="desc-img">&pound;</div>
+                  <div class="desc-text">30</div>
+            </div>
+      </div>
+     <div class="px-2">
+      <div class="mt-4 d-flex align-items-center">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/logo-round.png" alt="produced by">
+            </div>
+            <div class="desc-list-text" style="color: #e21893">Produced By - Big MaMa's Edibles</div>
+      </div>
+      <div class="mt-4 d-flex align-items-center desc-border black">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/ingredients-icon-ed.png" alt="Cross"></div>
+            <div class="desc-list-text">Ingredients - Glucose Syrup, Starch</div>
+      </div>
+      <div class="mt-4 d-flex align-items-center desc-border">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
                         src="/assets/images/warning-icon.png" alt="Cross"></div>
-                  <div class="desc-list-text"><span style="color: #ff000a;">Allergy Advice- Nothing To Display</span></div>
-                  </div>
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/feelings-icon.png" alt="Cross"></div>
-                  <div class="desc-list-text">Effects- 😵‍💫 Euphoric 😌 Relaxed 😄 Happy</div>
-                  </div>
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/taste-icon.png" alt="Cross"></div>
-                  <div class="desc-list-text">Taste- 🍏 🍒 🍇 🥭 🍉</div>
-                  </div>
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/helpswith-icon.png" alt="Cross"></div>
-                  <div class="desc-list-text">Helps- 🙁 Depression 😖 Anxiety 😓 Stress</div>
-                  </div>
-                  <div class="mt-4 mb-2 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/origin-icon.png" alt="Cross"></div>
-                  <div class="desc-list-text">Origin- 🇬🇧 United Kingdom</div>
-                  </div>
-                  </div>
+            <div class="desc-list-text"><span style="color: #ff000a;">Allergy Advice - Nothing To Display</span></div>
+      </div>
+      <div class="mt-4 d-flex align-items-center desc-border yellow">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/production-date-ed.png" alt="Expiry Date"></div>
+            <div class="desc-list-text">Expiry - 2027-06-23</div>
+      </div>
+      <div class="mt-4 d-flex align-items-center">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/feelings-icon-ed.png" alt="Cross"></div>
+            <div class="desc-list-text">Effects - 😵‍💫 Euphoric 😌 Relaxed</div>
+      </div>
+      <div class="mt-4 d-flex align-items-center">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/taste-icon-ed.png" alt="Cross"></div>
+            <div class="desc-list-text">Taste - 🍏 🍒 🍇 🥭 🍉</div>
+      </div>
+      <div class="mt-4 d-flex align-items-center">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/helpswith-icon-ed.png" alt="Cross"></div>
+            <div class="desc-list-text">Helps - 🙁 Depression 😖 Anxiety</div>
+      </div>
+      <div class="mt-4 mb-2 d-flex align-items-center">
+            <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                        src="/assets/images/origin-icon-ed.png" alt="Cross"></div>
+            <div class="desc-list-text">Origin- 🇬🇧 United Kingdom</div>
+      </div>
+     </div>
+</div>
                       
             `
       },
-      {
-            name: "Vapes template",
-            content: `
-                  <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
 
-                  <div class="d-flex justify-content-between my-2 px-2">
-
-                  <div class="desc-box pe-0 d-flex align-items-center" style="width: 75%;">
-                        <div class="desc-img-2"><img style="min-height: 20px; min-width: 100%;"
-                        src="/assets/images/cell-x-loud.png" alt="weight"></div>
-                  </div>
-
-                  <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                        <div class="desc-img">&pound;</div>
-                        <div class="desc-text">35</div>
-                  </div>
-
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/reusable-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">Re-Useable Battery DO NOT THROW AWAY IF PODS FINISH</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/magnetic-connector-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">Removable Magnetic Pod Connection, To Purchase Pods <a target="_blank" style="color: #162ff1;"
-                        href="https://bigmamasedibles.cc/product/d9-pods-bundle/">Click Here</a></div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/information-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">For Detailed Information &amp; Intructions <a style="color: #162ff1;"
-                        href="https://www.ccell.com/pod-system/luster-pro">Click Here</a></div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/usbc-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">USBC Charging Cable Included</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/power-on-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">Ultimate Safety, 5 Taps To Turn On Or Off</div>
-                  </div>
-
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/pre-heat-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">Pre Heat Setting, Double Tap &amp; Wait 10 Seconds For Oil To Be Heated Up Before
-                  Inhaling</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/settings-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">3 Heat Settings- 6.5W Maximum Flavour, 7.5W Happy Medium Effect, 8.5W Larger
-                  Potent Clouds</div>
-                  </div>
-
-                  <div class="mt-4 mb-2  d-flex align-items-center px-2">
-                  <div class="desc-list-img"><img
-                        style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/anti-clog-icon.png" alt="produced by">
-                  </div>
-                  <div class="desc-list-text">Full Anti Clog Setting, Double Tap And Wait 10 Seconds To Clear Any And Every
-                  Clog</div>
-                  </div>
-
-                  </div>
-
-            `
-      },
-      {
-            name: 'Pods template',
-            content: `
-            
-                        <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                        <div class="d-flex justify-content-between my-2 px-2">
-                              <div class="desc-box hybrid" style="width: 18%;">
-                                    <div class="wd-type">Hybrid</div>
-                              </div>
-                              <div class="desc-box d-flex align-items-center" style="width: 35%;">
-                                    <div class="desc-img"><img style="height: 23px; min-width: 20px;"
-                                                src="/assets/images/thc-icon.png" alt="therpene">
-                                    </div>
-                                    <div class="desc-text">THC 96%</div>
-                              </div>
-                              <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                                    <div class="desc-img"><img style="height: 20px; min-width: 20px;"
-                                                src="/assets/images/desc-weight-icon.png" alt="weight"></div>
-                                    <div class="desc-text">1g</div>
-                              </div>
-                              <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                                    <div class="desc-img">&pound;</div>
-                                    <div class="desc-text">45</div>
-                              </div>
-                        </div>
-
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/cell-logo.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Pods Produced By CCELL</div>
-                        </div>
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/produced-by-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Delta 9 Distillate Produced By theloudlabs</div>
-                        </div>
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/abstrax-logo.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Added Terpenes Produced By Abstrax Tech</div>
-                        </div>
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/information-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">To Learn More About D9 Distillate <a style="color: #162ff1" href="https://bigmamasedibles.cc/what-is-d9-distillate/">
-                                    Click&nbsp;Here </a></div>
-                        </div>
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/yellow-warning-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text"><span style="color: #ff6800">These Pods Need To Be Paired With The Luster Pro<br>
-                              Battery To Purchase The Battery <a style="color: #162ff1"
-                                    href="https://bigmamasedibles.cc/product/ccell-luster-pro-battery/"> Click Here </a></span></div>
-                        </div>
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/cross-Icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Cross- Mango Kush &amp; Peaches &amp; Cream</div>
-                        </div>
-
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/feelings-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Effects- 😵‍💫 Euphoric 😌 Relaxed 😂 Giggly</div>
-                        </div>
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/taste-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Taste- 🥭 Mango 🍑 Peach 🍦 Cream</div>
-                        </div>
-
-
-                        <div class="mt-4 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/helpswith-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Helps- 😓 Stress 🙁 Depression 😖 Anxiety</div>
-                        </div>
-
-                        <div class="mt-4 mb-2 d-flex align-items-center px-2">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/terpenes-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Terpenes- Myrcene Pinene Caryophyllene</div>
-                        </div>
-
-                  </div>
-
-            `
-      },
-      {
-            name: "Looseleaf template",
-            content: `
-            <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="mt-2 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/looseleaf-icon.png" alt="produced by">
-                        </div>
-                        <div class="desc-list-text">Produced By - Looseleaf</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/piece-icon.png" alt="Cross"></div>
-                        <div class="desc-list-text">Quantity - 2 Blunt Wraps Per Pack</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/stamp-duty-icon.png" alt="Effects"></div>
-                        <div class="desc-list-text">Disclaimer - UK Import Tax / Duty Paid</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/warning-icon.png" alt="Taste"></div>
-                        <div class="desc-list-text"><span class='red-color'>Warning- Tobacco Is The Leading Cause Of Cancer. To
-                                    Get Help To Stop Visit </span><span><a target="_blank" class="link-color" rel="noreferral" href="https://www.nhs.uk/better-health/quit-smoking/uk-quit-smoking-services/">www.nhs.uk/quit</a></span>
-                       </div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/taste-icon.png" alt="Terpene"></div>
-                        <div class="desc-list-text">Taste - 🍇 Berry 🧁 Sweet 🫐 Blueberry</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/helpswith-icon.png" alt="Helps With">
-                        </div>
-                        <div class="desc-list-text">Helps - 😖 Anxiety 🙁 Depression 😓 Stress</div>
-                  </div>
-
-            </div>
-            `
-      },
-      {
-            name: "Herbs template",
-            content: `
-            <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="mt-2 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/herbs-icon.png" alt="produced by">
-                        </div>
-                        <div class="desc-list-text">Options- Blue Lotus, Chamomile, Passion, Sage, Marshmallow</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/piece-icon.png" alt="Cross"></div>
-                        <div class="desc-list-text">Weight- Each Pack Contains 3.5g</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/stamp-duty-icon.png" alt="Effects"></div>
-                        <div class="desc-list-text">Disclaimer - UK Import Tax / Duty Paid</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/helpswith-icon.png" alt="Helps With">
-                        </div>
-                        <div class="desc-list-text">Helps - 😖 Anxiety 🙁 Depression 😓 Stress</div>
-                  </div>
-
-            </div>
-            `
-      },
-      {
-            name: "Cigarette template",
-            content: `
-
-            <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="d-flex justify-content-between mt-2 px-2">
-                        <div><img src="/assets/images/benson-and-hedges-icon.png" style="height: 40px;width: auto" alt="Benson-And-Hedges"></div>
-                        <div><img src="/assets/images/sterling-icon.png" style="height: 40px;width: auto" alt="Sterling"></div>
-                        <div><img src="/assets/images/lambert-butler-logo.png" style="height: 40px;width: auto" alt="Lambert-Butler"></div>
-                        <div><img src="/assets/images/marlboro-icon.png" style="height: 40px;width: auto" alt="Marlboro"></div>
-                        <div><img src="/assets/images/players-logo.png" style="height: 40px;width: auto" alt="Players"></div>
-                        <div><img src="/assets/images/camel-logo.png" style="height: 40px;width: auto" alt="Camel"></div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/stamp-duty-icon.png" alt="Effects"></div>
-                        <div class="desc-list-text">Disclaimer - UK Import Tax / Duty Paid</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/warning-icon.png" alt="Taste"></div>
-                        <div class="desc-list-text"><span class='red-color'>Warning- Tobacco Is The Leading Cause Of Cancer. To
-                                    Get Help To Stop Visit </span><span><a target="_blank" class="link-color" rel="noreferral" href="https://www.nhs.uk/better-health/quit-smoking/uk-quit-smoking-services/">www.nhs.uk/quit</a></span>
-                       </div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/helpswith-icon.png" alt="Helps With">
-                        </div>
-                        <div class="desc-list-text">Helps - 😖 Anxiety 🙁 Depression 😓 Stress</div>
-                  </div>
-
-            </div>
-            `
-      },
-      {
-            name: "Backwood template",
-            content: `
-            <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="mt-2 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/backwoods-icon.png" alt="produced by">
-                        </div>
-                        <div class="desc-list-text">Produced By - Backwoods Cigars</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/piece-icon.png" alt="Cross"></div>
-                        <div class="desc-list-text">Quantity - 2 Blunt Wraps Per Pack</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/stamp-duty-icon.png" alt="Effects"></div>
-                        <div class="desc-list-text">Disclaimer - UK Import Tax / Duty Paid</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/warning-icon.png" alt="Taste"></div>
-                        <div class="desc-list-text"><span class='red-color'>Warning- Tobacco Is The Leading Cause Of Cancer. To
-                                    Get Help To Stop Visit </span><span><a target="_blank" class="link-color" rel="noreferral" href="https://www.nhs.uk/better-health/quit-smoking/uk-quit-smoking-services/">www.nhs.uk/quit</a></span>
-                       </div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/taste-icon.png" alt="Terpene"></div>
-                        <div class="desc-list-text">Taste - 🍇 Berry 🧁 Sweet 🫐 Blueberry</div>
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/helpswith-icon.png" alt="Helps With">
-                        </div>
-                        <div class="desc-list-text">Helps - 😖 Anxiety 🙁 Depression 😓 Stress</div>
-                  </div>
-
-            </div>
-            `
-      },
-      {
-            name: 'Raw template',
-            content: `
-              <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="d-flex justify-content-between my-2 px-2">
-
-                        <div class="d-flex align-items-center">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/raw-icon.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Raw</div>
-                        </div>
-
-                        <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                              <div class="desc-img">&pound;</div>
-                              <div class="desc-text">30</div>
-                        </div>
-
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/information-icon.png" alt="produced by">
-                        </div>
-                        <div class="desc-list-text">information text</div>
-                  </div>
-
-            </div>
-                        
-            `
-      },
-      {
-            name: 'Elements template',
-            content: `
-              <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="d-flex justify-content-between my-2 px-2">
-
-                        <div class="d-flex align-items-center">
-                              <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                          src="/assets/images/elements-logo.png" alt="produced by">
-                              </div>
-                              <div class="desc-list-text">Elements</div>
-                        </div>
-
-                        <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                              <div class="desc-img">&pound;</div>
-                              <div class="desc-text">30</div>
-                        </div>
-
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/information-icon.png" alt="produced by">
-                        </div>
-                        <div class="desc-list-text">information text</div>
-                  </div>
-
-            </div>
-                        
-            `
-      },
-      {
-            name: 'Accessory No Brand',
-            content: `
-              <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
-
-                  <div class="d-flex justify-content-end my-2 px-2">
-
-                        <div class="desc-box d-flex align-items-center" style="width: 18%;">
-                              <div class="desc-img">&pound;</div>
-                              <div class="desc-text">30</div>
-                        </div>
-
-                  </div>
-
-                  <div class="mt-4 d-flex align-items-center px-2 mb-2">
-                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                                    src="/assets/images/information-icon.png" alt="produced by">
-                        </div>
-                        <div class="desc-list-text">information text</div>
-                  </div>
-
-            </div>
-                        
-            `
-      }
 ]

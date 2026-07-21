@@ -208,7 +208,6 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                                                 <td>{CURRENCY_SYMBOL}{c.cartQty * (c.productType === "Bundles" ? c.bundleVariation!.price : c.productObj.price)}</td>
                                           </tr>
 
-
                                     )
                               }
 
@@ -220,72 +219,83 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
 
                   {voucherEnabled &&
-                        <div className="bg-[#e21893] text-white p-3 flex justify-between rounded-b-[5px]">
+                        <div>
+                              <table id='cartItemsTable' className={`table text-center bordered-table table-sm font-bold! mt-5 border-separate rounded-[5px] border-spacing-0 " ${voucherEnabled && " rounded-b-[0px]!"}`}>
+                                    <tbody>
+                                          <tr>
+                                                <td className="w-[25%]">Total</td>
+                                                <td>{CURRENCY_SYMBOL}{50}</td>
+                                          </tr>
+                                    </tbody>
+                              </table>
+                              <div className="bg-[#e21893] text-white p-3 flex justify-between rounded-b-[5px]">
 
-                              {useVoucherState &&
+                                    {useVoucherState &&
 
-                                    <div className="flex items-center justify-between w-full">
+                                          <div className="flex items-center justify-between w-full">
 
-                                          <div onClick={() => setUseVoucherState(false)} className='flex items-center cursor-pointer'>
-                                                <span className='text-2xl font-bold! mb-1'>×</span>
+                                                <div onClick={() => setUseVoucherState(false)} className='flex items-center cursor-pointer'>
+                                                      <span className='text-2xl font-bold! mb-1'>×</span>
+                                                </div>
+
+                                                <div className='flex items-center'>
+                                                      <span className='text-[65%] font-bold!'>Type Voucher Code Here</span>
+                                                </div>
+                                                <input onChange={(e) => setCoupon(e.target.value)} className='bg-white text-black w-[32%] font-bold text-[80%] ps-2 uppercase rounded h-[22px]' />
+                                                <button disabled={couponLoading} className='btn btn-sm bg-white! text-black! py-0! px-2! h-[22px] text-[65%] font-bold! tracking-normal!'
+                                                      onClick={() => applyVoucher()}>
+                                                      {couponLoading ? <span className="loading loading-spinner w-5 h-5 brand-border"></span> : 'Apply'}
+                                                </button>
+
                                           </div>
 
-                                          <div className='flex items-center'>
-                                                <span className='text-[65%] font-bold!'>Type Voucher Code Here</span>
+                                    }
+
+                                    {(!useVoucherState && !useBalanceState) &&
+
+                                          <div onClick={() => setUseVoucherState(true)} className="flex items-center cursor-pointer">
+                                                <Image className='h-[21px] w-auto me-3 bg-[#e21893]' width={250} height={250} alt='voucher icon' src="/assets/images/use-voucher.png" />
+                                                <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Voucher</div>
                                           </div>
-                                          <input onChange={(e) => setCoupon(e.target.value)} className='bg-white text-black w-[32%] font-bold text-[80%] ps-2 uppercase rounded h-[22px]' />
-                                          <button disabled={couponLoading} className='btn btn-sm bg-white! text-black! py-0! px-2! h-[22px] text-[65%] font-bold! tracking-normal!'
-                                                onClick={() => applyVoucher()}>
-                                                {couponLoading ? <span className="loading loading-spinner w-5 h-5 brand-border"></span> : 'Apply'}
-                                          </button>
+                                    }
 
-                                    </div>
+                                    {useBalanceState &&
 
-                              }
+                                          <div className="flex items-center justify-between w-full">
 
-                              {(!useVoucherState && !useBalanceState) &&
+                                                <div onClick={() => setUseBalanceState(false)} className='flex items-center cursor-pointer'>
+                                                      <span className='text-2xl font-bold! mb-1'>×</span>
+                                                </div>
 
-                                    <div onClick={() => setUseVoucherState(true)} className="flex items-center cursor-pointer">
-                                          <Image className='h-[21px] w-auto me-3 bg-[#e21893]' width={250} height={250} alt='voucher icon' src="/assets/images/voucher-icon.png" />
-                                          <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Voucher</div>
-                                    </div>
-                              }
-
-                              {useBalanceState &&
-
-                                    <div className="flex items-center justify-between w-full">
-
-                                          <div onClick={() => setUseBalanceState(false)} className='flex items-center cursor-pointer'>
-                                                <span className='text-2xl font-bold! mb-1'>×</span>
-                                          </div>
-
-                                          <div className='flex items-center justify-center'>
-                                                <span className='text-[65%] font-bold!'> Balance: {CURRENCY_SYMBOL}{user?.balance} / I Would Like To Use</span>
-                                          </div>
+                                                <div className='flex items-center justify-center'>
+                                                      <span className='text-[65%] font-bold!'> Balance: {CURRENCY_SYMBOL}{user?.balance} / I Would Like To Use</span>
+                                                </div>
 
 
-                                          <div className="rounded bg-white text-black flex items-center ps-2 h-[22px]">
-                                                <div className="font-bold! text-[85%] mt-[2.1px]">£</div>
-                                                <input value={useBalanceAmount} type="number" pattern="[0-9]*" inputMode='numeric' className="mt-[1.7px] mb-[2px] h-[21px]! p-[4px]! w-[40px]! font-bold! text-[70%] outline-0! shadow-[0]! border-0 px-0 rounded"
-                                                      onChange={(e) => setUseBalanceAmount(e.target.value)} />
+                                                <div className="rounded bg-white text-black flex items-center ps-2 h-[22px]">
+                                                      <div className="font-bold! text-[85%] mt-[2.1px]">£</div>
+                                                      <input value={useBalanceAmount} type="number" pattern="[0-9]*" inputMode='numeric' className="mt-[1.7px] mb-[2px] h-[21px]! p-[4px]! w-[40px]! font-bold! text-[70%] outline-0! shadow-[0]! border-0 px-0 rounded"
+                                                            onChange={(e) => setUseBalanceAmount(e.target.value)} />
+                                                </div>
+
+
+                                                <button className='btn btn-sm bg-white! text-black! py-0! px-2! h-[22px] text-[65%] font-bold! tracking-normal!'
+                                                      onClick={() => applyUseBalance()}>Apply</button>
                                           </div>
 
+                                    }
 
-                                          <button className='btn btn-sm bg-white! text-black! py-0! px-2! h-[22px] text-[65%] font-bold! tracking-normal!'
-                                                onClick={() => applyUseBalance()}>Apply</button>
-                                    </div>
+                                    {(user && !useBalanceState && !useVoucherState) &&
 
-                              }
+                                          <div onClick={() => setUseBalanceState(true)} className="flex items-center">
+                                                <Image className='h-[21px] w-auto me-3' width={250} height={250} alt='balance icon' src="/assets/images/usebalance-icon.png" />
+                                                <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Balance</div>
+                                          </div>
+                                    }
 
-                              {(user && !useBalanceState && !useVoucherState) &&
-
-                                    <div onClick={() => setUseBalanceState(true)} className="flex items-center">
-                                          <Image className='h-[21px] w-auto me-3' width={250} height={250} alt='balance icon' src="/assets/images/usebalance-icon.png" />
-                                          <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Balance</div>
-                                    </div>
-                              }
-
+                              </div>
                         </div>
+
                   }
 
             </div>

@@ -14,9 +14,9 @@ const PaymentMethod = () => {
                   <div key={i} className='flex items-center justify-between mt-5'
                         onClick={() => setCheckoutObj(d => { d.paymentGatewayAlias = p.alias })}>
 
-                        <div className='w-[10%] flex items-center'>
+                        {/* <div className='w-[10%] flex items-center'>
                               <input type="radio" readOnly checked={p.alias === checkoutObj.paymentGatewayAlias} className='h-5 w-5' name='pm-radio-1' />
-                        </div>
+                        </div> */}
 
 
                         <div className="relative border-[3.5px] border-[#e21893] rounded w-[90%]">

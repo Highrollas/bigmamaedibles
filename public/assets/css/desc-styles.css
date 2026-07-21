@@ -1,5 +1,5 @@
 .desc-box {
-      background: black;
+      background: #e21893;
       display: flex !important;
       justify-content: space-between;
       align-items: center;
@@ -71,6 +71,7 @@
 .desc-text {
       height: 31px;
       background: white;
+      color: #e21893;
       width: 60%;
       display: flex;
       align-items: center;
@@ -81,9 +82,37 @@
 
 .desc-list-text {
       font-weight: 550 !important;
-      font-size: 70%;
+      font-size: 75%;
       margin-left: 1rem;
       text-align: left;
+      color: #e21893;
+}
+
+
+.desc-border {
+      border: 3.5px solid #ff000a;
+      border-radius: 6px;
+}
+
+.desc-border .desc-list-text {
+      color: #ff000a !important;
+}
+
+.desc-border.black {
+      border-color: black;
+}
+
+.desc-border.black .desc-list-text {
+      color: black !important;
+}
+
+.desc-border.yellow {
+      border-color: #ffcc00;
+      color: #ffcc00 !important;
+}
+
+.desc-border.yellow .desc-list-text {
+      color: #ffcc00 !important;
 }
 
 .link-color {

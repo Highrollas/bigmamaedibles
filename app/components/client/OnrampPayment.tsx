@@ -45,6 +45,7 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
       const orderTotal = amount.toFixed(2);
       const totalToPay = Number((amount + gatewayFee).toFixed(2));
 
+
       const checkPaymentStatus = async () => {
             const resp = await new APIClient<reqResponse>(`transaction?transactionId=${transactionId}`).get();
             if (resp.status === "success") {
@@ -80,57 +81,63 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
       if (!paymentObj.orderId) return null;
 
       return (
-            <div>
-                  <div className='h-30 bg-[#e21893] w-full flex items-center justify-between'>
-                        <div className='w-50%] ps-6'>
-                              <Image className='h-20 w-20' width={250} height={200} src='/assets/images/logo.png' alt='Bigmamasedibles' />
-                        </div>
-                        <div className='w-[50%] flex items-center gap-1.5 text-white justify-end pe-7 font-bold!'>
-                              <Image className='h-7 w-auto' width={250} height={200} src='/assets/images/onramp-pay-white.png' alt='Onramp Pay' />
-                              Onramp Pay
-                        </div>
-                  </div>
+            <div className='min-h-screen bg-white px-4 py-6 sm:px-8'>
 
-                  <div className='p-6 sm:w-[50%] mx-auto text-center'>
-                        <p className='font-bold! text-[85%]'>
-                              Your Secure Onramp Pay Link Has Been Created For This Order.
-                              Click The Button Below To Open The Payment Page And Complete Checkout.
-                        </p>
+                  <div className='mx-auto w-full max-w-[1138px] rounded-[18px] bg-[#e21893] p-2 sm:p-5'>
 
-                        <div className='mt-6 rounded-[5px] border-[3px] border-[#e21893] p-4 text-[85%] font-bold!'>
-                              <div>Order ID: {paymentObj.orderId}</div>
-                              <div className='mt-2'>Order Total: {CURRENCY_SYMBOL}{orderTotal}</div>
-                              {paymentObj.gatewayFee && <div className='mt-2'> Gateway Fee: {CURRENCY_SYMBOL}{paymentObj.gatewayFee}</div>}
-                              <div className='mt-2'>Total To Pay: {CURRENCY_SYMBOL}{totalToPay.toFixed(2)}</div>
+                        <div className='flex flex-wrap items-center justify-center py-2 sm:py-4'>
+                              <Image width={350} height={350} alt="Onramp Pay" src="/assets/images/onramp-pay-banner.png" />
                         </div>
 
-                        {paymentObj.paymentStatus === "cancelled" && (
-                              <div className='mt-6 rounded border-[3px] border-red-600 p-4 text-[85%] font-bold! text-red-600'>
-                                    <div>Payment Received Was Less Than The Required Order Total.</div>
-                                    {paymentObj.balanceCredited && <div className='mt-2'>Balance Credited: {CURRENCY_SYMBOL}{paymentObj.balanceCredited}</div>}
-                                    <div className='mt-2'>This Order Was Not Accepted. Please Place A New Order Using Your Account Balance.</div>
+                        <div className='relative bg-white px-2 py-8 pb-[70px] text-center sm:px-8 sm:py-9 sm:pb-[120px] rounded-b-[10px]'>
+
+                              <p className='mx-auto text-[14px] font-bold!'>
+                                    Pay Using Debit Card And Many Other Methods, Payments Are Processed By A Third Party Company Called Onramp. They Will Charge A Small Fee For Processing The Order, This Is Not Something We Can Control.
+                              </p>
+
+                              <div className='mt-8 text-[14px] font-bold! text-red-600'>
+                                    Please Watch Tutorial Before Attempting
                               </div>
-                        )}
 
-                        {paymentObj.paymentStatus !== "cancelled" && <div className='mt-6'>
-                              {paymentObj.paymentLink ? (
-                                    <Link target='_blank' className='btn bg-[#e21893] text-white flex items-center justify-center p-7 rounded w-full'
+                              <div className='mt-8 text-[14px] font-bold! text-red-600'>
+                                    ID & Selfie Required For First Order
+                              </div>
+
+                              {/* <div className='mt-8 text-[85%] font-bold! sm:text-[100%]'>
+                                    <div>Order ID: {paymentObj.orderId}</div>
+                                    <div className='mt-2'>Order Total: {CURRENCY_SYMBOL}{orderTotal}</div>
+                                    {paymentObj.gatewayFee && <div className='mt-2'>Gateway Fee: {CURRENCY_SYMBOL}{paymentObj.gatewayFee}</div>}
+                                    <div className='mt-2'>Total To Pay: {CURRENCY_SYMBOL}{totalToPay.toFixed(2)}</div>
+                              </div> */}
+
+                              {/* {paymentObj.paymentStatus === "cancelled" && (
+                                    <div className='mx-auto mt-8 max-w-[650px] rounded border-[3px] border-red-600 p-4 text-[85%] font-bold! text-red-600'>
+                                          <div>Payment Received Was Less Than The Required Order Total.</div>
+                                          {paymentObj.balanceCredited && <div className='mt-2'>Balance Credited: {CURRENCY_SYMBOL}{paymentObj.balanceCredited}</div>}
+                                          <div className='mt-2'>This Order Was Not Accepted. Please Place A New Order Using Your Account Balance.</div>
+                                    </div>
+                              )} */}
+
+                              {paymentObj.paymentStatus !== "cancelled" && paymentObj.paymentLink && (
+                                    <Link target='_blank' className='absolute bottom-[-1px] right-[-1px] flex p-4 px-7 items-center justify-center rounded-tl-[18px] bg-[#e21893] text-center text-[18px] font-bold! text-white'
                                           href={paymentObj.paymentLink}>
-                                          <Image className='h-6 w-6' src='/assets/images/pay-now-icon.png' width={50} height={50} alt='Pay Now' />
-                                          <span className='ms-2 font-bold!'>Open Payment Link</span>
+                                          {/* <Image className='h-6 w-6' src='/assets/images/pay-now-icon.png' width={50} height={50} alt='Pay Now' /> */}
+                                          <span className='ms-2 font-bold!'>Pay Now</span>
                                     </Link>
-                              ) : (
-                                    <div className='font-bold! text-red-600 text-[85%]'>Payment Link Is Not Ready. Refresh This Page In A Moment.</div>
                               )}
-                        </div>}
 
-                        {paymentObj.paymentStatus !== "cancelled" && <div className="mt-12">
-                              <div className='text-[85%]! font-bold!'>Waiting For Payment Confirmation</div>
-                              <div className='mt-5'>
-                                    <span className="loading bg-[#e21893] loading-spinner w-14"></span>
-                              </div>
-                              <div className='mt-5 font-bold! text-[85%]! '>Once Payment Is Confirmed This Page Will Reload</div>
-                        </div>}
+                              {paymentObj.paymentStatus !== "cancelled" && !paymentObj.paymentLink && (
+                                    <div className='mt-8 font-bold! text-red-600 text-[85%]'>Payment Link Is Not Ready. Refresh This Page In A Moment.</div>
+                              )}
+
+                              {/* {paymentObj.paymentStatus !== "cancelled" && <div className="mt-10">
+                                    <div className='text-[85%]! font-bold!'>Waiting For Payment Confirmation</div>
+                                    <div className='mt-4'>
+                                          <span className="loading bg-[#e21893] loading-spinner w-10"></span>
+                                    </div>
+                                    <div className='mt-4 font-bold! text-[85%]! '>Once Payment Is Confirmed This Page Will Reload</div>
+                              </div>} */}
+                        </div>
                   </div>
             </div>
       )
