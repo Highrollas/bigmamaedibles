@@ -67,6 +67,13 @@
       width: 40px;
 }
 
+.desc-border .desc-list-img {
+      min-height: 35px;
+      min-width: 35px;
+      height: 35px;
+      width: 35px;
+}
+
 
 .desc-text {
       height: 31px;
@@ -90,7 +97,7 @@
 
 
 .desc-border {
-      border: 3.5px solid #ff000a;
+      border: 2.5px solid #ff000a;
       border-radius: 6px;
 }
 

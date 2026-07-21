@@ -496,17 +496,17 @@ export const DESC_TEMPLATES = [
       </div>
       <div class="mt-4 d-flex align-items-center desc-border black">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/ingredients-icon-ed.png" alt="Cross"></div>
+                        src="/assets/images/ingredients-icon-edd.png" alt="Cross"></div>
             <div class="desc-list-text">Ingredients - Glucose Syrup, Starch</div>
       </div>
       <div class="mt-4 d-flex align-items-center desc-border">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/warning-icon.png" alt="Cross"></div>
+                        src="/assets/images/warning-icon-edd.png" alt="Cross"></div>
             <div class="desc-list-text"><span style="color: #ff000a;">Allergy Advice - Nothing To Display</span></div>
       </div>
       <div class="mt-4 d-flex align-items-center desc-border yellow">
             <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
-                        src="/assets/images/production-date-ed.png" alt="Expiry Date"></div>
+                        src="/assets/images/production-date-edd.png" alt="Expiry Date"></div>
             <div class="desc-list-text">Expiry - 2027-06-23</div>
       </div>
       <div class="mt-4 d-flex align-items-center">
