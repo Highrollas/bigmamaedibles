@@ -118,12 +118,12 @@
 }
 
 .desc-border.yellow {
-      border-color: #ffcc00;
-      color: #ffcc00 !important;
+      border-color: #ffc400;
+      color: #ffc400 !important;
 }
 
 .desc-border.yellow .desc-list-text {
-      color: #ffcc00 !important;
+      color: #ffc400 !important;
 }
 
 .link-color {
