@@ -21,17 +21,25 @@ const PaymentMethod = () => {
 
                         <div className="relative border-[3.5px] border-[#e21893] rounded w-[90%]">
 
-                              <div className="bg-[#e21893] max-w-[60%] rounded-br-[5px] text-center flex justify-center h-[32px] items-center">
-                                    <Image width={250} height={250} alt="Apple Pay Or Bank Card" src={p.image}
-                                          className="w-[80%] sm:w-[50%] max-h-[90%] me-[8px]!" />
+                              <div className="bg-[#e21893] w-full text-center flex justify-center h-[50px] items-center">
+                                    <Image width={350} height={350} alt="Apple Pay Or Bank Card" src={p.image}
+                                          className="max-h-[99%] w-auto me-[8px]!" />
                               </div>
 
                               <div className="p-3">
 
-                                    <div className='font-bold! text-[70%] mb-7'>
-                                          {p.details.map((detail, detailIndex) => (
-                                                <div key={detailIndex}>- {detail}</div>
-                                          ))}
+                                    <div className='font-bold! text-[75%] mb-7'>
+                                          {/* {p.details.map((detail, detailIndex) => (
+                                                <p key={detailIndex}>- {detail}</p>
+                                          ))} */}
+
+                                          <div className='text-center'> {p.details[0]}  </div>
+
+                                          <div className='mt-6 text-center text-red-500'>  {p.details[1]} </div>
+
+                                          <div className='mt-6 text-center text-red-500'>  {p.details[2]} </div>
+
+
                                     </div>
                                     {/* <div className='font-bold! text-[70%] text-red-600' key={i}>– {p.fee}</div> */}
 

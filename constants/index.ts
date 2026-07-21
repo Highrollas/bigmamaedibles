@@ -271,13 +271,14 @@ export const PAYMENT_METHODS: _PaymentMethod[] = [
       {
             alias: "onramp",
             name: "Onramp Pay",
-            image: "/assets/images/wert-pay-icon.png",
+            image: "/assets/images/onramp-pay-banner.png",
             details: [
-                  "Pay By Card Through The Onramp Pay Hosted Checkout",
-                  "A Secure Payment Link Will Be Created For Your Order After Checkout"
+                  "Pay Using Debit Card And Many Other Methods, Payments Are Processed By A Third Party Company Called Onramp. They Will Charge A Small Fee For Processing The Order, This Is Not Something We Can Control.",
+                  "Please Watch Tutorial Before Attempting",
+                  "ID & Selfie Required For First Order"
             ],
-            fee: "Provider Fees May Apply",
-            tutorialLink: null,
+            fee: "10%",
+            tutorialLink: "/how-to-order",
       },
 ];
 
