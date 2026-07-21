@@ -86,7 +86,7 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
                               <Image className='h-20 w-20' width={250} height={200} src='/assets/images/logo.png' alt='Bigmamasedibles' />
                         </div>
                         <div className='w-[50%] flex items-center gap-1.5 text-white justify-end pe-7 font-bold!'>
-                              <Image className='h-8 w-15' width={250} height={200} src='/assets/images/onramp-pay-white.png' alt='Onramp Pay' />
+                              <Image className='h-7 w-auto' width={250} height={200} src='/assets/images/onramp-pay-white.png' alt='Onramp Pay' />
                               Onramp Pay
                         </div>
                   </div>
@@ -100,7 +100,7 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
                         <div className='mt-6 rounded-[5px] border-[3px] border-[#e21893] p-4 text-[85%] font-bold!'>
                               <div>Order ID: {paymentObj.orderId}</div>
                               <div className='mt-2'>Order Total: {CURRENCY_SYMBOL}{orderTotal}</div>
-                              {paymentObj.gatewayFee && <div className='mt-2'>Payment Gateway Fee: {CURRENCY_SYMBOL}{paymentObj.gatewayFee}</div>}
+                              {paymentObj.gatewayFee && <div className='mt-2'> Gateway Fee: {CURRENCY_SYMBOL}{paymentObj.gatewayFee}</div>}
                               <div className='mt-2'>Total To Pay: {CURRENCY_SYMBOL}{totalToPay.toFixed(2)}</div>
                         </div>
 
