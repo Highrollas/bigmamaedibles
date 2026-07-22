@@ -469,7 +469,7 @@ export const DESC_TEMPLATES = [
             name: "Edibles template",
             content:
                   `
-                 <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
+                 <div class="p-2 desc-box-container">
       <div class="d-flex justify-content-between my-2 px-2">
             <div class="desc-box d-flex align-items-center" style="width: 40%;">
                   <div class="desc-img">
@@ -479,7 +479,7 @@ export const DESC_TEMPLATES = [
             </div>
             <div class="desc-box d-flex align-items-center" style="width: 35%;">
                   <div class="desc-img">
-                        <img style="height: 23px; min-width: 20px;" src="/assets/images/piece-ed.png" alt="therpene">
+                        <img style="height: 20px; min-width: 20px;" src="/assets/images/piece-ed.png" alt="therpene">
                   </div>
                   <div class="desc-text">5 Pieces</div>
             </div>

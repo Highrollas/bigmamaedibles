@@ -44,7 +44,7 @@ const HtmlParser = ({ text }: { text: string }) => {
                   />
                   <link
                         rel="stylesheet"
-                        href={APP_URL + '/assets/css/desc-styles.css?v=3'}
+                        href={APP_URL + '/assets/css/desc-styles.css?v=4'}
                   />
                   <div>{parse(text)}</div>
             </root.div>

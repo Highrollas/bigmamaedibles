@@ -79,6 +79,12 @@
       scale: 1.01;
 }
 
+.desc-box-container {
+      border: 3px solid #e21893;
+      border-radius: 0.375rem;
+      margin-bottom: 1.25rem;
+}
+
 
 .desc-text {
       height: 31px;

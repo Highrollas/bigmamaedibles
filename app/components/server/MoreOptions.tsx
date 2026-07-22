@@ -31,7 +31,7 @@ const MoreOptions = async ({ productObj }: { productObj: ProductObj }) => {
             <div className="mt-[70px] mb-10 w-[100%] sm:w-[80%] mx-auto overflow-hidden">
 
                   <div className="text-center">
-                        <h2 className='text-2xl'>More Options</h2>
+                        <h2 className='text-2xl text-[#e21893]'>More Options</h2>
                   </div>
 
                   <div className="mt-6 mx-auto overflow-hidden">

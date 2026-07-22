@@ -220,11 +220,11 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
                   {voucherEnabled &&
                         <div>
-                              <table id='cartItemsTable' className={`table text-center bordered-table table-sm font-bold! mt-5 border-separate rounded-[5px] border-spacing-0 " ${voucherEnabled && " rounded-b-[0px]!"}`}>
+                              <table id='cartItemsTable' className={`table text-center bordered-table table-sm font-bold! mt-12 border-separate rounded-[5px] border-spacing-0 " ${voucherEnabled && " rounded-b-[0px]!"}`}>
                                     <tbody>
                                           <tr>
                                                 <td className="w-[25%]">Total</td>
-                                                <td>{CURRENCY_SYMBOL}{50}</td>
+                                                <td>{CURRENCY_SYMBOL}{checkoutObj?.finalTotal?.toFixed(2)}</td>
                                           </tr>
                                     </tbody>
                               </table>
