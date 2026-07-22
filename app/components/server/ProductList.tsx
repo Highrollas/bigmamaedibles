@@ -60,7 +60,7 @@ const ProductList = async ({ products }: ProductListProps) => {
                                                       src={product.images[0]}
                                                       alt={product.name}
                                                 />
-                                                <div className="w-full text-center mt-2 font-bold! text-[#e21893;]">
+                                                <div className="w-full text-center mt-2 font-bold! text-[#e21893]">
                                                       <p className="sm:text-2xl" style={{ fontSize: '0.88em' }}>{product.name}</p>
                                                       {
                                                             product.productType == 'Bundles'
