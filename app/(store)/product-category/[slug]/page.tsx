@@ -56,7 +56,7 @@ const ProductCategoryPage = async ({ params, searchParams }: Props) => {
                   </div>
 
                   <div className="w-[90%] text-center mt-8 mb-6 mx-auto">
-                        <div className='text-[#e21893]'>{parse(categoryObj.description || "")}</div>
+                        <div className='text-[#e21893] font-bold!'>{parse(categoryObj.description || "")}</div>
                   </div>
 
                   {/* {(slug === "shake" || slug == "trim") &&
