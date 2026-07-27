@@ -8,6 +8,7 @@ import LabelInput from '@/app/components/client/LabelInput';
 import useSessionStore from '@/app/hooks/auth/user';
 import useAlertStore from '@/app/hooks/store/alert';
 import APIClient from '@/app/services/apiClient';
+import { getProfileAvatarImageUrl } from '@/constants';
 import Link from 'next/link';
 import React from 'react'
 import { useImmer } from 'use-immer';
@@ -78,7 +79,7 @@ const UserProfilePage = () => {
                         </div>
 
                         <div className='flex flex-col justify-center items-center mt-5'>
-                              <FallbackImage src={'/assets/images/' + user?.avatar + '.png'} alt="user icon" width="220" height="220" />
+                              <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="220" height="220" />
                               <Link href="/account/profile/change-avatar" className='mt-2 font-bold! text-[80%]! underline text-blue-600'>Change Avater</Link>
                         </div>
 

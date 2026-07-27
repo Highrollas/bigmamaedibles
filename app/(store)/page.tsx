@@ -32,7 +32,7 @@ export default async function Home() {
 
                   <div className="flex my-10">
                         <div className="w-[90%] sm:w-[80%] mx-auto">
-                              <BlockSection title="How To Order" imageUrl="/assets/images/how-to-order.png">
+                              <BlockSection title="How To Order" imageUrl="/assets/images/how-to-order-ed.png">
                                     <Heading>How To Order</Heading>
                                     <p>Are You Feeling A Little Lost? Not To Worry. Click The Link Below To Watch Our Step By Step Tutorial Slides On How To Place Your Order</p>
                                     <div className="mt-5 mb-10">

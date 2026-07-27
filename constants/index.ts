@@ -285,66 +285,70 @@ export const PAYMENT_METHODS: _PaymentMethod[] = [
 
 export const PROFILE_AVATARS = [
       {
-            imageUrl: "/assets/images/uncle-snoop.png",
-            name: "Uncle Snoop",
-            alias: "uncle-snoop"
+            imageUrl: "/assets/images/avaters/baller.png",
+            name: "Baller",
+            alias: "baller"
       },
       {
-            imageUrl: "/assets/images/pinky.png",
-            name: "Pinky",
-            alias: "pinky"
+            imageUrl: "/assets/images/avaters/cutie.png",
+            name: "Cutie",
+            alias: "cutie"
       },
       {
-            imageUrl: "/assets/images/boris.png",
-            name: "Boris",
-            alias: "boris"
+            imageUrl: "/assets/images/avaters/moony.png",
+            name: "Moony",
+            alias: "moony"
       },
       {
-            imageUrl: "/assets/images/timmy.png",
-            name: "Timmy",
-            alias: "timmy"
+            imageUrl: "/assets/images/avaters/not-bothered.png",
+            name: "Not Bothered",
+            alias: "not-bothered"
       },
       {
-            imageUrl: "/assets/images/rashy.png",
-            name: "Rashy",
-            alias: "rashy"
+            imageUrl: "/assets/images/avaters/angel.png",
+            name: "Angel",
+            alias: "angel"
       },
       {
-            imageUrl: "/assets/images/moon-walker.png",
-            name: "Moon Walker",
-            alias: "moon-walker"
+            imageUrl: "/assets/images/avaters/chief.png",
+            name: "Chief",
+            alias: "chief"
       },
       {
-            imageUrl: "/assets/images/einstein.png",
-            name: "Einstein",
-            alias: "einstein"
+            imageUrl: "/assets/images/avaters/nightmare.png",
+            name: "Nightmare",
+            alias: "nightmare"
       },
       {
-            imageUrl: "/assets/images/poter.png",
-            name: "Pot Er",
-            alias: "poter"
+            imageUrl: "/assets/images/avaters/euphoria.png",
+            name: "Euphoria",
+            alias: "euphoria"
       },
       {
-            imageUrl: "/assets/images/juan-ounce.png",
-            name: "Juan Ounce",
-            alias: "juan-ounce"
+            imageUrl: "/assets/images/avaters/rambo.png",
+            name: "Rambo",
+            alias: "rambo"
       },
       {
-            imageUrl: "/assets/images/jaw-dropper.png",
-            name: "Jaw Dropper",
-            alias: "jaw-dropper"
+            imageUrl: "/assets/images/avaters/king.png",
+            name: "King",
+            alias: "king"
       },
       {
-            imageUrl: "/assets/images/stoned.png",
-            name: "Stoned",
-            alias: "stoned"
+            imageUrl: "/assets/images/avaters/potions.png",
+            name: "Potions",
+            alias: "potions"
       },
       {
-            imageUrl: "/assets/images/ghost.png",
-            name: "Ghost",
-            alias: "ghost"
+            imageUrl: "/assets/images/avaters/robby.png",
+            name: "Robby",
+            alias: "robby"
       }
 ];
+
+export const getProfileAvatarImageUrl = (alias?: string) => {
+      return PROFILE_AVATARS.find(a => a.alias === alias)?.imageUrl || PROFILE_AVATARS[0].imageUrl;
+};
 
 export const EMPTY_BILLING_OBJ: BillingObj = {
       firstName: "",

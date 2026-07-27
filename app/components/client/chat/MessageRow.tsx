@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from 'next/image'
 import { Shield, Clock, AlertTriangle } from 'lucide-react'
+import { getProfileAvatarImageUrl } from '@/constants'
 
 export default function MessageRow({ m, user, isLastOfBlock, isFirstOfBlock, allowPFP, onImageClick }: any) {
       const isMe = m.sender.username === user?.username
@@ -17,7 +18,7 @@ export default function MessageRow({ m, user, isLastOfBlock, isFirstOfBlock, all
                                                 width={100}
                                                 height={100}
                                                 alt={m.sender.username}
-                                                src={`/assets/images/${m.sender.avatar}.png`}
+                                                src={getProfileAvatarImageUrl(m.sender.avatar)}
                                           />
                                     </div>
                               ) : (

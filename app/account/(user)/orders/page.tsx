@@ -5,7 +5,7 @@ import { formatDateNum, getOrderStatusText, getStatusClass } from '@/app/Helper'
 import useSessionStore from '@/app/hooks/auth/user';
 import useAlertStore from '@/app/hooks/store/alert';
 import APIClient from '@/app/services/apiClient';
-import { CURRENCY_SYMBOL } from '@/constants';
+import { CURRENCY_SYMBOL, getProfileAvatarImageUrl } from '@/constants';
 import { OrderObj } from '@/Interface';
 import { ChevronDown, ChevronLeft, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
@@ -48,7 +48,7 @@ const UserOrdersPage = () => {
                   </div>
 
                   <div className='flex flex-col justify-center items-center mt-5'>
-                        <FallbackImage src={'/assets/images/' + user?.avatar + '.png'} alt="user icon" width="100" height="100" />
+                        <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="100" height="100" />
                         <span className='font-bold mt-2'>@{user?.username}</span>
                   </div>
 

@@ -5,6 +5,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import { Shield, Clock, AlertTriangle, CornerDownLeft, Trash2 } from 'lucide-react'
 import { ChatMessage, ChatObj, UserObj } from '@/Interface'
+import { getProfileAvatarImageUrl } from '@/constants'
 
 interface ChatMessagesProps {
       chat: ChatObj | null
@@ -150,7 +151,7 @@ export default function ChatMessages({
                                                       width={100}
                                                       height={100}
                                                       alt={m.sender.username}
-                                                      src={`/assets/images/${m.sender.avatar}.png`}
+                                                      src={getProfileAvatarImageUrl(m.sender.avatar)}
                                                 />
                                           </div>
                                     ) : (

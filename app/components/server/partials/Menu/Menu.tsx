@@ -4,7 +4,7 @@ import FallbackImage from '@/app/components/client/FallbackImage';
 import Link from 'next/link'
 import React from 'react'
 import CartCount from '@/app/components/client/CartCount';
-import { MENU_CATEGORIES, MENU_QUICK_LINKS, USER_MENU_LINKS } from '@/constants';
+import { getProfileAvatarImageUrl, MENU_CATEGORIES, MENU_QUICK_LINKS, USER_MENU_LINKS } from '@/constants';
 import MenuControl from '@/app/components/client/MenuControl';
 import Image from 'next/image';
 import useSessionStore from '@/app/hooks/auth/user';
@@ -40,7 +40,7 @@ const Menu = () => {
                                                 {user
                                                       ?
                                                       <label htmlFor="user-drawer" className="cursor-pointer">
-                                                            <Image src={'/assets/images/' + (user.avatar) + '.png'} className='h-10 w-auto mt-[-9px]' alt="user icon" width="250" height="250" />
+                                                            <Image src={getProfileAvatarImageUrl(user.avatar)} className='h-10 w-auto mt-[-9px]' alt="user icon" width="250" height="250" />
                                                       </label>
                                                       :
                                                       <Link href="/account/login">
@@ -153,7 +153,7 @@ const Menu = () => {
                                     </label> */}
 
                                     <div className='flex flex-col justify-center items-center'>
-                                          <FallbackImage src={'/assets/images/' + user?.avatar + '.png'} className='mt-5' alt="user icon" width="150" height="150" />
+                                          <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} className='mt-5' alt="user icon" width="150" height="150" />
                                           <div className='font-bold! text-black mt-2 text-[120%]'>@{user?.username}</div>
                                     </div>
 

@@ -39,7 +39,7 @@ const useRegistrationStore = create<RegistrationState>((set, get) => ({
             referralCoupon: "",
             verificationCode: "",
             billingObj: EMPTY_BILLING_OBJ,
-            avatar: "uncle-snoop"
+            avatar: "baller"
       },
 
       regStage: "form",

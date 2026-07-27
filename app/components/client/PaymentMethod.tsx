@@ -46,7 +46,7 @@ const PaymentMethod = () => {
                                     {p.tutorialLink && (
                                           <Link title={p.name} href={p.tutorialLink}
                                                 className="bg-[#e21893] absolute bottom-[-1px] right-[-1px] h-[30px] text-white px-[10px] font-bold! text-[85%] rounded-tl-[5px] flex items-center justify-center">
-                                                <Image width={250} height={250} alt='Watch Tutorial' src="/assets/images/watch-tutorial-icon.png"
+                                                <Image width={250} height={250} alt='Watch Tutorial' src="/assets/images/watch-icon.png"
                                                       className="h-[13px] w-auto me-[8px]!" />
                                                 <span className="mt-[3px] font-bold!  text-[80%]">Watch Tutorial</span>
                                           </Link>

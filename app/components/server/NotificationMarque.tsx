@@ -23,8 +23,8 @@ const NotificationMarque = () => {
 
                                     <div className="inline-block min-w-[fit-content]">
                                           <Link href="/how-to-order" className="flex items-center">
-                                                <FallbackImage height={250} width={250} alt='ApplePay' className="h-[17px] w-[auto]" src="/assets/images/wert-pay-icon.png" />
-                                                <span className="font-bold! text-white ms-3">Pay Using ApplePay Or Bank Card</span>
+                                                <FallbackImage height={250} width={250} alt='ApplePay' className="h-[17px] w-[auto]" src="/assets/images/how-to-pay.png" />
+                                                <span className="font-bold! text-white ms-3">Pay Using Debit Card & More Options</span>
                                           </Link>
                                     </div>
 

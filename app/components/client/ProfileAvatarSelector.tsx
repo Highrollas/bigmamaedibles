@@ -10,12 +10,15 @@ interface Props {
 }
 
 const ProfileAvatarSelector = ({ selectedAvatarAlias, setSelectedAvater }: Props) => {
+
+      const selectedAvatar = PROFILE_AVATARS.find(a => a.alias === selectedAvatarAlias) || PROFILE_AVATARS[0];
+
       return (
 
             <div>
 
                   <div className="mt-2 mb-5 text-center">
-                        <Image className='mx-auto' height="150" width="150" src={PROFILE_AVATARS.find(a => a.alias === selectedAvatarAlias)!.imageUrl} alt="address image" />
+                        <Image className='mx-auto' height="150" width="150" src={selectedAvatar.imageUrl} alt="address image" />
                   </div>
 
                   <div className="w-full">
