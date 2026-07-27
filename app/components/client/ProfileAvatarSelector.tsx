@@ -30,10 +30,10 @@ const ProfileAvatarSelector = ({ selectedAvatarAlias, setSelectedAvater }: Props
                         <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 w-full mx-auto">
                               {
                                     PROFILE_AVATARS.map(a =>
-                                          <div key={a.alias} className='border-3 brand-border relative h-[100px] flex justify-center items-end cursor-pointer rounded-[8px] overflow-hidden bg-white'
+                                          <div key={a.alias} className='border-3 brand-border border-[#e21893] relative h-[100px] flex justify-center items-center cursor-pointer rounded-[8px] overflow-hidden bg-white'
                                                 onClick={() => setSelectedAvater(a.alias)}>
-                                                <Image src={a.imageUrl} width={250} height={250} alt={a.name} className='h-[80px] w-[80px]' />
-                                                <div className='bg-[#e21893] absolute top-[-1px] left-[-1px] text-white text-[60%] px-2 leading-[15px]! font-[550]! text-center'>{a.name}</div>
+                                                <Image src={a.imageUrl} width={250} height={250} alt={a.name} className='h-[60px] mt-[16px] w-auto' />
+                                                <div className='bg-[#e21893] h-[16px] rounded-br absolute top-[-1px] left-[-1px] text-white text-[60%] px-2 leading-[15px]! font-[550]! text-center'>{a.name}</div>
                                           </div>
                                     )
                               }
