@@ -22,7 +22,7 @@ const EmailVerifyPage = () => {
       const router = useRouter();
 
       useEffect(() => {
-            // if (regStage != "verify-code") return redirect("/account/register");
+            if (regStage != "verify-code") return redirect("/account/register");
       }, [])
 
       const handleNext = async () => {

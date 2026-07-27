@@ -17,9 +17,9 @@ const RegProfileImageSelectPage = () => {
 
       const { setUserSession } = useSessionStore()
 
-      // useEffect(() => {
-      //       if (regStage != "profile-image") return redirect("/account/register");
-      // }, [])
+      useEffect(() => {
+            if (regStage != "profile-image") return redirect("/account/register");
+      }, [])
 
       const handleUserRegistration = async () => {
 
