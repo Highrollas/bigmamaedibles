@@ -131,8 +131,8 @@ const OnrampPayment = ({ transactionId }: { transactionId: string }) => {
                                     {paymentObj.paymentStatus !== "cancelled" && paymentObj.paymentLink && (
                                           <Link target='_blank' className='btn py-7! mt-15 w-full gap-3'
                                                 href={paymentObj.paymentLink}>
-                                                <span className='font-bold!'>Open Payment Link</span>
-                                                <ArrowRight className='text-white' strokeWidth={2.2} />
+                                                <span className='font-bold! text-[20px]!'>Open Payment Link</span>
+                                                <Image className='h-7 w-auto' alt='arrow right' width={250} height={250} src="/assets/images/pay-arrow.png" />
                                           </Link>
                                     )}
 
