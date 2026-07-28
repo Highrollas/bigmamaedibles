@@ -36,7 +36,7 @@ export const FILTERED_CATEGORIES = [
 
 
 export const VARIATION_FILTERED_CATEGORIES = [...FILTERED_CATEGORIES, "Bundles", "CheekyDeals"];
-export const APP_URL = process.env.NEXT_PUBLIC_PROD == "production" ? process.env.NEXT_PUBLIC_PROD_APP_URL : process.env.NEXT_PUBLIC_DEV_APP_URL;
+export const APP_URL = process.env.NEXT_PUBLIC_PROD == "true" ? process.env.NEXT_PUBLIC_PROD_APP_URL : process.env.NEXT_PUBLIC_DEV_APP_URL;
 
 export const FREE_DELIVERY_MIN_AMOUNT = 100;
 
