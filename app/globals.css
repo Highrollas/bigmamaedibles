@@ -143,6 +143,17 @@ select:focus {
       zoom: .4;
 }
 
+@media(max-width: 600px) {
+      .zm {
+            zoom: .9
+      }
+}
+
+@media(min-width: 600px) {
+      .zm {
+            zoom: .75
+      }
+}
 
 .product-card {
       @apply w-[fit-content] min-w-[50%] max-w-[50%] sm:min-w-[25%] sm:max-w-[25%] lg:min-w-[20%] lg:max-w-[20%] mt-12;
