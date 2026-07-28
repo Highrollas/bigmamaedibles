@@ -42,13 +42,9 @@ export default function RootLayout({
                         <link rel="icon" href="/favicon.ico" />
                         <link rel="apple-touch-icon" href="/favicon.ico" />
 
-                        <link rel="apple-touch-icon" sizes="64x64" href="/assets/images/pwa/pwa-64x64.png" />
-                        <link rel="apple-touch-icon" sizes="192x192" href="/assets/images/pwa/pwa-192x192.png" />
-                        <link rel="apple-touch-icon" sizes="512x512" href="/assets/images/pwa/pwa-512x512.png" />
-
-                        <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/pwa/pwa-64x64.png" />
-                        <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/pwa/pwa-192x192.png" />
-                        <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/pwa/pwa-512x512.png" />
+                        <link rel="apple-touch-icon" href="/assets/images/pwa/apple-touch-icon.png" />
+                        <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/pwa/android-chrome-192x192.png" />
+                        <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/pwa/android-chrome-512x512.png" />
 
                         <link rel="manifest" href="/manifest.json" />
 
