@@ -23,7 +23,7 @@ const PaymentMethod = () => {
 
                               <div className="bg-[#e21893] w-full text-center flex justify-center h-[50px] items-center">
                                     <Image width={350} height={350} alt="Apple Pay Or Bank Card" src={p.image}
-                                          className="max-h-[99%] w-auto me-[8px]!" />
+                                          className="max-h-[99%] w-auto" />
                               </div>
 
                               <div className="p-3">
@@ -35,9 +35,9 @@ const PaymentMethod = () => {
 
                                           <div className='text-center'> {p.details[0]}  </div>
 
-                                          <div className='mt-6 text-center text-red-500'>  {p.details[1]} </div>
+                                          <div className='mt-6 text-center text-[#ff000a]'>  {p.details[1]} </div>
 
-                                          <div className='mt-6 text-center text-red-500'>  {p.details[2]} </div>
+                                          <div className='mt-6 text-center text-[#ff000a]'>  {p.details[2]} </div>
 
 
                                     </div>

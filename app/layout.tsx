@@ -4,7 +4,7 @@ import RouteProgress from "./components/client/RouteProgress";
 import SessionProvider from "./providers/SessionProvider";
 import AlertModal from "./components/client/AlertModal";
 import { DEFAULT_METAOBJ } from "@/constants";
-import Script from "next/script";
+// import Script from "next/script";
 import { Viewport } from "next";
 import { ErrorBoundary } from "@sentry/nextjs";
 import { Analytics } from "@vercel/analytics/next"

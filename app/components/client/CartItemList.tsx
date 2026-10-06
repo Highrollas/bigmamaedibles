@@ -251,13 +251,13 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
                                     }
 
-                                    {(!useVoucherState && !useBalanceState) &&
+                                    {/* {(!useVoucherState && !useBalanceState) &&
 
                                           <div onClick={() => setUseVoucherState(true)} className="flex items-center cursor-pointer">
                                                 <Image className='h-[21px] w-auto me-3 bg-[#e21893]' width={250} height={250} alt='voucher icon' src="/assets/images/use-voucher.png" />
                                                 <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Voucher</div>
                                           </div>
-                                    }
+                                    } */}
 
                                     {useBalanceState &&
 

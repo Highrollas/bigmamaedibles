@@ -57,7 +57,7 @@ export async function generateProductMetadata({ params }: { params: { slug: stri
 
       if (!params.slug || params.slug == "no-slug" || params.slug == "") {
             return {
-                  title: "Product Not Found - High Rolla",
+                  title: "Product Not Found - Bigmamas Edibles",
                   description: "The product you are looking for does not exist.",
             };
       }
@@ -66,24 +66,24 @@ export async function generateProductMetadata({ params }: { params: { slug: stri
 
       if (!productObj) {
             return {
-                  title: "Product Not Found - High Rolla",
+                  title: "Product Not Found - Bigmamas Edibles",
                   description: "The product you are looking for does not exist.",
             };
       }
 
       return {
-            title: `${productObj.name} - Big Mamas Edibles`,
-            description: productObj?.metadata?.description || 'Big Mamas Edibles',
-            keywords: productObj?.metadata?.keywords || 'High Rolla',
+            title: `${productObj.name} - Bigmamas Edibles`,
+            description: productObj?.metadata?.description || 'Bigmamas Edibles',
+            keywords: productObj?.metadata?.keywords || 'Bigmamas Edibles',
             appleWebApp: {
-                  title: "Big Mamas Edibles",
+                  title: "Bigmamas Edibles",
                   capable: true,
             },
             openGraph: {
-                  title: `${productObj.metadata?.ogTitle || productObj.name} - Big Mamas Edibles`,
+                  title: `${productObj.metadata?.ogTitle || productObj.name} - Bigmamas Edibles`,
                   description: productObj?.metadata?.description || "",
                   url: APP_URL + `/product/${productObj.slug}`,
-                  siteName: "Big Mamas Edibles",
+                  siteName: "Bigmamas Edibles",
                   images: [
                         {
                               url: productObj.images[0],
@@ -102,7 +102,7 @@ export async function generateProductMetadata({ params }: { params: { slug: stri
             },
             twitter: {
                   card: "summary_large_image",
-                  title: `${productObj.metadata?.ogTitle || productObj.name} - Big Mamas Edibles`,
+                  title: `${productObj.metadata?.ogTitle || productObj.name} - Bigmamas Edibles`,
                   description: productObj.metadata?.description || "",
                   images: [productObj.images[0]],
             },
@@ -113,7 +113,7 @@ export async function generateBlogMetadata({ params }: { params: { slug: string 
 
       if (!params.slug || params.slug == "no-slug" || params.slug == "") {
             return {
-                  title: "Blog Not Found - High Rolla",
+                  title: "Blog Not Found - Bigmamas Edibles",
                   description: "The blog you are looking for does not exist.",
             };
       }
@@ -122,22 +122,22 @@ export async function generateBlogMetadata({ params }: { params: { slug: string 
 
       if (!blogObj) {
             return {
-                  title: "Blog Not Found - High Rolla",
+                  title: "Blog Not Found - Bigmamas Edibles",
                   description: "The blog you are looking for does not exist.",
             };
       }
 
       return {
-            title: `${blogObj.title} - Big Mamas Edibles`,
-            description: blogObj?.metadata?.description || 'Big Mamas Edibles',
-            keywords: blogObj?.metadata?.keywords || 'High Rolla',
+            title: `${blogObj.title} - Bigmamas Edibles`,
+            description: blogObj?.metadata?.description || 'Bigmamas Edibles',
+            keywords: blogObj?.metadata?.keywords || 'Bigmamas Edibles',
             appleWebApp: {
-                  title: "Big Mamas Edibles",
+                  title: "Bigmamas Edibles",
                   capable: true,
             },
             openGraph: {
-                  title: `${blogObj.metadata?.ogTitle || blogObj.title} - Big Mamas Edibles`,
-                  siteName: "Big Mamas Edibles",
+                  title: `${blogObj.metadata?.ogTitle || blogObj.title} - Bigmamas Edibles`,
+                  siteName: "Bigmamas Edibles",
                   url: APP_URL + `${blogObj.type == "blog" ? '/blog' : ''}/${blogObj.slug}`,
                   description: blogObj?.metadata?.description || "",
                   images: [
@@ -157,7 +157,7 @@ export async function generateBlogMetadata({ params }: { params: { slug: string 
             },
             twitter: {
                   card: "summary_large_image",
-                  title: `${blogObj.metadata?.ogTitle || blogObj.title} - Big Mamas Edibles`,
+                  title: `${blogObj.metadata?.ogTitle || blogObj.title} - Bigmamas Edibles`,
                   description: blogObj.metadata?.description || "",
                   images: [blogObj.coverImage],
             },
@@ -170,7 +170,7 @@ export async function generateCategoryMetadata({ params }: { params: { slug: str
 
       if (!categoryObj) {
             return {
-                  title: "Product Not Found - High Rolla",
+                  title: "Product Not Found - Bigmamas Edibles",
                   description: "The product you are looking for does not exist.",
                   ...DEFAULT_METAOBJ
             };

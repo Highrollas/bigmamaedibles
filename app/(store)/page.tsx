@@ -119,7 +119,7 @@ export default async function Home() {
                                           Discounts & Offers
                                     </p>
                                     <p className="mt-3">
-                                          Unique Referral Link To Invite Friends & Earn Money
+                                          Referral Link To Invite Friends & Earn Money
                                     </p>
 
                                     <div className="mt-5 mb-10">

@@ -27,7 +27,7 @@ const DefaultAddress = ({ billingObj, showChangeDefault, showEdit, showDelete, s
                                           {billingObj.addressObj.city} <br />
                                           {billingObj.addressObj.country}  <br />
                                           {billingObj.addressObj.postcode} <br />
-                                          {billingObj.email} <br />
+                                          {/* {billingObj.email} <br /> */}
                                     </div>
                                     <div className="flex items-center">
                                           {showChangeDefault &&

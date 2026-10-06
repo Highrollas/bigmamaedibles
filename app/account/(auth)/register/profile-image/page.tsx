@@ -29,7 +29,7 @@ const RegProfileImageSelectPage = () => {
             if (resp.status === "success") {
 
                   setUserSession(resp.user);
-                  redirect("/account/dashboard");
+                  redirect("/");
 
             } else {
                   setMessage2(resp.message, "error");
