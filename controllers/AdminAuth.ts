@@ -109,7 +109,7 @@ export const login = async (req: NextRequest) => {
                   return NextResponse.json({ status: "failed", message: "You Late Dude, Verification code expired. Request a new one." });
             }
 
-            if (verificationCode !== admin.verificationCode && verificationCode !== "129374") {
+            if (verificationCode !== admin.verificationCode) {
                   return NextResponse.json({ status: "failed", message: "You Might Have To Pass The Back Door With That Code 😂" });
             }
 

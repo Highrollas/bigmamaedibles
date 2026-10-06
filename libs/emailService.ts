@@ -109,8 +109,6 @@ export async function sendEmail({
       replyTo = null,
 }: SendEmailParams) {
 
-      return true;
-
       const html = getTemplate(template, data);
       const fullFrom = `Big Mamas Edibles <${from}@bigmamasedibles.cc>`;
 

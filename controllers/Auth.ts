@@ -119,7 +119,7 @@ export const verifyConfirmationCode = async (req: NextRequest) => {
 
                   const regObj = tokenObj as unknown as RegistrationObj;
 
-                  if (regObj.verificationCode === verificationCode || verificationCode === "129374") {
+                  if (regObj.verificationCode === verificationCode) {
 
                         return NextResponse.json({ status: "success" });
 

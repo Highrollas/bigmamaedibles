@@ -3,7 +3,7 @@
 import useCartStore from '@/app/hooks/store/cart'
 import APIClient from '@/app/services/apiClient'
 import { CURRENCY_SYMBOL } from '@/constants';
-import { ArrowRight } from 'lucide-react';
+// import { ArrowRight } from 'lucide-react';
 import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
