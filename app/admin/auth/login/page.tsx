@@ -78,11 +78,11 @@ const AdminLoginPage = () => {
                   <div className="w-[90%] sm:w-[70%] lg:w-[55%] mx-auto card bg-base-100  shadow-sm p-12">
 
                         <div className="mx-auto mb-3">
-                              <Image src='/assets/images/logo.png' className='h-15 w-15 mx-auto rounded' height={250} width={250} alt='Highrollas' />
+                              <Image src='/assets/images/logo.png' className='h-15 w-15 mx-auto rounded' height={250} width={250} alt='Bigmama' />
                         </div>
 
                         <div className='text-center'>
-                              <h1 className='text-2xl'>Highrollas Admin</h1>
+                              <h1 className='text-2xl'>Bigmama Admin</h1>
                         </div>
 
                         <AlertMessage2 />

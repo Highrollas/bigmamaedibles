@@ -58,7 +58,7 @@ const DashboardPage = () => {
                               <input readOnly value={user?.coupon} className='text-center w-[80%] font-bold!' />
                               <div onClick={() =>
                                     copyToClipboard(`${user?.username} Has Invited You To Create A High Rollas Account 🍃 You Get £10 Of Your First Order Over £50 By Clicking The Link Below 👇🏻 
-https://highrollas.cc/account/register?coupon=${user?.coupon}`, 'Your Referral Link Has Been Copied.You Can Now Share It With Your Friends And Family')}
+https://www.bigmamasedibles.cc/account/register?coupon=${user?.coupon}`, 'Your Referral Link Has Been Copied.You Can Now Share It With Your Friends And Family')}
                                     className="input-append w-[20%]! cursor-pointer">
                                     <Image src='/assets/images/upload.png' alt='coupon icon' width={20} height={25} />
                               </div>
