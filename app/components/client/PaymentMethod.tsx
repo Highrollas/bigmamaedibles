@@ -37,7 +37,7 @@ const PaymentMethod = () => {
 
                                           <div className='mt-6 text-center text-[#ff000a]'>  {p.details[1]} </div>
 
-                                          <div className='mt-6 text-center text-[#ff000a]'>  {p.details[2]} </div>
+                                          <div className='mt-3 text-center text-[#ff000a]'>  {p.details[2]} </div>
 
 
                                     </div>

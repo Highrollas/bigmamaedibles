@@ -40,7 +40,7 @@ const Menu = () => {
                                                 {user
                                                       ?
                                                       <label htmlFor="user-drawer" className="cursor-pointer">
-                                                            <Image src={getProfileAvatarImageUrl(user.avatar)} className='h-10 w-auto mt-[-9px]' alt="user icon" width="250" height="250" />
+                                                            <Image src={getProfileAvatarImageUrl(user.avatar)} className='h-10 w-auto mt-[-6px]' alt="user icon" width="250" height="250" />
                                                       </label>
                                                       :
                                                       <Link href="/account/login">
@@ -53,17 +53,17 @@ const Menu = () => {
 
                                     <div className='no-arrow'>
                                           <Link href="/" className='hover:no-underline! cursor-pointer' title="Home">
-                                                <Image className='h-7 w-7' src='/assets/images/home-icon.png' height="250" width="250" alt='Home' />
+                                                <Image className='h-7 w-7' src='/assets/images/ed-home-icon.png' height="250" width="250" alt='Home' />
                                           </Link>
                                     </div>
                                     <div className='no-arrow'>
                                           <label htmlFor="category-drawer" className='hover:no-underline! cursor-pointer'>
-                                                <Image className='h-7 w-7' src='/assets/images/category-icon.png' height="250" width="250" alt='Category' />
+                                                <Image className='h-7 w-7' src='/assets/images/ed-category-icon.png' height="250" width="250" alt='Category' />
                                           </label>
                                     </div>
                                     <div className='hover:no-underline! relative'>
                                           <Link href='/cart' className='cursor-pointer'>
-                                                <Image className='h-7 w-7' src='/assets/images/cart-box.png' height="250" width="250" alt='Cart' />
+                                                <Image className='h-7 w-7' src='/assets/images/ed-cart-box.png' height="250" width="250" alt='Cart' />
                                                 <CartCount />
                                           </Link>
                                     </div>

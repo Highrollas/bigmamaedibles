@@ -540,4 +540,63 @@ export const DESC_TEMPLATES = [
             `
       },
 
+      {
+            name: "Chocolate template",
+            content: `
+
+            <div class="p-2" style="border: 3px solid black; border-radius: 0.375rem; margin-bottom: 1.25rem;">
+                  <div class="d-flex justify-content-between my-2 px-2">
+                        <div class="desc-box d-flex align-items-center" style="width: 75%;">
+                              <div class="desc-img"><img style="height: 23px; min-width: 20px;"
+                                          src="../../../assets/images/thc-icon.png" alt="therpene"></div>
+                              <div class="desc-text">THC 1000mg</div>
+                        </div>
+                        <div class="desc-box d-flex align-items-center" style="width: 20%;">
+                              <div class="desc-img">&pound;</div>
+                              <div class="desc-text">30</div>
+                        </div>
+                  </div>
+                  <div class="mt-4 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/bme.png" alt="produced by"></div>
+                        <div class="desc-list-text" style="color: #e21893;"><span style="color: #e21893;">Produced By - Big MaMa's
+                                    Edibles</span></div>
+                  </div>
+                  <div class="mt-4 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/ingredients-icon.png" alt="Cross"></div>
+                        <div class="desc-list-text">Ingredients- Milk, Sugar, Cocoa Butter, Cocoa Mass, Vegetable Fats, MCT Oil
+                              &amp; D9 Distillate</div>
+                  </div>
+                  <div class="mt-4 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/warning-icon.png" alt="Cross"></div>
+                        <div class="desc-list-text"><span style="color: #ff000a;">Allergy Advice- May Contain Nuts, Dairy And
+                                    Wheat</span></div>
+                  </div>
+                  <div class="mt-4 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/feelings-icon.png" alt="Cross"></div>
+                        <div class="desc-list-text">Effects- 😵&zwj;💫 Euphoric 😌 Relaxed 😄 Happy</div>
+                  </div>
+                  <div class="mt-4 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/taste-icon.png" alt="Cross"></div>
+                        <div class="desc-list-text">Taste- 🍫 Milk Chocolate</div>
+                  </div>
+                  <div class="mt-4 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/helpswith-icon.png" alt="Cross"></div>
+                        <div class="desc-list-text">Helps- 🙁 Depression 😖 Anxiety 😓 Stress</div>
+                  </div>
+                  <div class="mt-4 mb-2 d-flex align-items-center px-2">
+                        <div class="desc-list-img"><img style="object-fit: contain; width: 100%; height: 100%;"
+                                    src="../../../assets/images/origin-icon.png" alt="Cross"></div>
+                        <div class="desc-list-text">Origin- 🇬🇧 United Kingdom</div>
+                  </div>
+            </div>
+                        
+            `
+      },
+
 ]

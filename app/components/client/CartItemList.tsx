@@ -228,7 +228,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                                           </tr>
                                     </tbody>
                               </table>
-                              <div className="bg-[#e21893] text-white p-3 flex justify-between rounded-b-[5px]">
+                              <div className="bg-[#e21893] text-white p-3 flex justify-end rounded-b-[5px]">
 
                                     {useVoucherState &&
 
@@ -288,7 +288,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                                     {(user && !useBalanceState && !useVoucherState) &&
 
                                           <div onClick={() => setUseBalanceState(true)} className="flex items-center">
-                                                <Image className='h-[21px] w-auto me-3' width={250} height={250} alt='balance icon' src="/assets/images/usebalance-icon.png" />
+                                                <Image className='h-[21px] w-auto me-3' width={250} height={250} alt='balance icon' src="/assets/images/usebalance-ed-icon.png" />
                                                 <div className='border-b-2 font-bold! text-[80%] mb-1'>Use Balance</div>
                                           </div>
                                     }
