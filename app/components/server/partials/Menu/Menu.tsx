@@ -69,7 +69,7 @@ const Menu = () => {
                                     </div>
                                     <div>
                                           <label htmlFor="explore-drawer" className='hover:no-underline! cursor-pointer'>
-                                                <Image className='h-7 w-7' src='/assets/images/explore-icon.png' height="250" width="250" alt='Explore' />
+                                                <Image className='h-7 w-7' src='/assets/images/ed-explore.png' height="250" width="250" alt='Explore' />
                                           </label>
                                     </div>
 
