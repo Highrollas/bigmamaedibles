@@ -81,7 +81,7 @@ const Menu = () => {
                         <input id="category-drawer" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-side z-10">
 
-                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%] px-4 py-1">
+                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%]  py-1">
 
                                     {/* <div className='mt-3'>
                                           <label  htmlFor="shop-drawer" className='flex items-center opacity-60 cursor-pointer'>
@@ -89,10 +89,10 @@ const Menu = () => {
                                           </label>
                                     </div> */}
 
-                                    <div className="flex flex-wrap justify-between mt-0">
+                                    <div className="flex flex-wrap justify-center gap-3.5 mt-3">
                                           {
                                                 MENU_CATEGORIES.map((c, i) =>
-                                                      <Link title={c.name + ' Category'} href={'/product-category/' + c.slug} className="font-bold! cursor-pointer w-[30%] mt-4" key={i}>
+                                                      <Link title={c.name + ' Category'} href={'/product-category/' + c.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
                                                             <div className='flex items-center cursor-pointer z-[1000] close-category-drawer menu-item-btn py-4'>
                                                                   <div className='text-[50px] leading-[60px]!'>{c.emoji}</div>
                                                                   <div className='mt-4 text-[90%]'> {c.name} </div>
