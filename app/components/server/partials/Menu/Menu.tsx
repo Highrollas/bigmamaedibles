@@ -40,7 +40,7 @@ const Menu = () => {
                                                 {user
                                                       ?
                                                       <label htmlFor="user-drawer" className="cursor-pointer">
-                                                            <Image src={getProfileAvatarImageUrl(user.avatar)} className='h-10 w-auto mt-[-6px]' alt="user icon" width="250" height="250" />
+                                                            <Image src={getProfileAvatarImageUrl(user.avatar)} className='h-10 w-auto mt-[0px]' alt="user icon" width="250" height="250" />
                                                       </label>
                                                       :
                                                       <Link href="/account/login">
@@ -63,7 +63,7 @@ const Menu = () => {
                                     </div>
                                     <div className='hover:no-underline! relative'>
                                           <Link href='/cart' className='cursor-pointer'>
-                                                <Image className='h-7 w-7' src='/assets/images/ed-cart-box.png' height="250" width="250" alt='Cart' />
+                                                <Image className='h-7 w-7' src='/assets/images/ed-box-icon.png' height="250" width="250" alt='Cart' />
                                                 <CartCount />
                                           </Link>
                                     </div>
