@@ -152,12 +152,12 @@ const Menu = () => {
                                           <XIcon color='white' size={30} />
                                     </label> */}
 
-                                    <div className='flex flex-col justify-center items-center'>
-                                          <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} className='mt-5' alt="user icon" width="150" height="150" />
-                                          <div className='font-bold! text-black mt-2 text-[120%]'>@{user?.username}</div>
+                                    <div className='relative flex flex-col justify-center items-center border-[#e21893] border-[3.5px] rounded-[7px] p-6 px-8 pb-10.5 w-fit mx-auto'>
+                                          <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="50" height="50" />
+                                          <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
 
-                                    <div className="absolute bottom-23 flex flex-wrap justify-between mt-7 w-[92%]">
+                                    <div className="flex flex-wrap justify-between mt-7 w-full">
 
                                           {
                                                 USER_MENU_LINKS.map((m, i) =>

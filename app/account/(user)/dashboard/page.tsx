@@ -53,14 +53,14 @@ const DashboardPage = () => {
                   <div className="w-full mt-4">
                         <div className="form-box-2 rounded-[5px]!">
                               <div className="input-prepend justify-center! bg-[#e21893]! w-[20%]! cursor-pointer">
-                                    <Image src='/assets/images/input-coupon.png' alt='coupon icon' width={25} height={25} />
+                                    <Image src='/assets/images/ed-balance-icon.png' alt='coupon icon' width={25} height={25} />
                               </div>
                               <input readOnly value={user?.coupon} className='text-center w-[80%] font-bold!' />
                               <div onClick={() =>
                                     copyToClipboard(`${user?.username} Has Invited You To Create A Bigmama Account 🍃 You Get £10 Of Your First Order Over £50 By Clicking The Link Below 👇🏻 
 https://www.bigmamasedibles.cc/account/register?coupon=${user?.coupon}`, 'Your Referral Link Has Been Copied.You Can Now Share It With Your Friends And Family')}
                                     className="input-append w-[20%]! cursor-pointer">
-                                    <Image src='/assets/images/upload.png' alt='coupon icon' width={20} height={25} />
+                                    <Image src='/assets/images/ed-copy-icon.png' alt='coupon icon' width={20} height={25} />
                               </div>
                         </div>
                   </div>
