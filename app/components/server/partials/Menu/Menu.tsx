@@ -157,11 +157,11 @@ const Menu = () => {
                                           <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
 
-                                    <div className="flex flex-wrap justify-between mt-7 w-full">
+                                    <div className="flex flex-wrap justify-center gap-3.5 mt-7 w-full">
 
                                           {
                                                 USER_MENU_LINKS.map((m, i) =>
-                                                      <Link title={m.name + ' Category'} href={m.slug} className="font-bold! cursor-pointer w-[30%] mt-4" key={i}>
+                                                      <Link title={m.name + ' menu'} href={m.slug} className="font-bold! cursor-pointer w-[30%] mt-4" key={i}>
                                                             <div className='flex items-center cursor-pointer close-user-drawer z-[1000] menu-item-btn py-4'>
                                                                   {m.imageUrl
                                                                         ? <Image height={250} width={250} src={m.imageUrl} alt={m.name} className='h-[60px] w-auto' />
