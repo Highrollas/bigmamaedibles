@@ -123,7 +123,7 @@ const Menu = () => {
                                                 MENU_QUICK_LINKS.map((m, i) =>
                                                       <React.Fragment key={i}>
                                                             {m.pwaOnly && !isPWA() ? null :
-                                                                  <Link title={m.name + ' Category'} href={m.url} className="font-bold! cursor-pointer w-[30%] mt-4">
+                                                                  <Link title={m.name} href={m.url} className="font-bold! cursor-pointer w-[30%] mt-4">
                                                                         <div className='flex items-center cursor-pointer z-[1000] close-explore-drawer menu-item-btn py-4'>
                                                                               {m.imageUrl
                                                                                     ? <Image height={250} width={250} src={m.imageUrl} alt={m.name + ' Category'} className='h-[60px] w-auto' />
@@ -146,13 +146,13 @@ const Menu = () => {
                         <input id="user-drawer" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-side z-10">
 
-                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%] pt-12">
+                              <ul className="menu bg-base-200 text-base-content h-[100dvh]  w-[100%] sm:w-[40%]  lg:w-[30%] py-1">
 
                                     {/* <label htmlFor="user-drawer" className='flex justify-end p-2 pr-4 cursor-pointer'>
                                           <XIcon color='white' size={30} />
                                     </label> */}
 
-                                    <div className='relative flex flex-col justify-center items-center border-[#e21893] border-[3.5px] rounded-[7px] p-6 px-8 pb-10.5 w-fit mx-auto'>
+                                    <div className='relative flex flex-col justify-center items-center border-[#e21893] border-[3.5px] rounded-[7px] p-6 px-8 pb-10.5 w-fit mt-3 mx-auto'>
                                           <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="50" height="50" />
                                           <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
@@ -162,7 +162,10 @@ const Menu = () => {
                                                 USER_MENU_LINKS.map((c, i) =>
                                                       <Link title={c.name + ' Menu'} href={c.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
                                                             <div className='flex items-center cursor-pointer z-[1000] close-category-drawer menu-item-btn py-4'>
-                                                                  <div className='text-[50px] leading-[60px]!'>{c.emoji}</div>
+                                                                  {c.imageUrl
+                                                                        ? <Image height={250} width={250} src={c.imageUrl} alt={c.name} className='h-[60px] w-auto' />
+                                                                        : <div className='text-[50px] leading-[60px]!'>{c.emoji}</div>
+                                                                  }
                                                                   <div className='mt-4 text-[90%]'> {c.name} </div>
                                                             </div>
                                                       </Link>
