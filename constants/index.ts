@@ -231,7 +231,7 @@ export const DELIVERY_METHODS: DeliveryMethodObj[] = [
       {
             name: "24 Hours Delivery",
             alias: "24hrs-delivery",
-            fee: 5,
+            fee: 6,
             minOrderAmount: 1,
             maxOrderAmount: 99,
             type: "paid",
