@@ -109,7 +109,7 @@ const Menu = () => {
                         <input id="explore-drawer" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-side z-10">
 
-                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%] px-4 py-1">
+                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%] py-1">
 
                                     {/* <div className='mt-3'>
                                           <label htmlFor="explore-drawer" className='flex items-center opacity-60 cursor-pointer'>
@@ -117,16 +117,16 @@ const Menu = () => {
                                           </label>
                                     </div> */}
 
-                                    <div className="flex flex-wrap justify-between mt-0">
+                                    <div className="flex flex-wrap justify-center gap-3.5 mt-3">
 
                                           {
                                                 MENU_QUICK_LINKS.map((m, i) =>
                                                       <React.Fragment key={i}>
                                                             {m.pwaOnly && !isPWA() ? null :
-                                                                  <Link title={m.name} href={m.url} className="font-bold! cursor-pointer w-[30%] mt-4">
+                                                                  <Link title={m.name} href={m.url} className="font-bold! cursor-pointer w-[30%]">
                                                                         <div className='flex items-center cursor-pointer z-[1000] close-explore-drawer menu-item-btn py-4'>
                                                                               {m.imageUrl
-                                                                                    ? <Image height={250} width={250} src={m.imageUrl} alt={m.name + ' Category'} className='h-[60px] w-auto' />
+                                                                                    ? <Image height={250} width={250} src={m.imageUrl} alt={m.name} className='h-[60px] w-auto' />
                                                                                     : <div className='text-[50px] leading-[60px]!'>{m.emoji}</div>
                                                                               }
                                                                               <div className='mt-4 text-[90%]'> {m.name} </div>
