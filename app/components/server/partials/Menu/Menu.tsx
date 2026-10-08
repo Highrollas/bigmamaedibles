@@ -153,7 +153,7 @@ const Menu = () => {
                                     </label> */}
 
                                     <div className='relative flex flex-col justify-center items-center border-[#e21893] border-[3.5px] rounded-[7px] p-6 px-8 pb-10.5 w-fit mt-3 mx-auto'>
-                                          <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="50" height="50" />
+                                          <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="50" height="50" className='h-[58px] w-auto' />
                                           <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
 
