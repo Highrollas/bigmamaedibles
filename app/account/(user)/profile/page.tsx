@@ -79,7 +79,7 @@ const UserProfilePage = () => {
                         </div>
 
                         <div className='flex flex-col justify-center items-center mt-5'>
-                              <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="220" height="220" />
+                              <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="160" height="160" />
                               <Link href="/account/profile/change-avatar" className='mt-2 font-bold! text-[80%]! underline text-blue-600'>Change Avater</Link>
                         </div>
 
