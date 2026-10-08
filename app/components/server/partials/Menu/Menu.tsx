@@ -152,7 +152,7 @@ const Menu = () => {
                                           <XIcon color='white' size={30} />
                                     </label> */}
 
-                                    <div className='relative flex flex-col justify-center items-center border-[#e21893] border-[3.5px] rounded-[7px] py-5 px-8 pb-10.5 w-fit mt-3 mx-auto'>
+                                    <div className='relative flex flex-col justify-center items-center h-[127px] w-[113px] border-[#e21893] border-[3.5px] rounded-[7px] py-5 px-8 pb-10.5 mt-3 mx-auto'>
                                           <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="50" height="50" className='h-[58px] w-auto' />
                                           <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
@@ -161,7 +161,7 @@ const Menu = () => {
                                           {
                                                 USER_MENU_LINKS.map((c, i) =>
                                                       <Link title={c.name + ' Menu'} href={c.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
-                                                            <div className='flex items-center cursor-pointer z-[1000] close-category-drawer menu-item-btn py-4'>
+                                                            <div className='flex items-center cursor-pointer h-[127px] w-[113px] z-[1000] close-category-drawer menu-item-btn py-4'>
                                                                   {c.imageUrl
                                                                         ? <Image height={250} width={250} src={c.imageUrl} alt={c.name} className='h-[60px] w-auto' />
                                                                         : <div className='text-[50px] leading-[60px]!'>{c.emoji}</div>
