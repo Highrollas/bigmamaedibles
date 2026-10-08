@@ -173,7 +173,7 @@ const Menu = () => {
                                                 )
                                           }
 
-                                          <div className="font-bold! cursor-pointer w-[30%] mt-4">
+                                          <div className="font-bold! cursor-pointer w-[30%]">
                                                 <div onClick={() => handleLogout()} className='flex items-center cursor-pointer close-user-drawer z-[1000] menu-item-btn py-4'>
                                                       <label className='cursor-pointer'>
                                                             <div className='text-[40px]'>🚪</div>
