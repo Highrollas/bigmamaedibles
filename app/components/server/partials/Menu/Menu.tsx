@@ -152,12 +152,13 @@ const Menu = () => {
                                           <XIcon color='white' size={30} />
                                     </label> */}
 
-                                    <div className='relative flex flex-col justify-center items-center h-[127px] w-[113px] border-[#e21893] border-[3.5px] rounded-[7px] py-5 px-8 pb-10.5 mt-3 mx-auto'>
+                                    <div className='relative flex flex-col justify-center items-center h-[127px] w-[30%] border-[#e21893] border-[3.5px] rounded-[7px] py-5 px-8 pb-10.5 mt-3 mx-auto'>
                                           <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="50" height="50" className='h-[58px] w-auto' />
                                           <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
 
                                     <div className="flex flex-wrap justify-center gap-3.5 mt-3">
+
                                           {
                                                 USER_MENU_LINKS.map((c, i) =>
                                                       <Link title={c.name + ' Menu'} href={c.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
@@ -178,6 +179,7 @@ const Menu = () => {
                                                       <div className='mt-4 text-[90%]'> Logout </div>
                                                 </div>
                                           </div>
+
                                     </div>
                               </ul>
                         </div>
