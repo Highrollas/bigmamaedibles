@@ -44,7 +44,7 @@ export const MONTHLY_EXPENSES = 8720;
 
 export const WEEKLY_EXPENSES = 2180;
 
-export const POST_OFFICE_PARCEL_COST = 5.70;
+export const POST_OFFICE_PARCEL_COST = 6.05;
 
 export const STATS_START_DATE_ISO = "2026-06-19T15:00:00.000Z";
 
