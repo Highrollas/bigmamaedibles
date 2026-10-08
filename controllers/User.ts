@@ -96,6 +96,38 @@ export const updateUser = async (req: NextRequest) => {
       }
 };
 
+export const deleteOwnAccount = async (req: NextRequest) => {
+      try {
+            const user = await getUserFromSession();
+            if (!user) {
+                  return NextResponse.json({ status: 'failed', message: 'Please Log In Again' }, { status: 401 });
+            }
+
+            const body = await req.json().catch(() => null);
+            const result = z.object({ password: z.string().min(1).max(1024) }).safeParse(body);
+            if (!result.success) {
+                  return NextResponse.json({ status: 'failed', message: 'Please Enter Your Password' }, { status: 400 });
+            }
+
+            if (!user.password || !await bcrypt.compare(result.data.password, user.password)) {
+                  return NextResponse.json({ status: 'failed', message: 'Password Is Incorrect' }, { status: 403 });
+            }
+
+            // Account deletion is intentionally disabled for now.
+            // await User.deleteOne({ _id: user._id });
+
+            await User.updateOne({ _id: user._id }, { $set: { token: '' } });
+            const response = NextResponse.json({ status: 'success' });
+            response.cookies.set('auth_token', '', { path: '/', maxAge: 0 });
+            response.cookies.set('guest_token', '', { path: '/', maxAge: 0 });
+            return response;
+
+      } catch (error) {
+            console.error('Error in deleteOwnAccount:', error);
+            return NextResponse.json({ status: 'failed', message: 'Unable To Complete Your Request. Please Try Again.' }, { status: 500 });
+      }
+};
+
 export const adminFetchUsers = async (req: NextRequest) => {
       try {
 

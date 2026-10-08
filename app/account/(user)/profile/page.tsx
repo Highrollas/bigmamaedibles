@@ -146,12 +146,12 @@ const UserProfilePage = () => {
 
                               </div>
 
-                              <button
-                                    type="button"
+                              <Link
+                                    href="/account/profile/delete-account"
                                     className="mt-8 mb-10 flex h-[42px] w-full items-center justify-center rounded-[5px] bg-[#ff0000]! p-0! text-[80%] font-bold text-white [zoom:1]! hover:bg-[#dc0000]! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                               >
                                     Delete Account
-                              </button>
+                              </Link>
 
                         </div>
 
