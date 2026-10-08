@@ -108,7 +108,7 @@ export const USER_MENU_LINKS = [
       { name: "Orders", emoji: "📦", slug: "/account/orders/" },
       { name: "Addresses", emoji: "🏡", slug: "/account/addresses/" },
       { name: "Balance", emoji: "💷", slug: "/account/dashboard/" },
-      { name: "Earn Money", emoji: "💷", slug: "/account/dashboard/" },
+      { name: "Earn Money", emoji: "👀", slug: "/account/dashboard/" },
       { name: "Contact Us", imageUrl: "/assets/images/contact-icon-ed.png", slug: "/contact" }
 ]
 
