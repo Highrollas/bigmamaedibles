@@ -146,7 +146,7 @@ const Menu = () => {
                         <input id="user-drawer" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-side z-10">
 
-                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%] px-4 pt-12">
+                              <ul className="menu bg-base-200 text-base-content h-[100dvh] w-[100%] sm:w-[40%]  lg:w-[30%] pt-12">
 
                                     {/* <label htmlFor="user-drawer" className='flex justify-end p-2 pr-4 cursor-pointer'>
                                           <XIcon color='white' size={30} />
