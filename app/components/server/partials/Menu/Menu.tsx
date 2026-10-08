@@ -161,7 +161,7 @@ const Menu = () => {
 
                                           {
                                                 USER_MENU_LINKS.map((m, i) =>
-                                                      <Link title={m.name + ' menu'} href={m.slug} className="font-bold! cursor-pointer w-[30%] mt-4" key={i}>
+                                                      <Link title={m.name + ' menu'} href={m.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
                                                             <div className='flex items-center cursor-pointer close-user-drawer z-[1000] menu-item-btn py-4'>
                                                                   {m.imageUrl
                                                                         ? <Image height={250} width={250} src={m.imageUrl} alt={m.name} className='h-[60px] w-auto' />
