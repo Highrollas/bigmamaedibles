@@ -199,18 +199,6 @@ const DeliveryMethod = () => {
                         </td>
                   </tr> */}
 
-
-
-
-
-                  {((cartTotal > 50 && cartTotal < 100) || cartTotal >= 100) &&
-
-                        <div className="bg-[#e21893] text-white p-3 flex justify-center font-bold! text-[85%]">
-                              {(cartTotal > 50 && cartTotal < 100) && `You Are ${CURRENCY_SYMBOL}${100 - cartTotal} Away From Free 24hr Delivery 😏`}
-                              {cartTotal >= 100 && `This Order Includes Free 24hr Delivery 🥳`}
-                        </div>
-                  }
-
             </>
       )
 }

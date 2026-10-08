@@ -25,7 +25,7 @@ interface fetchCouponResp {
 
 const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
-      const { carts, remove, cartTotal } = useCartStore();
+      const { carts, remove } = useCartStore();
       const { checkoutObj, setCheckoutObj } = useCheckoutStore();
       const [mounted, setMounted] = useState(false);
       const [useVoucherState, setUseVoucherState] = useState(false);
@@ -36,6 +36,8 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
       const { setModalMessage } = useAlertStore();
       const [couponLoading, setCouponLoading] = useState(false);
       // const [couponUsed, setCouponUsed] = useState(false);
+
+      const cartTotal = useCartStore(c => c.cartTotal());
 
       const applyVoucher = React.useCallback(async (_coupon: string | null = null, silent = false) => {
 
@@ -57,7 +59,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
             const resp = await new APIClient<fetchCouponResp>('vouchers').post(reqObj);
             if (resp.status == "success") {
 
-                  if (resp.voucher.voucherType === "referral" && (cartTotal() < 50)) {
+                  if (resp.voucher.voucherType === "referral" && (cartTotal < 50)) {
                         setCouponLoading(false);
                         return setModalMessage("Order Total Cannot Be Less Than £50 To Use Voucher");
                   }
@@ -105,7 +107,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
             if (!mounted) setMounted(true);
             if (user && location.pathname == "/checkout") {
                   if (user.referralCouponUsed == false && user.referralCoupon.length > 0) {
-                        if (cartTotal() >= 50) {
+                        if (cartTotal >= 50) {
                               applyVoucher(user.referralCoupon, true);
                         }
                   }
@@ -151,7 +153,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
 
             <div>
 
-                  <table id='cartItemsTable' className={`table bordered-table table-sm font-bold! mt-5 border-separate rounded-[5px] border-spacing-0 " ${voucherEnabled && " rounded-b-[0px]!"}`}>
+                  <table id='cartItemsTable' className={`table rounded-b-[0px] bordered-table table-sm font-bold! mt-5 border-separate border-spacing-0`}>
 
                         <thead className='bg-[#e21893] text-white text-center'>
                               <tr>
@@ -163,7 +165,7 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                               </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody className='w-full'>
 
                               {
                                     carts.map((c, i) =>
@@ -214,7 +216,22 @@ const CartItemList = ({ voucherEnabled }: { voucherEnabled?: boolean }) => {
                               <DeliveryMethod />
 
                         </tbody>
+
                   </table>
+
+
+                  {
+                        location.pathname == "/checkout" &&
+                        <>
+                              {((cartTotal > 50 && cartTotal < 100) || cartTotal >= 100) &&
+
+                                    <div className="bg-[#e21893] text-white p-3 flex  rounded-b-[5px]  justify-center font-bold! text-[85%]">
+                                          {(cartTotal > 50 && cartTotal < 100) && `You Are ${CURRENCY_SYMBOL}${100 - cartTotal} Away From Free 24hr Delivery 😏`}
+                                          {cartTotal >= 100 && `This Order Includes Free 24hr Delivery 🥳`}
+                                    </div>
+                              }
+                        </>
+                  }
 
 
 

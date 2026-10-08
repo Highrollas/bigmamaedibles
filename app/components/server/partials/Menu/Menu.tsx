@@ -157,31 +157,24 @@ const Menu = () => {
                                           <div className='absolute flex items-center justify-center pt-1 bottom-0 left-0 bg-[#e21893] font-bold! text-white w-full text-[90%]'>@{user?.username}</div>
                                     </div>
 
-                                    <div className="flex flex-wrap justify-center gap-3.5 mt-7 w-full">
-
+                                    <div className="flex flex-wrap justify-center gap-3.5 mt-3">
                                           {
-                                                USER_MENU_LINKS.map((m, i) =>
-                                                      <Link title={m.name + ' menu'} href={m.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
-                                                            <div className='flex items-center cursor-pointer close-user-drawer z-[1000] menu-item-btn py-4'>
-                                                                  {m.imageUrl
-                                                                        ? <Image height={250} width={250} src={m.imageUrl} alt={m.name} className='h-[60px] w-auto' />
-                                                                        : <div className='text-[40px]'>{m.emoji}</div>
-                                                                  }
-                                                                  <div className='mt-4 text-[90%]'> {m.name} </div>
+                                                USER_MENU_LINKS.map((c, i) =>
+                                                      <Link title={c.name + ' Menu'} href={c.slug} className="font-bold! cursor-pointer w-[30%]" key={i}>
+                                                            <div className='flex items-center cursor-pointer z-[1000] close-category-drawer menu-item-btn py-4'>
+                                                                  <div className='text-[50px] leading-[60px]!'>{c.emoji}</div>
+                                                                  <div className='mt-4 text-[90%]'> {c.name} </div>
                                                             </div>
                                                       </Link>
                                                 )
                                           }
 
-                                          <div className="font-bold! cursor-pointer w-[30%]">
-                                                <div onClick={() => handleLogout()} className='flex items-center cursor-pointer close-user-drawer z-[1000] menu-item-btn py-4'>
-                                                      <label className='cursor-pointer'>
-                                                            <div className='text-[40px]'>🚪</div>
-                                                      </label>
+                                          <div onClick={() => handleLogout()} className="font-bold! cursor-pointer w-[30%]">
+                                                <div className='flex items-center cursor-pointer z-[1000] close-category-drawer menu-item-btn py-4'>
+                                                      <div className='text-[50px] leading-[60px]!'>🚪</div>
                                                       <div className='mt-4 text-[90%]'> Logout </div>
                                                 </div>
                                           </div>
-
                                     </div>
                               </ul>
                         </div>
