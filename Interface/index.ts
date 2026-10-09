@@ -139,6 +139,7 @@ export interface TransactionObj {
       amountRequiredUsd?: string;
       balanceCredited?: string;
       webhookData?: object;
+      webhookToken?: string;
       status: "completed" | "pending" | "cancelled" | string;
       createdAt?: string;
 }
@@ -154,6 +155,12 @@ export interface ICheckout extends CheckoutObj, Document<string> {
 }
 
 export interface CheckoutObj {
+      cancelReason?: string;
+      balanceCredited?: string;
+      paymentReceivedAt?: Date;
+      checkoutRolledBack?: boolean;
+      paymentEmailSentAt?: Date;
+      paymentEmailSendingAt?: Date;
       cartItems: CartItem[];
       billingObj: BillingObj;
       paymentGatewayAlias: string;
@@ -173,6 +180,12 @@ export interface CheckoutObj {
 }
 
 export interface OrderObj {
+      cancelReason?: string;
+      balanceCredited?: string;
+      paymentReceivedAt?: Date;
+      checkoutRolledBack?: boolean;
+      paymentEmailSentAt?: Date;
+      paymentEmailSendingAt?: Date;
       _id: string;
       _gid: string;
       cartItems: CartItem[];
@@ -261,6 +274,16 @@ export interface PaymentMethod {
 
 export interface IUser extends UserObj, Document<string> { }
 
+export interface BalanceHistoryEntry {
+      _id: string;
+      amount: number;
+      balanceAfter: number;
+      reason: 'Order' | 'Referral' | 'Refund' | 'Adjustment' | 'Underpayment' | 'Out of Stock';
+      counterparty: string;
+      orderId?: string;
+      createdAt: string;
+}
+
 export interface UserObj {
       _id: string;
       _gid: string;
@@ -271,6 +294,8 @@ export interface UserObj {
       verificationCode: string;
       username: string;
       balance: string;
+      balanceHistory?: BalanceHistoryEntry[];
+      balanceHistoryMigrated?: boolean;
       firstName: string;
       lastName: string;
       billingObj: BillingObj[],

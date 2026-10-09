@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";;
 import { createUserSchema, loginUserSchema, validateUserSchema, verificationCodeSchema } from "@/schema";
 import { z } from "zod";
+import { claimPendingBalance } from '@/libs/balance';
 
 
 export const validateUser = async (req: NextRequest) => {
@@ -263,6 +264,9 @@ export const createUser = async (req: NextRequest) => {
 
             if (user) {
 
+                  await claimPendingBalance(String(user._id));
+                  const creditedUser = await User.findById(user._id).select('balance').lean<UserObj>();
+                  user.balance = creditedUser?.balance || user.balance;
                   await Voucher.create({
                         code: couponCode,
                         restrictedUsersIds: [user._gid],
@@ -361,7 +365,8 @@ export const validateUserSession = async () => {
                   })
             }
 
-            const user = userObj as UserObj;
+            await claimPendingBalance(String(userObj._id));
+            const user = (await User.findById(userObj._id).lean<UserObj>())!;
 
             return NextResponse.json({
                   status: "success", user: {
@@ -433,6 +438,10 @@ export const login = async (req: NextRequest) => {
             if (!appReady && isPWA == true && username !== "timi" && username !== "boytimz") {
                   return NextResponse.json({ status: "failed", message: "Your Login Details Are Correct But Unfortunately The App Is Not Ready Yet, When The App Is Launched It Will Be Announced On The bigmamasedibles.cc Website " });
             }
+
+            await claimPendingBalance(String(user._id));
+            const creditedUser = await User.findById(user._id).select('balance').lean<UserObj>();
+            user.balance = creditedUser?.balance || user.balance;
 
             //generate token for user
             const authToken = await signToken({

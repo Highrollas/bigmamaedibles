@@ -55,13 +55,14 @@ export default function DeleteAccountPage() {
 
       return (
             <div className="mx-auto w-[85%] pb-16">
+
                   <div className="mt-10 flex">
                         <Link href="/account/profile" aria-label="Back to profile" className="btn bg-[#e21893] text-white px-3! py-1!">
                               <ChevronLeft size={20} color="white" />
                         </Link>
                   </div>
 
-                  <Image src="/assets/images/delete-account.png" alt="Delete account" width={320} height={320} priority className="mx-auto mt-8 h-auto w-[80%] object-contain" />
+                  <Image src="/assets/images/delete-account.png" alt="Delete account" width={320} height={320} priority className="mx-auto mt-8 h-auto w-full object-contain" />
 
                   <form onSubmit={confirmDeletion} className="mx-auto mt-8 w-[80%]">
                         <h1 className="text-center text-base font-bold leading-relaxed sm:text-lg">
@@ -81,7 +82,7 @@ export default function DeleteAccountPage() {
                               Are You Sure You Would Like To Delete Your Account And Wipe All Data Associated With It?
                         </h2>
                         <div className="mt-8 flex justify-between gap-6">
-                              <button type="button" autoFocus disabled={submitting} onClick={() => dialogRef.current?.close()} className="h-[42px] min-w-24 rounded-[5px] bg-black! px-5! py-0! text-sm font-bold text-white [zoom:1]! focus-visible:outline-2 focus-visible:outline-offset-2">
+                              <button type="button" disabled={submitting} onClick={() => dialogRef.current?.close()} className="h-[42px] min-w-24 rounded-[5px] bg-black! px-5! py-0! text-sm font-bold text-white [zoom:1]!">
                                     Cancel
                               </button>
                               <button type="button" disabled={submitting} onClick={deleteAccount} className={`${redButtonClass} w-auto! min-w-24 px-5!`}>

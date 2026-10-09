@@ -41,7 +41,7 @@ const UserOrdersPage = () => {
       if (!user) return null;
 
       return (
-            <div className='w-[90%] mx-auto'>
+            <div className='w-[90%] mx-auto text-[#e21893]!'>
 
                   <div className="flex justify-between mt-10">
                         <Link href='/' className="btn bg-[#e21893] text-white px-3! py-1!"> <ChevronLeft className='mr-[1px]' size={20} color='white' /></Link>
@@ -67,7 +67,7 @@ const UserOrdersPage = () => {
                                     {
                                           orders.map((order, i) =>
 
-                                                <div key={i} onClick={() => expandIndex == i ? setExpanIndex(null) : setExpanIndex(i)} className='border-2 rounded p-3 mt-4 font-[550]! text-[80%] mb-5'>
+                                                <div key={i} onClick={() => expandIndex == i ? setExpanIndex(null) : setExpanIndex(i)} className='border-2 border-[#e21893] rounded p-3 mt-4 font-[550]! text-[80%] mb-5'>
 
                                                       <div className=' flex items-center text-center '>
                                                             <div className="w-[20%] text-blue-600">{order.orderId}</div>
@@ -185,7 +185,7 @@ const UserOrdersPage = () => {
                         }
 
                         {
-                              orders.length == 0 && <div className='text-center mt-5 border-2 flex justify-center rounded p-3 text-[90%]'> You Have Not Placed An Order Yet. You Knew That So Why Did You Come Here ? 😂</div>
+                              orders.length == 0 && <div className='text-center mt-5 border-2 border-[#e21893] flex justify-center rounded p-3 text-[90%]'> You Have Not Placed An Order Yet. You Knew That So Why Did You Come Here ? 😂</div>
                         }
 
                   </div>

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getAdminFromSession, getUserFromSession, payOrderCommission, reduceOrderItemsStock, refundOrderCommission, rollbackOrderUsedParams } from "@/app/Helper/server";
+import { getAdminFromSession, getUserFromSession, refundOrderCommission, rollbackOrderUsedParams } from "@/app/Helper/server";
 import Order from "@/models/Order";
 import { NextRequest, NextResponse } from "next/server";
 import { filterQuery, OrderObj } from '@/Interface';
@@ -7,6 +7,8 @@ import { sendFirstErrorMessage } from "@/app/Helper";
 import { OrderUpdateSchema } from "@/schema";
 import { sendEmail } from "@/libs/emailService";
 import { TEMPLATE_MAP } from "@/constants";
+import { settlePaidOrder, STOCK_CANCELLATION_REASON } from '@/libs/paymentSettlement';
+import mongoose from 'mongoose';
 
 export const fetchUserOrders = async () => {
 
@@ -265,81 +267,52 @@ export const updateOrder = async (req: NextRequest) => {
 };
 
 export const setOrderStatus = async ({ orderId, status, isPatched = false }: { orderId: string; status: string, isPatched?: boolean }) => {
-
       try {
-
-            const existingOrder = await Order.findOne({ orderId }).lean<OrderObj>();
-            if (!existingOrder) {
-                  return true
+            status = status.toLowerCase();
+            if (status === 'on-hold') {
+                  const existing = await Order.findOne({ orderId }).lean<OrderObj>();
+                  if (!existing) throw new Error('Order Not Found');
+                  if (['pending', 'cancelled'].includes(existing.status)) return await settlePaidOrder(orderId, isPatched);
             }
+            const session = await mongoose.startSession();
+            let outcome;
+            try {
+                  outcome = await session.withTransaction(async () => {
+                        const existing = await Order.findOne({ orderId }).session(session).lean<OrderObj>();
+                        if (!existing) throw new Error('Order Not Found');
+                        if (existing.status === status) return { order: existing, changed: false };
+                        if (existing.cancelReason === STOCK_CANCELLATION_REASON) throw new Error('Paid Stock Cancellation Cannot Be Reopened');
 
-            const currentStatus = existingOrder.status;
-            if (currentStatus === status) {
-                  return true;
-            }
-
-            const updateObj: Record<string, unknown> = { status, updatedAt: new Date() };
-            if (isPatched) updateObj.isPatched = true;
-
-            if (status.toLocaleLowerCase() === "on-hold") {
-                  updateObj.orderFilled = new Date();
-            }
-
-            const updated = await Order.findOneAndUpdate(
-                  { orderId },
-                  { $set: updateObj },
-                  { new: true, runValidators: true }
-            ).lean<OrderObj>();
-
-            if (status.toLocaleLowerCase() === "on-hold") {
-                  reduceOrderItemsStock(existingOrder);
-                  if (currentStatus === "pending" || currentStatus === "cancelled") {
-                        payOrderCommission(existingOrder);
-
-                        //dhl logic here
-                  }
-            }
-
-            if (status.toLocaleLowerCase() === "cancelled") {
-                  rollbackOrderUsedParams(existingOrder);
-                  if (currentStatus === "on-hold") {
-                        refundOrderCommission(existingOrder);
-                  }
-
-                  // Check if user has another successful order on the same day
-                  const orderDate = new Date(updated!.createdAt);
-                  const dayStart = new Date(orderDate.getFullYear(), orderDate.getMonth(), orderDate.getDate(), 0, 0, 0, 0);
-                  const dayEnd = new Date(orderDate.getFullYear(), orderDate.getMonth(), orderDate.getDate(), 23, 59, 59, 999);
-
-                  const hasPaidOrder = await Order.findOne({
-                        'billingObj.email': updated!.billingObj.email,
-                        status: { $in: ['completed', 'on-hold', 'processing'] },
-                        _id: { $ne: updated!._id },
-                        createdAt: { $gte: dayStart, $lte: dayEnd }
-                  }).lean();
-
-                  if (hasPaidOrder) {
-                        // Skip email notification if user has another successful order today
-                        return { success: true, order: updated };
-                  }
-            }
-
-            const emailConfig = TEMPLATE_MAP[status.toLowerCase()];
-
-            if (emailConfig && updated) {
-                  sendEmail({
-                        to: updated.billingObj.email,
-                        from: "order",
-                        subject: emailConfig.subject,
-                        template: emailConfig.template,
-                        data: {
-                              checkoutObj: updated,
-                        },
+                        if (status === 'cancelled') {
+                              await rollbackOrderUsedParams(existing, session);
+                              if (['on-hold', 'processing', 'completed'].includes(existing.status)) await refundOrderCommission(existing, session);
+                        }
+                        const updated = await Order.findOneAndUpdate({ orderId }, {
+                              $set: { status, updatedAt: new Date(), ...(isPatched ? { isPatched: true } : {}) },
+                        }, { new: true, runValidators: true, session }).lean<OrderObj>();
+                        return { order: updated!, changed: true };
                   });
+            } finally {
+                  await session.endSession();
             }
+            if (!outcome) return { success: false };
+            const updated = outcome.order;
+            if (!outcome.changed) return { success: true, order: updated };
 
+            if (status === 'cancelled') {
+                  const orderDate = new Date(updated.createdAt);
+                  const dayStart = new Date(orderDate.getFullYear(), orderDate.getMonth(), orderDate.getDate());
+                  const dayEnd = new Date(dayStart.getTime() + 86400000 - 1);
+                  const hasPaidOrder = await Order.exists({
+                        'billingObj.email': updated.billingObj.email,
+                        status: { $in: ['completed', 'on-hold', 'processing'] },
+                        _id: { $ne: updated._id }, createdAt: { $gte: dayStart, $lte: dayEnd },
+                  });
+                  if (hasPaidOrder) return { success: true, order: updated };
+            }
+            const config = TEMPLATE_MAP[status];
+            if (config) await sendEmail({ to: updated.billingObj.email, from: 'order', subject: config.subject, template: config.template, data: { checkoutObj: updated } });
             return { success: true, order: updated };
-
       } catch (error) {
             console.warn("error settings order data", error);
             return { success: false };
@@ -440,7 +413,7 @@ export const bulkUpdateOrderStatus = async (req: NextRequest) => {
 
             for (const order of orders) {
 
-                  setOrderStatus({ orderId: order.orderId, status });
+                  await setOrderStatus({ orderId: order.orderId, status });
 
             }
 

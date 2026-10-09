@@ -13,6 +13,8 @@ import { APP_URL, DEFAULT_METAOBJ } from "@/constants";
 import Voucher from "@/models/Voucher";
 import Posts from "@/models/Posts";
 import { Metadata } from "next";
+import { changeBalance, BalanceReason } from '@/libs/balance';
+import Order from '@/models/Order';
 
 
 export async function getAuthFromToken(): Promise<AuthUser | false> {
@@ -277,27 +279,24 @@ export const reduceOrderItemsStock = async (order: OrderObj) => {
       }
 }
 
-export const payOrderCommission = async (order: OrderObj) => {
+export const payOrderCommission = async (order: OrderObj, session?: ClientSession) => {
       if (order.coupons && order.coupons.length > 0) {
             for (const coupon of order.coupons) {
 
-                  const voucher = await Voucher.findOne({ code: new RegExp(`^${coupon.code}$`, "i") }).lean<VoucherObj>();
+                  const voucher = await Voucher.findOne({ code: new RegExp(`^${coupon.code}$`, "i") }).session(session || null).lean<VoucherObj>();
 
                   if (voucher && voucher.voucherType === "referral") {
                         // pay commission to the user who referred this order
-                        const referralUser = await User.findOne({ coupon: voucher.code.toUpperCase() }).lean<UserObj>();
+                        const referralUser = await User.findOne({ coupon: voucher.code.toUpperCase() }).session(session || null).lean<UserObj>();
                         if (referralUser) {
 
-                              const newBalance = (parseFloat(referralUser.balance) || 0) + 10;
-                              await User.updateOne(
-                                    { _id: referralUser._id },
-                                    { $set: { balance: newBalance.toString() } }
-                              );
+                              const referredUser = await User.findOne({ _gid: order._gid }).session(session || null).select('username').lean<UserObj>();
+                              await changeBalance({ userId: referralUser._id, amount: 10, reason: 'Referral', counterparty: referredUser?.username ? `@${referredUser.username.substring(0, 3)}**` : 'BM', orderId: order.orderId, eventKey: `referral:${order.orderId}:${voucher._id}`, session });
 
                               //set the refcoupon to used for the user
                               await User.updateOne(
                                     { email: order.billingObj.email },
-                                    { $set: { referralCouponUsed: true } }
+                                    { $set: { referralCouponUsed: true } }, { session }
                               )
 
                         }
@@ -306,21 +305,17 @@ export const payOrderCommission = async (order: OrderObj) => {
       }
 }
 
-export const refundOrderCommission = async (order: OrderObj) => {
+export const refundOrderCommission = async (order: OrderObj, session?: ClientSession) => {
       if (order.coupons && order.coupons.length > 0) {
             for (const coupon of order.coupons) {
 
-                  const voucher = await Voucher.findOne({ code: new RegExp(`^${coupon.code}$`, "i") }).lean<VoucherObj>();
+                  const voucher = await Voucher.findOne({ code: new RegExp(`^${coupon.code}$`, "i") }).session(session || null).lean<VoucherObj>();
 
                   if (voucher && voucher.voucherType === "referral") {
                         // refund commission from the user who referred this order
-                        const referralUser = await User.findOne({ coupon: voucher.code.toUpperCase() }).lean<UserObj>();
+                        const referralUser = await User.findOne({ coupon: voucher.code.toUpperCase() }).session(session || null).lean<UserObj>();
                         if (referralUser) {
-                              const newBalance = (parseFloat(referralUser.balance) || 0) - 10;
-                              await User.updateOne(
-                                    { _id: referralUser._id },
-                                    { $set: { balance: newBalance.toString() } }
-                              );
+                              await changeBalance({ userId: referralUser._id, amount: -10, reason: 'Referral', counterparty: 'BM', orderId: order.orderId, eventKey: `referral-reversal:${order.orderId}:${voucher._id}`, session });
                         }
                   }
             }
@@ -351,20 +346,22 @@ export async function convertGBPtoEUR(amount: number): Promise<string> {
       return (amount * exchangeRate).toFixed(2);
 }
 
-export const rollbackOrderUsedParams = async (existingOrder: OrderObj) => {
+export const rollbackOrderUsedParams = async (existingOrder: OrderObj, session?: ClientSession, reason: BalanceReason = 'Refund') => {
+
+      if (existingOrder.checkoutRolledBack) return;
 
       // refund balance if used
       if (parseFloat(existingOrder.useBalance) > 0) {
-            const user = await User.findOne({ _gid: existingOrder._gid }).lean<UserObj>();
+            const user = await User.findOne({ _gid: existingOrder._gid }).session(session || null).lean<UserObj>();
             if (user) {
-                  await User.updateOne({ _gid: existingOrder._gid }, { balance: parseFloat(user.balance) + parseFloat(existingOrder.useBalance) })
+                  await changeBalance({ userId: user._id, amount: parseFloat(existingOrder.useBalance), reason, counterparty: 'BM', orderId: existingOrder.orderId, eventKey: `balance-return:${existingOrder.orderId}`, session });
             }
       }
 
       // rollback vouchers if used
       if (existingOrder.coupons && existingOrder.coupons.length > 0) {
             for (const coupon of existingOrder.coupons) {
-                  const voucher = await Voucher.findOne({ code: new RegExp(`^${coupon.code}$`, "i") }).lean<VoucherObj>();
+                  const voucher = await Voucher.findOne({ code: new RegExp(`^${coupon.code}$`, "i") }).session(session || null).lean<VoucherObj>();
 
                   if (voucher) {
                         await Voucher.updateOne(
@@ -372,12 +369,12 @@ export const rollbackOrderUsedParams = async (existingOrder: OrderObj) => {
                               {
                                     $inc: { usageCount: -1 }, // decrement by 1
                                     $pull: { usageUserIds: existingOrder._gid }, // remove user's gid
-                              }
+                              }, { session }
                         );
                   }
             }
       }
 
-
+      await Order.updateOne({ orderId: existingOrder.orderId }, { $set: { checkoutRolledBack: true } }, { session });
 }
 

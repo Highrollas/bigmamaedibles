@@ -10,6 +10,9 @@ import { TransactionStatusSchema } from "@/schema";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import { setOrderStatus } from "./Order";
+import { changeBalance } from '@/libs/balance';
+import { notifyPaymentOutcome } from '@/libs/paymentSettlement';
+import { timingSafeEqual } from 'crypto';
 
 export const checkTransactionStatus = async (req: NextRequest) => {
 
@@ -37,7 +40,7 @@ export const checkTransactionStatus = async (req: NextRequest) => {
 
             const { transactionId } = result.data;
 
-            const txObj = await Transaction.findOne({ _id: transactionId }).lean<TransactionObj>();
+            const txObj = await Transaction.findOne({ _id: transactionId, _gid: authUser._gid }).lean<TransactionObj>();
 
             if (txObj) {
 
@@ -142,8 +145,7 @@ async function creditUnderpaymentToBalance(order: OrderObj, paidUsd: number, gbp
       const user = await User.findOne({ _gid: order._gid }).lean<UserObj>();
       if (!user) return "0.00";
 
-      const newBalance = Number(((parseFloat(user.balance) || 0) + paidGbp).toFixed(2));
-      await User.updateOne({ _gid: order._gid }, { balance: newBalance.toString() });
+      await changeBalance({ userId: user._id, amount: paidGbp, reason: 'Underpayment', counterparty: 'BM', orderId: order.orderId, eventKey: `underpayment:${order.orderId}` });
 
       return paidGbp.toFixed(2);
 }
@@ -166,19 +168,24 @@ export const handleWebhook = async (req: NextRequest) => {
                   const depositConfirmed = await checkDepositStatus(orderId);
 
                   if (depositConfirmed) {
-                        await setOrderStatus({ status: "on-hold", orderId, isPatched: isPatched ? true : false });
+                        const outcome = await setOrderStatus({ status: "on-hold", orderId, isPatched: isPatched ? true : false });
+                        if (!outcome.success) throw new Error('Could Not Finalize Paid Order');
                         await Transaction.updateOne({ refrenceId: orderId }, { status: "completed" });
                   }
+            } else if (txObj?.status === 'completed') {
+                  const order = await Order.findOne({ orderId }).lean<OrderObj>();
+                  if (order && !order.paymentEmailSentAt) await notifyPaymentOutcome(order);
             }
 
             return NextResponse.json({ message: "received" });
 
       } catch (error) {
             console.warn("webhook error", error);
+            return NextResponse.json({ message: 'Payment Processing Failed. Retry Required.' }, { status: 500 });
       }
 };
 
-export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) => {
+export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string, webhookToken?: string) => {
 
       try {
             const { searchParams } = new URL(req.url);
@@ -187,6 +194,13 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
 
             if (!invoiceId) {
                   return NextResponse.json({ message: "received" });
+            }
+
+            const storedTransaction = await Transaction.findOne({ refrenceId: invoiceId }).select('+webhookToken').lean<TransactionObj>();
+            const suppliedToken = webhookToken || searchParams.get('token') || '';
+            const expectedToken = storedTransaction?.webhookToken || '';
+            if (!expectedToken || Buffer.byteLength(expectedToken) !== Buffer.byteLength(suppliedToken) || !timingSafeEqual(Buffer.from(expectedToken), Buffer.from(suppliedToken))) {
+                  return NextResponse.json({ message: 'Invalid Webhook Token' }, { status: 401 });
             }
 
             const webhookData = {
@@ -232,7 +246,8 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
                         const underpaymentToleranceUsd = 1.50;
 
                         if (paidUsd + underpaymentToleranceUsd >= requiredUsd) {
-                              await setOrderStatus({ status: "on-hold", orderId: invoiceId });
+                              const outcome = await setOrderStatus({ status: "on-hold", orderId: invoiceId });
+                              if (!outcome.success) throw new Error('Could Not Finalize Paid Order');
                               await Transaction.updateOne(
                                     { refrenceId: invoiceId },
                                     {
@@ -265,6 +280,8 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
                               //       }
                               // );
                         }
+                  } else if (txObj?.status === 'completed' && order && !order.paymentEmailSentAt) {
+                        await notifyPaymentOutcome(order);
                   } else {
                         console.warn(`Transaction or Order not found for invoiceId ${invoiceId} during Onramp webhook processing.`);
                   }
@@ -276,6 +293,6 @@ export const handleOnrampWebhook = async (req: NextRequest, invoiceId: string) =
 
       } catch (error) {
             console.warn("onramp webhook error", error);
-            return NextResponse.json({ message: "received" });
+            return NextResponse.json({ message: 'Payment Processing Failed. Retry Required.' }, { status: 500 });
       }
 };

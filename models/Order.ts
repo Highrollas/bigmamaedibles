@@ -33,6 +33,12 @@ const OrderSchema = new Schema<ICheckout>(
             useBalance: {
                   type: String
             },
+            cancelReason: String,
+            balanceCredited: String,
+            paymentReceivedAt: Date,
+            checkoutRolledBack: { type: Boolean, default: false },
+            paymentEmailSentAt: Date,
+            paymentEmailSendingAt: Date,
             amountSubTotal: {
                   type: String
             },

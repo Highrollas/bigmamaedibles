@@ -8,6 +8,8 @@ import bcrypt from "bcryptjs";;
 import User from "@/models/User";
 import { sendEmail } from "@/libs/emailService";
 import { z } from "zod";
+import { changeBalance } from '@/libs/balance';
+import { randomUUID } from 'crypto';
 
 export const updateUser = async (req: NextRequest) => {
 
@@ -321,7 +323,8 @@ export const setUserBalance = async (req: NextRequest) => {
 
       try {
 
-            if (!await getAdminFromSession()) {
+            const admin = await getAdminFromSession();
+            if (!admin) {
                   return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
             }
 
@@ -346,7 +349,7 @@ export const setUserBalance = async (req: NextRequest) => {
                   }, { status: 404 });
             }
 
-            await User.updateOne({ _id }, { balance: String(balance) });
+            await changeBalance({ userId: _id, targetBalance: balance, reason: 'Refund', counterparty: 'BM', adminId: String(admin._id), eventKey: `admin:${randomUUID()}` });
 
 
             return NextResponse.json({

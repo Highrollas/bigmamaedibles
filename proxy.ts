@@ -4,7 +4,7 @@ import { RateLimiterMemory } from 'rate-limiter-flexible';
 import { verifyToken } from './app/Helper';
 
 export const config = {
-      matcher: ['/api/((?!auth|admin/auth|webhook96_14_v1|cron).*)', '/admin/((?!auth).*)', '/account/((?!login|register|username-reminder|reset-password).*)'],
+      matcher: ['/api/((?!auth|admin/auth|webhook96_14_v1|onramp-pay/webhook/|cron).*)', '/admin/((?!auth).*)', '/account/((?!login|register|username-reminder|reset-password).*)'],
 };
 
 const guestRestrictedPaths = ['/api/user', '/api/chats'];
@@ -44,6 +44,12 @@ export function proxy(request: NextRequest) {
                   {
                         path: '/admin/dashboard',
                         accessLevels: ['AA', 'A', 'B']
+                  },
+                  {
+                        path: '/admin/balances', accessLevels: ['AA']
+                  },
+                  {
+                        path: '/api/admin/balances', accessLevels: ['AA']
                   },
                   {
                         path: '/admin/dashboard-old',

@@ -40,6 +40,19 @@ const userSchema = new Schema<IUser>({
             type: String,
             default: "0",
       },
+      balanceHistory: {
+            type: [new Schema({
+                  amount: { type: Number, required: true },
+                  balanceAfter: { type: Number, required: true },
+                  reason: { type: String, enum: ['Order', 'Referral', 'Refund', 'Adjustment', 'Underpayment'], required: true },
+                  counterparty: { type: String, required: true },
+                  orderId: String,
+                  createdAt: { type: Date, default: Date.now },
+            })],
+            default: [],
+            select: false,
+      },
+      balanceHistoryMigrated: { type: Boolean, default: false, select: false },
       token: {
             type: String
       },

@@ -73,6 +73,7 @@ const TransactionSchema = new Schema<ITransaction>(
             webhookData: {
                   type: Object
             },
+            webhookToken: { type: String, select: false },
             status: {
                   type: String,
                   enum: ["completed", "pending", "cancelled"],

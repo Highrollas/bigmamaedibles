@@ -50,7 +50,10 @@ export const getAdminDashboardStats = async (req: NextRequest) => {
 
             // Build query
             const query: Record<string, unknown> = {
-                  status: { $in: ["completed", "processing", "on-hold"] }
+                  $or: [
+                        { status: { $in: ['completed', 'processing', 'on-hold'] } },
+                        { status: 'cancelled', cancelReason: 'out-of-stock-during-payment', paymentReceivedAt: { $ne: null } },
+                  ]
             };
 
             if (admin.accessLevel != "AA") {
@@ -83,6 +86,7 @@ export const getAdminDashboardStats = async (req: NextRequest) => {
             let productPackagingCost = 0;
 
             for (const order of ordersInRange) {
+                  if (order.cancelReason === 'out-of-stock-during-payment') continue;
                   let productCount = 0;
 
                   for (const item of order.cartItems) {
@@ -116,6 +120,7 @@ export const getAdminDashboardStats = async (req: NextRequest) => {
             // ✅ Count users who ordered more than once (all time)
             const emailOrderCount = new Map<string, number>();
             for (const order of ordersInRange) {
+                  if (order.cancelReason === 'out-of-stock-during-payment') continue;
                   const email = order.billingObj?.email;
                   if (!email) continue;
                   emailOrderCount.set(email, (emailOrderCount.get(email) || 0) + 1);
@@ -172,12 +177,13 @@ const getAllProductIds = (orders: OrderObj[]): string[] => {
 };
 
 // 🧮 Pure function: compute totals
-const calcTotals = (
+export const calcTotals = (
       orders: OrderObj[],
       productMap: Map<string, ProductObj>
 ) => {
       let totalOrders = 0;
       let totalRevenue = 0;
+      let cancelledPaidRevenue = 0;
       let costOfProducts = 0;
       let postOfficeFromRevenue = 0;
       let postOfficeFromProfit = 0;
@@ -185,6 +191,11 @@ const calcTotals = (
 
       for (const order of orders) {
             const amountTotal = parseFloat(order.amountTotal || "0");
+            if (order.status === 'cancelled' && order.cancelReason === 'out-of-stock-during-payment') {
+                  totalRevenue += amountTotal;
+                  cancelledPaidRevenue += amountTotal;
+                  continue;
+            }
             const productSubtotal = parseFloat(order.amountSubTotal || order.amountTotal || "0");
             // const useBalance = parseFloat(order.useBalance || "0");
             let totalCost = 0;
@@ -227,7 +238,7 @@ const calcTotals = (
             if (order.billingObj?.email) uniqueEmails.add(order.billingObj.email);
       }
 
-      const netProfit = totalRevenue - costOfProducts;
+      const netProfit = totalRevenue - cancelledPaidRevenue - costOfProducts;
       const postOfficeTotal = postOfficeFromRevenue + postOfficeFromProfit;
 
       return {

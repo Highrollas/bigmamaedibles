@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { sendFirstErrorMessage } from "@/app/Helper";
-import { convertGBPtoEUR, fetchProductObj, getAuthFromToken, getUserFromSession, reduceOrderItemsStock } from "@/app/Helper/server";
-import { APP_URL, CURRENCY_SYMBOL, DELIVERY_METHODS, FREE_DELIVERY_MIN_AMOUNT, GATEWAY_ENDPOINT, PAYMENT_METHODS, TEMPLATE_MAP } from "@/constants";
+import { convertGBPtoEUR, fetchProductObj, getAuthFromToken, getUserFromSession, payOrderCommission } from "@/app/Helper/server";
+import { APP_URL, CURRENCY_SYMBOL, DELIVERY_METHODS, FREE_DELIVERY_MIN_AMOUNT, GATEWAY_ENDPOINT, PAYMENT_METHODS } from "@/constants";
 import { VoucherObj, ITransaction, selectField, OrderObj } from "@/Interface";
 import Order from '@/models/Order'
 import Voucher from "@/models/Voucher";
 import Transaction from "@/models/Transaction";
-import User from "@/models/User";
 import { CheckoutSchema } from "@/schema";
 import mongoose, { ClientSession } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import Counter from "@/models/Counter";
-import { sendEmail } from "@/libs/emailService";
+import { changeBalance } from '@/libs/balance';
+import { checkAndDeductStock, notifyPaymentOutcome } from '@/libs/paymentSettlement';
+import { randomBytes } from 'crypto';
 
 async function runWithRetry<T>(fn: (session: ClientSession) => Promise<T>, retries = 6): Promise<T> {
       for (let attempt = 1; attempt <= retries; attempt++) {
@@ -67,7 +68,8 @@ async function createOnrampPaymentLink({
             throw new Error("Onramp Pay Merchant Address Is Not Configured");
       }
 
-      const callbackUrl = `${APP_URL || origin}/api/onramp-pay/webhook/${orderId}`;
+      const webhookToken = randomBytes(32).toString('hex');
+      const callbackUrl = `${APP_URL || origin}/api/onramp-pay/webhook/${orderId}/${webhookToken}`;
       const walletResp = await axios.get("https://api.onramp-pay.com/control/wallet.php", {
             params: {
                   address: merchantAddress,
@@ -82,6 +84,7 @@ async function createOnrampPaymentLink({
 
       return {
             walletObj,
+            webhookToken,
             paymentLink: `https://checkout.onramp-pay.com/pay.php?address=${walletObj.address_in}&amount=${amount.toFixed(2)}&email=${email}&currency=GBP`,
       };
 }
@@ -163,8 +166,8 @@ export const processOrder = async (req: NextRequest) => {
                               for (const [productId, { count, value }] of productCounts) {
                                     const _product = await fetchProductObj({ _id: productId }, session);
                                     if (!_product) throw new Error(value + " Could Not Be Found");
-                                    if (_product.stockQty < count) {
-                                          throw new Error(`${value} - Only ${_product.stockQty} In Stock, Your Requested ${count}`);
+                                    if (_product.stockQty < count * item.cartQty) {
+                                          throw new Error(`${value} - Only ${_product.stockQty} In Stock, Your Requested ${count * item.cartQty}`);
                                     }
                               }
                         } else if (productObj.productType === "CheekyDeals") {
@@ -202,6 +205,7 @@ export const processOrder = async (req: NextRequest) => {
                         // replace client-sent productObj with fresh server snapshot and log stock at order time
                         normalizedCartItems.push({
                               ...item,
+                              productType: productObj.productType,
                               productObj: {
                                     ...productObj,
                               }
@@ -356,10 +360,9 @@ export const processOrder = async (req: NextRequest) => {
                   const useBalance = parseFloat(checkoutObj.useBalance);
                   if (useBalance > 0) {
                         const user = await getUserFromSession();
+                        if (!user) throw new Error('Please Log In To Use Your Balance');
                         if (user) {
                               if (parseFloat(user.balance) >= useBalance) {
-                                    const newBalance = parseFloat(user.balance) - useBalance;
-                                    await User.updateOne({ _id: user._id }, { balance: newBalance }, { session });
                                     total -= useBalance;
                               } else {
                                     throw new Error("You Cheeky Cow 🤨 The Amount You Entered Is Higher Than Your Available Balance");
@@ -383,6 +386,10 @@ export const processOrder = async (req: NextRequest) => {
                   ).session(session);
 
                   const orderId = "HR-" + counter.seq;
+
+                  if (useBalance > 0 && authUser.auth === 'user') {
+                        await changeBalance({ userId: authUser._id, amount: -useBalance, reason: 'Order', counterparty: orderId, orderId, eventKey: `checkout:${orderId}`, session });
+                  }
 
                   const _order = {
                         orderId,
@@ -438,6 +445,7 @@ export const processOrder = async (req: NextRequest) => {
                                                 status: "pending",
                                                 paymentLink: onrampPayment.paymentLink,
                                                 provider: "hosted",
+                                                webhookToken: onrampPayment.webhookToken,
                                                 address: onrampPayment.walletObj.polygon_address_in || onrampPayment.walletObj.address_in,
                                                 addressIn: onrampPayment.walletObj.address_in,
                                                 coin: "USDC",
@@ -503,22 +511,18 @@ export const processOrder = async (req: NextRequest) => {
                         }
                   } else {
                         const _order: OrderObj = orderCreated[0].toObject();
-                        await reduceOrderItemsStock(_order);
-                        const emailConfig = TEMPLATE_MAP["on-hold"];
-                        if (emailConfig) {
-                              await sendEmail({
-                                    to: _order.billingObj.email,
-                                    from: "order",
-                                    subject: emailConfig.subject,
-                                    template: emailConfig.template,
-                                    data: { checkoutObj: _order },
-                              });
-                        }
+                        if (!await checkAndDeductStock(_order, session)) throw new Error('One Or More Items Are Out Of Stock');
+                        await payOrderCommission(_order, session);
                   }
 
                   return NextResponse.json(res);
             });
 
+            const responseData = await response.clone().json();
+            if (responseData.paymentStatus === 'completed') {
+                  const completedOrder = await Order.findOne({ orderId: responseData.orderId }).lean<OrderObj>();
+                  if (completedOrder) await notifyPaymentOutcome(completedOrder);
+            }
             return response;
 
       } catch (error: any) {

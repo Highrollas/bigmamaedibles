@@ -24,6 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       const adminRoutes = [
             { path: '/admin/dashboard', accessLevels: ['AA', 'A', 'B'] },
+            { path: '/admin/balances', accessLevels: ['AA'] },
             { path: '/admin/dashboard-old', accessLevels: ['AA', 'A', 'B'] },
             { path: '/admin/dashboard2', accessLevels: ['AA', 'A', 'B'] },
             { path: '/admin/products', accessLevels: ['AA', 'A', 'B'] },

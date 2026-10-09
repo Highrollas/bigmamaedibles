@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import OnHoldOrderCount from '../../client/admin/OnHoldOrderCount'
 import useAdminSessionStore from '@/app/hooks/auth/admin'
-import { LogOut } from 'lucide-react'
+import { LogOut, Wallet } from 'lucide-react'
 import useAlertStore from '@/app/hooks/store/alert'
 import APIClient from '@/app/services/apiClient'
 import { ReqResp } from '@/Interface'
@@ -24,6 +24,9 @@ const AdminSidebar = () => {
                         </svg>
                   ),
                   accessLevels: ['AA', 'A', 'B']
+            },
+            {
+                  label: 'Balances', href: '/admin/balances', icon: <Wallet size={24} />, accessLevels: ['AA']
             },
             {
                   label: 'Products',
