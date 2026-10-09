@@ -28,13 +28,13 @@ export async function GET(request: NextRequest) {
             if (dates.dateStart && dates.dateEnd && dates.dateStart > dates.dateEnd) return NextResponse.json({ status: 'failed', message: 'Start Date Must Precede End Date' }, { status: 400 });
             const dateFilter = { ...(dates.dateStart ? { $gte: dates.dateStart } : {}), ...(dates.dateEnd ? { $lt: new Date(dates.dateEnd.getTime() + 86400000) } : {}) };
             const periodFilter = Object.keys(dateFilter).length ? { createdAt: dateFilter } : {};
-            const filter = { ...periodFilter, ...(reason ? { reason } : {}), ...(direction ? { amount: direction === 'credit' ? { $gt: 0 } : { $lt: 0 } } : {}) };
+            const filter = { ...periodFilter, ...(reason ? { reason: reason === 'Refund' ? { $in: ['Refund', 'Underpayment'] } : reason } : {}), ...(direction ? { amount: direction === 'credit' ? { $gt: 0 } : { $lt: 0 } } : {}) };
 
             await migrateBalanceHistory();
             const summary = await BalanceTransaction.aggregate([
                   { $match: periodFilter },
                   { $group: {
-                        _id: '$reason',
+                        _id: { $cond: [{ $eq: ['$reason', 'Underpayment'] }, 'Refund', '$reason'] },
                         credits: { $sum: { $cond: [{ $gt: ['$amount', 0] }, '$amount', 0] } },
                         debits: { $sum: { $cond: [{ $lt: ['$amount', 0] }, { $multiply: ['$amount', -1] }, 0] } },
                         net: { $sum: '$amount' }, count: { $sum: 1 },
