@@ -98,7 +98,7 @@ export default function BalancePage() {
                   <div className="mt-7 flex overflow-hidden rounded-lg border-[3.5px] border-[#e21893] sm:min-h-[100px]">
                         <div className="flex w-[18%] shrink-0 items-center justify-center bg-[#e21893] p-2">
                               <Image
-                                    src="/assets/images/avaters/nightmare.png"
+                                    src={`/assets/images/avaters/${user?.avatar}.png`}
                                     alt=""
                                     width={100}
                                     height={100}
@@ -180,7 +180,7 @@ export default function BalancePage() {
                                     </button>
                               </div>
                         ) : history.length === 0 ? (
-                              <p className="py-10 text-center text-sm text-[#e21893]">
+                              <p className={`py-10 text-center text-sm text-[${received ? "#08c943" : "#f11621"}]`}>
                                     No {received ? "Received" : "Spent"} Balance History Yet
                               </p>
                         ) : (

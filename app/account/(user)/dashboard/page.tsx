@@ -39,7 +39,7 @@ const DashboardPage = () => {
                   </div>
 
                   <div className='mt-4'>
-                        <Image className='w-full' src="/assets/images/dashboard-hero.png" alt='dashboard image' width={300} height={200} />
+                        <Image className='w-full' src="/assets/images/dashboard.png" alt='dashboard image' width={300} height={200} />
                   </div>
 
                   <div className="text-[70%] font-bold! text-center leading-[18px]! mt-2">
