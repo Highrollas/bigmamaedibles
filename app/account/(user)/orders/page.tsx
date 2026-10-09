@@ -49,7 +49,7 @@ const UserOrdersPage = () => {
 
                   <div className='flex flex-col justify-center items-center mt-5'>
                         <FallbackImage src={getProfileAvatarImageUrl(user?.avatar)} alt="user icon" width="100" height="100" />
-                        <span className='font-bold mt-2'>@{user?.username}</span>
+                        <span className='font-bold! mt-2'>@{user?.username}</span>
                   </div>
 
                   <div className='mt-5'>

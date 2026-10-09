@@ -197,7 +197,7 @@ export default function BalancePage() {
                                                 onClick={() =>
                                                       setExpanded(expanded === entry._id ? null : entry._id)
                                                 }
-                                                className="grid min-h-14 w-full grid-cols-[1fr_1.15fr_1.15fr_1fr_20px] items-center gap-1 bg-white! px-2! py-3! text-center text-[11px] font-bold! [zoom:1]! sm:px-4! sm:text-sm"
+                                                className="grid min-h-14 w-full grid-cols-[1fr_1.15fr_1.15fr_1fr_20px] items-center gap-1 bg-white! px-2! py-3! text-center text-[12px]  [zoom:1]! sm:px-4! sm:text-sm"
                                                 style={{ color: colour }}
                                           >
                                                 <span
@@ -228,7 +228,7 @@ export default function BalancePage() {
                                           {expanded === entry._id && (
                                                 <div
                                                       id={`balance-entry-${entry._id}`}
-                                                      className="border-t px-4 py-4 text-sm text-black"
+                                                      className="border-t px-4 py-4 text-sm text-black font-bold!"
                                                       style={{ borderColor: colour }}
                                                 >
                                                       <dl className="grid grid-cols-2 gap-2">

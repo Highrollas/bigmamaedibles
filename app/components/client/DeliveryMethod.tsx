@@ -177,9 +177,9 @@ const DeliveryMethod = () => {
                   {(checkoutObj.useBalance && parseFloat(checkoutObj.useBalance) >= 1) ?
                         <tr >
                               <td className='text-center'>
-                                    Use Balance
+                                    Balance
                               </td>
-                              <td>
+                              <td colSpan={4}>
                                     <div className='flex items-center justify-between'>
                                           <div>-{CURRENCY_SYMBOL}{checkoutObj.useBalance}</div>
                                           <div onClick={() => setCheckoutObj(d => { d.useBalance = "0" })} className='bg-[#e21893] h-5 w-5 flex items-center justify-center rounded-[100%]'>

@@ -293,7 +293,7 @@ const AdminDashboardPage = () => {
                         <StatCard
                               title="Post Office Total"
                               value={formatCurrency(stats?.postOfficeTotal)}
-                              desc="All parcels at GBP 5.70 each"
+                              desc="All parcels at GBP 6.05 each"
                               valueClass="text-info"
                         />
 
