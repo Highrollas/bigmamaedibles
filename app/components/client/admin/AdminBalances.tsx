@@ -71,13 +71,13 @@ export default function AdminBalances() {
             {error && <div role="alert" className="mb-5 rounded bg-white p-4"><p className="text-red-600">{error}</p><button type="button" onClick={reload} className="btn mt-3">Retry</button></div>}
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
                   {cards.map(card => <div key={card.label} className="min-h-[104px] rounded-lg border border-neutral-200 bg-white px-7 py-5">
-                        <div className="text-sm font-bold">{card.label}</div>
-                        <div className="mt-1 text-2xl font-bold">{loading ? '...' : money.format(card.value)}</div>
+                        <div className="text-sm font-bold!">{card.label}</div>
+                        <div className="mt-1 text-2xl font-bold!">{loading ? '...' : money.format(card.value)}</div>
                   </div>)}
             </div>
             <div className="mt-10 overflow-x-auto rounded-[5px] bg-white">
                   <table className="w-full whitespace-nowrap text-left text-sm">
-                        <thead className="border-b border-neutral-100 text-neutral-500"><tr>{['Date', 'User', 'Type', 'Order', 'Previous', 'Change', 'New Balance'].map(label => <th key={label} className="px-5 py-4 font-bold">{label}</th>)}</tr></thead>
+                        <thead className="border-b border-neutral-100 text-neutral-500"><tr>{['Date', 'User', 'Type', 'Order', 'Previous', 'Change', 'New Balance'].map(label => <th key={label} className="px-5 py-4 font-bold!">{label}</th>)}</tr></thead>
                         <tbody>{!loading && data?.transactions.map(entry => <tr key={entry._id} className="border-b border-neutral-100 last:border-0">
                               <td className="px-5 py-4">{new Date(entry.createdAt).toLocaleString('en-GB', { timeZone: 'Europe/London' })}</td>
                               <td className="px-5 py-4">{entry.email}</td>
